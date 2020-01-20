@@ -1,0 +1,28 @@
+/*the container must be positioned relative:*/
+.custom-select-container {
+    position: relative;
+    font-family: Arial;
+  }
+
+.custom-select{
+  background-color: DodgerBlue;
+  width: 100px;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+
+      /* for Firefox */
+      -moz-appearance: none;
+      /* for Chrome */
+      -webkit-appearance: none;
+}
+
+.custom-select::-ms-expand {
+  display: none;
+
+}
+  
+.custom-select-option{
+  background-color: rgb(160, 178, 184);
+}

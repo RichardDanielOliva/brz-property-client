@@ -1,0 +1,76 @@
+{
+  "nav": {
+    "sectionItem": [
+      {
+        "name": "Language",
+        "logo": "language"
+      },
+      {
+        "name": "Enterprise",
+        "logo": "enterprise-profile"
+      },
+      {
+        "name": "User",
+        "logo": "user-profile"
+      }
+    ],
+    "defaultProfile": {
+      "itemName": "Me"
+    }
+  },
+  "homePage":{
+    "mainSearch":{
+      "options": [
+        {"name":"Buy"},
+        {"name":"Rent"},
+        {"name":"Share"}
+      ]
+    },
+    "propertyOptions": [
+        "Home",
+        "Premises",
+        "Garages",
+        "Offices",
+        "Lands",
+        "Buildings"
+      ],
+    "services":[
+      {
+        "title":"Why don´t try our geograpichal app",
+        "description":"Con Avis Select Series, te garantizamos que tendrás exactamente la marca y el modelo de coche que quieres. La mejor forma de empezar tu viaje.",
+        "buttonText":"Find by map",
+        "image":"find-map"
+      },
+      {
+        "title":"Do you need professional help?, We have it",
+        "description":"Con Avis Select Series, te garantizamos que tendrás exactamente la marca y el modelo de coche que quieres. La mejor forma de empezar tu viaje.",
+        "buttonText":"Find professional help",
+        "image":"find-help"
+      },
+      {
+        "title":"Do you want to published",
+        "description":"Con Avis Select Series, te garantizamos que tendrás exactamente la marca y el modelo de coche que quieres. La mejor forma de empezar tu viaje.",
+        "buttonText":"Be advertised!",
+        "image":"publish"
+      },
+      {
+        "title":"Are you looking to buy a property?",
+        "description":"Con Avis Select Series, te garantizamos que tendrás exactamente la marca y el modelo de coche que quieres. La mejor forma de empezar tu viaje.",
+        "buttonText":"Find a property to buy",
+        "image":"buy-property"
+      },
+      {
+        "title":"Do you like to rent a property",
+        "description":"Con Avis Select Series, te garantizamos que tendrás exactamente la marca y el modelo de coche que quieres. La mejor forma de empezar tu viaje.",
+        "buttonText":"Find a property to rent",
+        "image":"rent-property"
+      },
+      {
+        "title":"Why no share?",
+        "description":"Con Avis Select Series, te garantizamos que tendrás exactamente la marca y el modelo de coche que quieres. La mejor forma de empezar tu viaje.",
+        "buttonText":"Find a property to share",
+        "image":"share-property"
+      }
+    ]
+  }
+}
