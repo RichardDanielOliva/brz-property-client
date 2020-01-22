@@ -12,6 +12,7 @@ import {
     ServiceCardContainer,
     BackgroundImage,
     BodyContainer,
+    TextContainer,
     Title,
     Description,
     Button,
@@ -42,9 +43,14 @@ const ServiceCard= ({title, description, buttonText, image}) => {
         <ServiceCardContainer>
            <BackgroundImage src={getImage(image)} alt="item"/>
            <BodyContainer>
-                <Title>{title}</Title>
-                <Description>{description}</Description>
-                <Button>{buttonText}<Icon className="fas fa-angle-double-right"></Icon></Button>
+               <TextContainer>
+                    <Title>{title}</Title>
+                    <Description>{description}</Description>
+               </TextContainer>
+                <Button>
+                    {buttonText}
+                    <Icon className="fas fa-angle-double-right fa-lg"/>
+                </Button>
            </BodyContainer>
         </ServiceCardContainer>
      )

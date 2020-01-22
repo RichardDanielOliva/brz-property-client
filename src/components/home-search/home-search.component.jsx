@@ -11,7 +11,9 @@ import {
     OptionsContainer,
     SearchContainer,
     CustomSearchInputContainer,
-    ButtonsContainer
+    ButtonsContainer,
+    Icon,
+    IconLeft
   } from './home-search.styles';
 
 import {handleOptionSelected} from '../../redux/main-search/main-search.actions'
@@ -27,10 +29,11 @@ const HomeSearch = ({optionSelected, handleOptionSelected}) => {
     return (
         <HomeSearchContainer>
             <OptionsContainer>
-                {options.map(({name}) => {
+                {options.map(({name, iconClass}) => {
                     return (<CustomButton 
                                 isSelected={isSelected(optionSelected,name)}
                                 onClick={()=> handleOptionSelected(name)}>
+                                    <Icon className={iconClass}/>
                                     {name}
                             </CustomButton>)
                 })}
@@ -45,9 +48,13 @@ const HomeSearch = ({optionSelected, handleOptionSelected}) => {
                 </CustomSearchInputContainer>
             </SearchContainer>
             <ButtonsContainer>
-                <CustomButton>Search
+                <CustomButton>
+                    Search
+                    <IconLeft className="fas fa-search fa-lg"/>
                 </CustomButton>
-                <CustomButton>Search by map
+                <CustomButton>
+                    Search by map
+                    <IconLeft className="fas fa-map-marked-alt fa-lg"/>
                 </CustomButton>
             </ButtonsContainer>
         </HomeSearchContainer>

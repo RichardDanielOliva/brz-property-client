@@ -21,9 +21,9 @@
   "homePage":{
     "mainSearch":{
       "options": [
-        {"name":"Buy"},
-        {"name":"Rent"},
-        {"name":"Share"}
+        {"name":"Buy", "iconClass":"fas fa-store-alt fa-lg"},
+        {"name":"Rent", "iconClass":"fas fa-door-open fa-lg"},
+        {"name":"Share", "iconClass":"fab fa-slideshare fa-lg"}
       ]
     },
     "propertyOptions": [
@@ -72,5 +72,106 @@
         "image":"share-property"
       }
     ]
+  },
+  "propertySearchResult":{
+    "filter": {
+      "commons": [{
+        "name":"main",
+        "optionType":"basic-group",
+        "style":"property-filter",
+        "data": [{
+            "name": "operation",
+            "selectedOption":"buy",
+            "options": ["buy", "rent", "share"]
+        },
+        {
+            "name": "property-type",
+            "selectedOption":"home",
+            "options": ["home", "apartment", "office"]
+        }]
+      }],
+      "home": [{
+        "name":"price",
+        "title": "Price",
+        "optionType":"basic-group",
+        "style":"property-filter",
+        "data": [{
+            "name": "min-prices",
+            "selectedOption":"precio desde",
+            "options": ["desde 25", "desde 50", "desde 75"]
+            },
+            {
+            "name": "max-price",
+            "selectedOption":"precio hasta",
+            "options": ["hasta 50", "hasta 75", "hasta 100"]
+            }]
+        },
+        {
+          "name":"features",
+          "title": "Features",
+          "optionType":"basic-group",
+          "style":"property-filter",
+          "data": [{
+              "defaultValue": "rooms",
+              "name": "rooms",
+              "actualValue":"precio desde",
+              "options": ["1 or more", "2 or more", "3 or more", "4 or more"]
+          },
+          {
+              "defaultValue":"bathrooms",
+              "name": "baths",
+              "selectedOption":"precio hasta",
+              "options": ["hasta 50", "hasta 75", "hasta 100"]
+          }]
+          },
+          {
+              "name":"Surface",
+              "title": "Surface",
+              "optionType":"basic-group",
+              "style":"property-filter",
+              "data": [{
+                  "defaultValue": "floor area from",
+                  "name": "surface-area-from",
+                  "actualValue":"precio desde",
+                  "options": ["from 60 m2", "2 or more", "3 or more", "4 or more"]
+              },
+              {
+                  "defaultValue":"floor area to",
+                  "name": "surface-area-to",
+                  "selectedOption":"precio hasta",
+                  "options": ["hasta 50", "hasta 75", "hasta 100"]
+              }]
+          },
+          {
+              "name":"extras",
+              "title": "Extras",
+              "optionType":"checkbox-group",
+              "style":"property-checkbox",
+              "data": [
+                {"title":"Parking", "value":"parking"}, 
+                {"title":"Lift", "value":"lift"},
+                {"title":"Furnished", "value":"furnished"},
+                {"title":"Heating", "value":"heating"},
+                {"title":"Garden", "value":"garden"},
+                {"title":"Swimming Pool", "value":"swimmingPool"},
+                {"title":"Terrace", "value":"terrace"},
+                {"title":"Box room", "value":"boxRoom"}
+              ]
+          },
+          {
+              "name":"status",
+              "title": "Status",
+              "optionType":"checkbox-group",
+              "style":"property-checkbox",
+              "data": [
+                {"title":"New home", "value":"newHome"}, 
+                {"title":"Almost new", "value":"almostNew"},
+                {"title":"Very good", "value":"veryGood"},
+                {"title":"For renovation", "value":"forRenovation"},
+                {"title":"Reburbished", "value":"reburbished"}
+              ]
+          }
+      ]
+    }
   }
 }

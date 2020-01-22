@@ -17,6 +17,7 @@ export const ServiceCardContainer = styled.div`
 
 export const BackgroundImage = styled.img`
   height: 100%;
+  opacity: 0.75;
 `;
 
 export const BodyContainer = styled.div`
@@ -27,7 +28,9 @@ export const BodyContainer = styled.div`
   color: rgba(250,250,250,1);
   bottom: 0;
   width: 80%;
+`;
 
+export const TextContainer = styled.div`
   padding: 0% 5%;
 `;
 
@@ -45,7 +48,7 @@ export const Button = styled.button`
   color: rgba(250,250,250,1);
 
   border: none;
-  border-radius: 30px;
+  border-top: 1px solid #fff;
   overflow: hidden;
 
   cursor: pointer;
@@ -53,8 +56,11 @@ export const Button = styled.button`
   vertical-align: middle;
 
   width: 100%;
-  height: 40px;
+  height: 50px;
   line-height: 30px;
+
+  font-size: 1rem;
+  font-weight: bolder;
 `;
 
 export const Icon = styled.i`

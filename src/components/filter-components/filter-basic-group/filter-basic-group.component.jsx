@@ -5,9 +5,9 @@ import { useTranslation } from 'react-i18next';
 
 import CustomSelect from '../../commons/custom-select/custom-select.component';
 
-import './filter-group.styles.scss';
+import './filter-basic-group.styles.scss';
 
-const FilterGroup = ({title, data}) => {
+const FilterBasicGroup = ({title, data}) => {
     return (
         <div className="filter-group-container">
             <div className="filter-group-title-container">
@@ -22,4 +22,4 @@ const FilterGroup = ({title, data}) => {
     )
 }
 
-export default FilterGroup;
+export default FilterBasicGroup;

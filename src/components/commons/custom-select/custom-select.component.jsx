@@ -13,14 +13,17 @@ const CustomSelect = ({name, selectedOption, options}) => {
                         if(true)
                             //return (<option className={`custom-select-${name}-${title}-option`} selected>
                             return (<option className={`custom-select-option`} selected>
-                                {title} <i class="fa fa-bars"></i>
-                            </option>)
+                                {title} 
+                                
+                            </option> )
                         else
                             return (<option className={`custom-select-${name}-li`}>
                                 {title}
                             </option>)
                     })}
+                
             </select>
+            <i className="fas fa-angle-down fa-class"/>
         </div>
     )
 }

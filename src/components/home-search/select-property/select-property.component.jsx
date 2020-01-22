@@ -10,7 +10,8 @@ import {
     PropertySelectTitle,
     PropertySelectDropDownMenu,
     PropertyOptions,
-    PropertyOption
+    PropertyOption,
+    Icon
   } from './select-property.styles';
 
 import {handlePropertySelected, displayPropertiesOptions} from '../../../redux/main-search/main-search.actions'
@@ -24,12 +25,11 @@ const SelectProperty = ({propertySelected, showPropertiesOptions, displayPropert
         <SelectPropertyContainer>
             <PropertySelect
                 onClick={()=>displayPropertiesOptions()}>
-                <PropertySelectTitle>
                     {propertySelected}
-                </PropertySelectTitle>
-                <PropertySelectDropDownMenu>
+                    <Icon className="fas fa-angle-down fa-lg"/>
+                {/**<PropertySelectDropDownMenu>
                     {getLogoComponent(dropLogo)}
-                </PropertySelectDropDownMenu>
+                </PropertySelectDropDownMenu>*/}
             </PropertySelect>
             <PropertyOptions isSelected={showPropertiesOptions}>
             {propertyOptions.map((name) => {

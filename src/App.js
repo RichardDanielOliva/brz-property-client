@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 
 // Pages
 import HomePage from './pages/home/home-page.component';
-import PropertySearchPage from './pages/property-search/property-search.component';
+import PropertySearchPage from './pages/property-search/property-search-page.component';
 //import ActivityPage from './pages/activity/activityPage.component';
 
 // Components

@@ -3,16 +3,18 @@ import {Link, withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
-import './form-select.styles.scss';
+import './custom-checkbox.styles.css';
 
-const CustomCheckbox = ({name, selectedOption, options}) => {
+const CustomCheckbox = ({name, selectedOption, data}) => {
+    console.log(data)
     return (
         <div className="form-select-${name}-container">
             {
-            options.map((title) => {
+            data.map(({title, value}) => {
+                console.log(title)
                 return(
                     <label class="container">{title}
-                        <input type="checkbox" checked="checked"/>
+                        <input type="checkbox" value={value}/>
                         <span class="checkmark"></span>
                     </label>
                 )  })}

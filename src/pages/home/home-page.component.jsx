@@ -24,7 +24,9 @@ const HomePage = () => {
   return (
     <HomePageContainer>
       <MainSearchContainer>
-        <MainSearchTitleContainer>Encuentra dónde vas a vivir</MainSearchTitleContainer>
+        <MainSearchTitleContainer>
+          <i className="fas fa-map-marked-alt fa-lg"/>
+          Encuentra dónde vas a vivir</MainSearchTitleContainer>
         <SearchContainer>
           <HomeSearch/>
         </SearchContainer>

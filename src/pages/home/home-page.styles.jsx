@@ -30,7 +30,13 @@ export const MainSearchContainer = styled.div`
 
 export const MainSearchTitleContainer = styled.h1`
   z-index: 1;
-  background-image: radial-gradient(rgba(250,250,250,0.9), rgba(250,250,250,0.2), rgba(250,250,250,0.0));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+
+  background-image: radial-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.1), rgba(0,0,0,0.0));
 `;
 
 export const SearchContainer = styled.div`
@@ -42,6 +48,7 @@ export const SearchContainer = styled.div`
 
 export const BackgroundSearchImage = styled.img`
   width: 100vw;
+  z-index: 0.7;
   height: auto;
   left: 0;
   position: absolute;

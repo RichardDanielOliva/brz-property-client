@@ -16,6 +16,9 @@ export const NavContainer = styled.nav`
   top: 0;
   border-bottom: 7px solid ${bottomBorderColor};
 
+  z-index: 2;
+  background-color: rgba(255,255,255,1);
+
   @media screen and (min-width: 770px) {
     width: 100%;
     padding: 0 2.5%;

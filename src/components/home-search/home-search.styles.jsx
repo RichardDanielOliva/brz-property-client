@@ -35,3 +35,10 @@ export const ButtonsContainer = styled.div`
   align-items: center;
 `;
 
+export const Icon =  styled.i`
+  margin-right:7px;
+`;
+
+export const IconLeft =  styled.i`
+  margin-left:7px;
+`;

@@ -21,9 +21,9 @@
   "homePage":{
     "mainSearch":{
       "options": [
-        {"name":"Buy"},
-        {"name":"Rent"},
-        {"name":"Share"}
+        {"name":"Buy", "iconClass":"fas fa-angle-double-right fa-lg"},
+        {"name":"Rent", "iconClass":"fas fa-angle-double-right fa-lg"},
+        {"name":"Share", "iconClass":"fas fa-angle-double-right fa-lg"}
       ]
     },
     "propertyOptions": [

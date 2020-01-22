@@ -30,10 +30,20 @@ export const PropertySelectTitle = styled.div`
   display: flex;
 `;
 
-export const PropertySelect = styled.div`
-  width: 80%;
-  display: flex;
+export const PropertySelect = styled.button`
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+  font-size: 0.9rem;
+  font-weight: bolder;
+
   justify-content: space-around;
+  border: none;
+
+  background-color: rgba(250,250,250,0.0);
+
+  cursor: pointer;
 `;
 
 const SelectedStyle = css`
@@ -65,4 +75,13 @@ export const PropertyOptions = styled.div`
 `;
 
 export const PropertyOption = styled.div`
+  height: 25px;
+  cursor: pointer;
+  text-align: center;
+`;
+
+export const Icon = styled.i`
+  margin-left:7px;
+  width: 21px;
+  color:black;
 `;

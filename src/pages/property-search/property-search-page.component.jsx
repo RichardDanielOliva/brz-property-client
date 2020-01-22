@@ -4,15 +4,17 @@ import { useTranslation } from 'react-i18next';
 
 import FilterProperty from '../../components/filter-components/filter-property.component';
 
-import './property-search.styles.scss';
+import {
+    PropertySearchPageContainer,
+  } from './property-search-page.styles';
 
 const PropertySearchPage = ({title, groups, ...props}) => {
     return (
-        <div className="property-search-container">
+        <PropertySearchPageContainer>
             <aside className="property-search-filter-container">
                 <FilterProperty/>
             </aside>
-        </div>
+        </PropertySearchPageContainer>
     )
 }
 
