@@ -7,14 +7,14 @@ import CustomSelect from '../../commons/custom-select/custom-select.component';
 
 import './filter-basic-group.styles.scss';
 
-const FilterBasicGroup = ({title, data}) => {
+const FilterBasicGroup = ({title, dataGroup}) => {
     return (
         <div className="filter-group-container">
             <div className="filter-group-title-container">
                 {title}
             </div>
             <div className="filter-group-options-container">
-                {data.map(({...props}) => (
+                {dataGroup.map(({...props}) => (
                     <CustomSelect {...props}/>
                     ))}
             </div>

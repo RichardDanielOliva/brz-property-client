@@ -8,7 +8,6 @@ import CustomCheckbox from '../../commons/custom-checkbox/custom-checkbox.compon
 import './filter-checkbox-group.styles.scss';
 
 const FilterCheckboxGroup = ({title, data}) => {
-    console.log(data)
     return (
         <div className="filter-checkbox-container">
             <div className="filter-checkbox-title-container">

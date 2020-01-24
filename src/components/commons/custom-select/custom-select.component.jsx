@@ -5,16 +5,15 @@ import { useTranslation } from 'react-i18next';
 
 import './custom-select.styles.css';
 
-const CustomSelect = ({name, selectedOption, options}) => {
+const CustomSelect = ({name, selectedOption, data}) => {
     return (
         <div className={`custom-select-container`}>
             <select className={`custom-select`}>
-                {options.map((title) => {
+                {data.map(({title, value}) => {
                         if(true)
                             //return (<option className={`custom-select-${name}-${title}-option`} selected>
-                            return (<option className={`custom-select-option`} selected>
-                                {title} 
-                                
+                            return (<option className={`custom-select-option`} value={value} selected>
+                                {title}    
                             </option> )
                         else
                             return (<option className={`custom-select-${name}-li`}>

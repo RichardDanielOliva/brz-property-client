@@ -3,15 +3,26 @@ import {Link, withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
-import './property-search-result.styles.scss';
+import PSRSortedGroup from './psr-sorted-group/psr-sorted-group.component';
+
+import { PropertySearchResultContainer, PSR_HeaderContainer } from './property-search-result.styles';
 
 const PropertySearchResult = () => {
     return (
-        <div className="property-search-result-container">
-            <div className="property-search-result-header-container">
+        <PropertySearchResultContainer>
+            <PSR_HeaderContainer>
+                <PSRSortedGroup/>
+                <div className="property-search-result-header-view-container">
+                    <button>
+                        Map
+                        <i className="fas fa-angle-double-right fa-lg"></i>
+                    </button>
+                </div>
+            </PSR_HeaderContainer>
+            <div className="property-search-result-body-container">
 
             </div>
-        </div>
+        </PropertySearchResultContainer>
     )
 }
 
