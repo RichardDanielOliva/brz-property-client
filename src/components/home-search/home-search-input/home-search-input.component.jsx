@@ -16,7 +16,7 @@ const HomeSearchInput = ({ children, searchInputText, handleSearchInput }) => {
   const DefaultInputText = children;
 
   return (
-    <HomeSearchInputContainer>
+    <HomeSearchInputContainer id="Home-Search-Input">
       <SearchInput
         onChange={event => handleSearchInput(event.target.value)}
         className={searchInputText ? 'searching' : ''}

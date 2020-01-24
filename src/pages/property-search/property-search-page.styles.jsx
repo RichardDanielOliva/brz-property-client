@@ -2,22 +2,14 @@ import styled from 'styled-components';
 
 export const PropertySearchPageContainer = styled.div`
   display: flex;
-  width: 100%;
-  margin: auto;
-
-  @media (min-width: 770px) {
-    width: 100%;
-  }
-
-  @media (min-width: 1200px) {
-    width: 100%;
-    padding: 0 calc((100% - 1600px) / 2);
-  }
+  width: calc(100vw - 100px);
+  margin-left: 100px;
 `;
 
 export const PropertySearchFilterContainer = styled.aside`
   display: flex;
   width: 20%;
+  min-height: 100vh;
 `;
 
 export const PropertySearchResultContainer = styled.main`

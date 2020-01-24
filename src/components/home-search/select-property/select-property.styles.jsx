@@ -10,14 +10,14 @@ export const SelectPropertyContainer = styled.div`
   flex-direction: column;
 
   width: 120px;
-  height: 50px;
+  height: 100%;
   justify-content: space-around;
   align-items: center;
 
   border: none;
   border-radius: 2px;
 
-  background-color: rgba(250,250,250,0.8);
+  background-color: rgba(250,250,250,0.9);
 `;
 
 export const PropertySelectDropDownMenu = styled.div`
@@ -56,7 +56,7 @@ const SelectedStyle = css`
   border: none;
   border-radius: 5px;
 
-  background-color: rgba(250,250,250,0.8);
+  background-color: rgba(250,250,250,0.9);
 `;
 
 const noSelectedStyle = css`

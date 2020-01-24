@@ -10,23 +10,22 @@ export const HomeSearchContainer = styled.div`
   justify-content: space-around;
   align-content: space-around;
   align-items: center;
-
-  border-left: 25px solid ${BorderColor};
-  background-color: rgba(0,0,0,0.8);
 `;
 
 export const OptionsContainer = styled.div`
   display: flex;
+  justify-content: space-around;
 `;
 
 export const SearchContainer = styled.div`
   display: flex;
+  height: 55px;
 `;
 
 export const CustomSearchInputContainer = styled.div`
   display: flex;
   height: 100%;
-  width: 300px;
+  width: 500px;
 `;
 
 export const ButtonsContainer = styled.div`

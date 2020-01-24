@@ -2,16 +2,20 @@
   "nav": {
     "sectionItem": [
       {
-        "name": "Language",
-        "logo": "language"
+        "name": "Index",
+        "logo": "fas fa-home fa-2x"
       },
       {
-        "name": "Enterprise",
-        "logo": "enterprise-profile"
+        "name": "Services",
+        "logo": "fas fa-window-restore fa-2x"
       },
       {
         "name": "User",
-        "logo": "user-profile"
+        "logo": "fas fa-user-friends fa-2x"
+      },
+      {
+        "name": "Enterprise",
+        "logo": "fas fa-briefcase fa-2x"
       }
     ],
     "defaultProfile": {

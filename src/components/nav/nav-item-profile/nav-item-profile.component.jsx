@@ -8,25 +8,20 @@ import profileDefaultImg from '../../../assets/logos/nav/profile-default.jpg';
 import {NavItemProfileContainer, 
     NavProfileLogo,
     NavProfileText,
-    NavProfileDropdownLogo
+    Icon
 } from './nav-item-profile.style';
     
 import { handleDropDownProfile } from '../../../redux/nav/nav.actions';
 
-const NavItemProfile = ({name, logo, handleDropDownProfile}) => {
-    const dropLogo = "drop-down";
-    
+const NavItemProfile = ({name, logo, handleDropDownProfile}) => {    
     return (
         <NavItemProfileContainer onClick={() => handleDropDownProfile()}> 
             <NavProfileLogo>
-                {getLogoComponent(logo)}
+                <Icon className={logo}/>
             </NavProfileLogo>
             <NavProfileText>
                 {name}
             </NavProfileText>
-            <NavProfileDropdownLogo>
-                {getLogoComponent(dropLogo)}
-            </NavProfileDropdownLogo>
         </NavItemProfileContainer>
     )
 }

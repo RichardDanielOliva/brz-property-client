@@ -5,20 +5,28 @@ import { useTranslation } from 'react-i18next';
 
 import CustomSelect from '../../commons/custom-select/custom-select.component';
 
-import './filter-basic-group.styles.scss';
+import {
+    FilterGroupContainer,
+    FilterTitle,
+    FilterOptionsContainer,
+    FilterOptionContainer
+  } from './filter-basic-group.styles';
 
 const FilterBasicGroup = ({title, dataGroup}) => {
     return (
-        <div className="filter-group-container">
-            <div className="filter-group-title-container">
+        <FilterGroupContainer>
+            <FilterTitle>
                 {title}
-            </div>
-            <div className="filter-group-options-container">
-                {dataGroup.map(({...props}) => (
-                    <CustomSelect {...props}/>
-                    ))}
-            </div>
-        </div>
+            </FilterTitle>
+            <FilterOptionsContainer>
+                {dataGroup.map(({...props}) => {
+                    return(
+                        <FilterOptionContainer>
+                            <CustomSelect {...props}/>
+                        </FilterOptionContainer>
+                    )})}
+            </FilterOptionsContainer>
+        </FilterGroupContainer>
     )
 }
 

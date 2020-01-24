@@ -6,28 +6,17 @@ const bottomBorderColor = '#FFCC00';
 
 export const NavContainer = styled.nav`
   display: flex;
-  height: 59px;
-  width: 100%;
-  
+  height: 100vh;
+  width: 100px;
 
   justify-content: space-between;
   
-  position: sticky;
+  position: fixed;
   top: 0;
-  border-bottom: 7px solid ${bottomBorderColor};
+  left:0;
 
-  z-index: 2;
-  background-color: rgba(255,255,255,1);
-
-  @media screen and (min-width: 770px) {
-    width: 100%;
-    padding: 0 2.5%;
-  }
-
-  @media screen and (min-width: 1196px) {
-    width: 100%;
-    padding: 0 calc((100% - 1600px) / 2);
-  }
+  z-index: 3;
+  background-color: rgba(0,0,0,1);
 `;
 
 export const MainLogoContainer = styled(Link)`
@@ -44,12 +33,15 @@ export const NavFilterContainer = styled.div`
 `;
 
 export const NavItemsContainer = styled.div`
+  margin-top: 40px;
   display: flex;
-  justify-content: space-around;
-  width: 40%;
+  flex-direction: column;
+  width: 100%;
 `;
 
 export const NavItemContainer = styled.div`
   display: flex;
-  width: 32%;
+  flex-direction: column;
+  height:10vh;
+  width: 100%;
 `;

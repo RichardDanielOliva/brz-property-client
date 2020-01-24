@@ -6,7 +6,10 @@ import { useTranslation } from 'react-i18next';
 import FilterBasicGroup from './filter-basic-group/filter-basic-group.component';
 import FilterCheckboxGroup from './filter-checkbox-group/filter-checkbox-group.component';
 
-import './filter-property.styles.scss';
+import {
+    FilterPropertyContainer,
+    GroupContainer
+  } from './filter-property.styles';
 
 const getAppropriateGroup= ({optionType, ...props}) => {
     switch (optionType) {
@@ -36,20 +39,26 @@ const FilterProperty = () => {
     console.log(specificData)
 
     return (
-        <div className="filter-property-container">
-            <div className="filter-property-container">
+        <FilterPropertyContainer>
                 <div>
-                {commonsOptions.map(({...props}) => (
-                    <FilterBasicGroup {...props}/>
-                    ))}
+                {commonsOptions.map(({...props}) => {
+                    return(
+                        <GroupContainer>
+                            <FilterBasicGroup {...props}/>
+                        </GroupContainer>
+                    )
+                    })}
                 </div>
                 <div>
-                {specificData.map(({...args}) => (
-                    getAppropriateGroup(args)
-                ))}
+                {specificData.map(({...args}) => {
+                    return(
+                        <GroupContainer>
+                            {getAppropriateGroup(args)}
+                        </GroupContainer>
+                    )
+                })}
                 </div>
-            </div>
-        </div>
+        </FilterPropertyContainer>
     )
 }
 

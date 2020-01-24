@@ -25,16 +25,13 @@ const HomePage = () => {
     <HomePageContainer>
       <MainSearchContainer>
         <MainSearchTitleContainer>
-          <i className="fas fa-map-marked-alt fa-lg"/>
+          <i className="fas fa-map-marked-alt fa-3x"/>
           Encuentra dónde vas a vivir</MainSearchTitleContainer>
         <SearchContainer>
           <HomeSearch/>
         </SearchContainer>
         <BackgroundSearchImage src={backgroundSearchImageUrl} alt="item"/>
       </MainSearchContainer>
-      <ServicesContainer>
-        <ServiceCardList/>
-      </ServicesContainer>
     </HomePageContainer>
   );
 };

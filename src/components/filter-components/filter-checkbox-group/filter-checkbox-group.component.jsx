@@ -5,18 +5,22 @@ import { useTranslation } from 'react-i18next';
 
 import CustomCheckbox from '../../commons/custom-checkbox/custom-checkbox.component';
 
-import './filter-checkbox-group.styles.scss';
+import {
+    FilterCheckboxContainer,
+    FilterTitle,
+    FilterCheckbox
+  } from './filter-checkbox-group.styles';
 
 const FilterCheckboxGroup = ({title, data}) => {
     return (
-        <div className="filter-checkbox-container">
-            <div className="filter-checkbox-title-container">
+        <FilterCheckboxContainer>
+            <FilterTitle>
                 {title}
-            </div>
-            <div className="filter-checkbox-input-container">
+            </FilterTitle>
+            <FilterCheckbox>
                 <CustomCheckbox data={data}/>
-            </div>
-        </div>
+            </FilterCheckbox>
+        </FilterCheckboxContainer>
     )
 }
 

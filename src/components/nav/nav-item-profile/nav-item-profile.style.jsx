@@ -2,23 +2,21 @@ import styled from 'styled-components';
 
 const svgFillColor = 'rgb(0, 0, 0)';
 const hoverColor = '#FFCC00';
-const textColor = 'rgb(0, 0, 0)';
-const profileImgBorderColor = 'rgb(250, 250, 250)';
+const textColor = 'rgba(250,250,250,0.9)';
+const profileImgBorderColor = 'rgba(250,250,250,0.8)';
 
 export const NavItemProfileContainer = styled.div`
   height: 100%;
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+
   text-align: center;
+  justify-content: center;
   text-decoration-style: none;
   text-decoration: none;
 
-  justify-content: space-around;
   align-items: center;
-
-  fill: ${svgFillColor};
-  color: ${textColor};
 
   &:hover {
     fill: ${hoverColor};
@@ -28,18 +26,31 @@ export const NavItemProfileContainer = styled.div`
   }
 `;
 
-export const NavProfileText = styled.div`
-  padding: 0 2%;
-`;
+export const NavProfileText = styled.p`
+  color: white;
+  margin: 0;
+  color: ${textColor};
 
-export const NavProfileDropdownLogo = styled.div`
-  height: 20px;
-  width: 20px;
-`;
+  &:hover {
+    color: ${hoverColor};
+  }
+
+  `;
+
 
 export const NavProfileLogo = styled.div`
-  height: 32px;
-  width: 32px;
+  height: 50px;
+  width: 50px;
+`;
+
+export const Icon = styled.i`
+  height: 100%;
+  width: 100%;
+  color: ${textColor};
+  &:hover {
+    color: ${hoverColor};
+  }
+  bottom:0;
 `;
 
 
