@@ -1,10 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
+import {Link, withRouter} from 'react-router-dom';
 
 import CustomButton from '../commons/custom-button/custom-button.component';
 import CustomSearchInput from '../commons/search-input/search-input.component';
 import SelectProperty from './select-property/select-property.component';
+import PropertyOperation from '../commons/property-operations/property-operation.component'
+
 
 import {
     HomeSearchContainer,
@@ -16,27 +19,29 @@ import {
     IconLeft
   } from './home-search.styles';
 
-import {handleOptionSelected} from '../../redux/main-search/main-search.actions'
+import {handleInputAttributte} from '../../redux/filter/filter.actions';
 
 const isSelected = (optionSelected, option) => {
     return optionSelected === option;
 }
 
-const HomeSearch = ({optionSelected, handleOptionSelected}) => {
+const HomeSearch = ({optionSelected, handleInputAttributte}) => {
     const { t } = useTranslation();
     const options = t('homePage.mainSearch.options');
 
     return (
         <HomeSearchContainer>
             <OptionsContainer>
-                {options.map(({name, iconClass}) => {
+                {/**options.map(({name,reduxState, iconClass}) => {
+                    console.log(reduxState)
                     return (<CustomButton 
-                                isSelected={isSelected(optionSelected,name)}
-                                onClick={()=> handleOptionSelected(name)}>
+                                isSelected={isSelected(optionSelected, name)}
+                                onClick={()=> handleInputAttributte(name, reduxState)}>
                                     <Icon className={iconClass}/>
                                     {name}
                             </CustomButton>)
-                })}
+                })*/}
+                <PropertyOperation/>
             </OptionsContainer>
             <SearchContainer>
                 <SelectProperty/>
@@ -48,26 +53,30 @@ const HomeSearch = ({optionSelected, handleOptionSelected}) => {
                 </CustomSearchInputContainer>
             </SearchContainer>
             <ButtonsContainer>
-                <CustomButton>
-                    Search
-                    <IconLeft className="fas fa-search fa-lg"/>
-                </CustomButton>
-                <CustomButton>
-                    Search by map
-                    <IconLeft className="fas fa-map-marked-alt fa-lg"/>
-                </CustomButton>
+                <Link to="/search">
+                    <CustomButton>
+                        Search
+                        <IconLeft className="fas fa-search fa-lg"/>
+                    </CustomButton>
+                </Link>
+                <Link to="/search/map">
+                    <CustomButton>
+                        Search by map
+                        <IconLeft className="fas fa-map-marked-alt fa-lg"/>
+                    </CustomButton>
+                </Link>
             </ButtonsContainer>
         </HomeSearchContainer>
     )
 };
 
 const mapStateToProps = state => ({
-    optionSelected: state.mainSearch.optionSelected,
+    optionSelected: state.filter.propertyOperation,
 });
 
 const mapDispatchToProps = dispatch => ({
-    handleOptionSelected: (name) => 
-        dispatch(handleOptionSelected(name))}
+    handleInputAttributte: (value, name) => 
+        dispatch(handleInputAttributte(value, name))}
 );
   
 export default connect(mapStateToProps, mapDispatchToProps)(HomeSearch);

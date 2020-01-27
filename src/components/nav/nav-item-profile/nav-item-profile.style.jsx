@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
-const svgFillColor = 'rgb(0, 0, 0)';
 const hoverColor = '#FFCC00';
 const textColor = 'rgba(250,250,250,0.9)';
-const profileImgBorderColor = 'rgba(250,250,250,0.8)';
 
 export const NavItemProfileContainer = styled.div`
   height: 100%;
@@ -21,10 +19,15 @@ export const NavItemProfileContainer = styled.div`
   align-items: center;
 
   &:hover {
-    fill: ${hoverColor};
-    color: ${hoverColor};
     font-weight: bold;
     transform: scale(1.05, 1.05);
+
+    p{
+      color: ${hoverColor};
+    }
+    i {
+      color: ${hoverColor};
+    }
   }
 `;
 
@@ -32,11 +35,6 @@ export const NavProfileText = styled.p`
   color: white;
   margin: 0;
   color: ${textColor};
-
-  &:hover {
-    color: ${hoverColor};
-  }
-
   `;
 
 
@@ -51,9 +49,6 @@ export const NavProfileLogo = styled.div`
 export const Icon = styled.i`
   font-size: 1.75em;
   color: ${textColor};
-  &:hover {
-    color: ${hoverColor};
-  }
 `;
 
 

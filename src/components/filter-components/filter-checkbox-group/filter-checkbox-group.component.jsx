@@ -11,14 +11,14 @@ import {
     FilterCheckbox
   } from './filter-checkbox-group.styles';
 
-const FilterCheckboxGroup = ({title, data}) => {
+const FilterCheckboxGroup = ({title, ...props}) => {
     return (
         <FilterCheckboxContainer>
             <FilterTitle>
                 {title}
             </FilterTitle>
             <FilterCheckbox>
-                <CustomCheckbox data={data}/>
+                <CustomCheckbox {...props}/>
             </FilterCheckbox>
         </FilterCheckboxContainer>
     )

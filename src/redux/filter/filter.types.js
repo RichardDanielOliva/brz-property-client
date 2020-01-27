@@ -1,0 +1,6 @@
+const FilterActionTypes = {
+  SET_SIMPLE_ATTRIBUTTE: "SET_SIMPLE_ATTRIBUTTE",
+  SET_COMPOUND_ATTRIBUTTE: "SET_COMPOUND_ATTRIBUTTE"
+};
+
+export default FilterActionTypes;

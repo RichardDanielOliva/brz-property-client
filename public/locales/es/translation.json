@@ -3,18 +3,22 @@
     "sectionItem": [
       {
         "name": "Index",
+        "url": "/",
         "logo": "fas fa-home fa-fw"
       },
       {
         "name": "Services",
+        "url": "/services",
         "logo": "fas fa-window-restore fa-fw"
       },
       {
         "name": "User",
+        "url": "/user",
         "logo": "fas fa-user-friends fa-2x"
       },
       {
         "name": "Enterprise",
+        "url": "/enterprise",
         "logo": "fas fa-briefcase fa-2x"
       }
     ],
@@ -25,9 +29,9 @@
   "homePage":{
     "mainSearch":{
       "options": [
-        {"name":"Buy", "iconClass":"fas fa-store-alt fa-lg"},
-        {"name":"Rent", "iconClass":"fas fa-door-open fa-lg"},
-        {"name":"Share", "iconClass":"fab fa-slideshare fa-lg"}
+        {"name":"Buy", "reduxState":"propertyOperation", "iconClass":"fas fa-store-alt fa-lg"},
+        {"name":"Rent", "reduxState":"propertyOperation", "iconClass":"fas fa-door-open fa-lg"},
+        {"name":"Share", "reduxState":"propertyOperation", "iconClass":"fab fa-slideshare fa-lg"}
       ]
     },
     "propertyOptions": [
@@ -87,6 +91,7 @@
         "dataGroup": [
         {
             "name": "property-type",
+            "reduxState":"propertyOperation",
             "selectedOption":"home",
             "data": [
               {"title":"Home", "value":"home"},
@@ -102,20 +107,23 @@
         "style":"property-filter",
         "dataGroup": [{
             "name": "min-prices",
-            "selectedOption":"precio desde",
+            "reduxState":"propertyMinPrice",
             "data": [
-              {"title":"desde 25", "value":"25"},
-              {"title":"desde 50", "value":"50"},
-              {"title":"desde 75", "value":"75"}
+              {"title":"Min", "value":null},
+              {"title":"25", "value":25},
+              {"title":"50", "value":50},
+              {"title":"75", "value":75}
               ]
             },
             {
             "name": "max-price",
+            "reduxState":"propertyMaxPrice",
             "selectedOption":"precio hasta",
             "data": [
-              {"title":"hasta 50", "value":"50"},
-              {"title":"hasta 75", "value":"75"},
-              {"title":"hasta 100", "value":"100"}
+              {"title":"Max", "value":null},
+              {"title":"50", "value":"50"},
+              {"title":"75", "value":"75"},
+              {"title":"100", "value":"100"}
             ]
             }]
         },
@@ -127,8 +135,10 @@
           "dataGroup": [{
               "defaultValue": "rooms",
               "name": "rooms",
+              "reduxState":"homeRooms",
               "actualValue":"precio desde",
               "data": [
+                {"title":"Rooms", "value":null},
                 {"title":"1 or more", "value":"1"},
                 {"title":"2 or more", "value":"2"},
                 {"title":"3 or more", "value":"3"},
@@ -138,8 +148,10 @@
           {
               "defaultValue":"bathrooms",
               "name": "baths",
+              "reduxState":"homeBathRooms",
               "selectedOption":"precio hasta",
               "data": [
+                {"title":"Bathrooms", "value":null},
                 {"title":"1 or more", "value":"1"},
                 {"title":"2 or more", "value":"2"},
                 {"title":"3 or more", "value":"3"}
@@ -153,23 +165,28 @@
               "style":"property-filter",
               "dataGroup": [{
                   "defaultValue": "floor area from",
+                  "reduxState":"homeAreaFrom",
                   "name": "surface-area-from",
                   "actualValue":"precio desde",
                   "data": [
-                    {"title":"from 60 m2", "value":"60"}
+                    {"title":"from", "value":null},
+                    {"title":"60 m2", "value":"60"}
                   ]
               },
               {
                   "defaultValue":"floor area to",
+                  "reduxState":"homeAreaTo",
                   "name": "surface-area-to",
                   "selectedOption":"precio hasta",
                   "data": [
-                    {"title":"to 60 m2", "value":"60"}
+                    {"title":"to", "value":null},
+                    {"title":"60 m2", "value":"60"}
                   ]
               }]
           },
           {
               "name":"extras",
+              "reduxState":"homeExtras",
               "title": "Extras",
               "optionType":"checkbox-group",
               "style":"property-checkbox",
@@ -186,6 +203,7 @@
           },
           {
               "name":"status",
+              "reduxState":"homeStatus",
               "title": "Status",
               "optionType":"checkbox-group",
               "style":"property-checkbox",

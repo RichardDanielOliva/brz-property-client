@@ -1,9 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { useTranslation } from 'react-i18next';
-
-import {getLogoComponent} from '../../../utils/LogoFactory';
-import profileDefaultImg from '../../../assets/logos/nav/profile-default.jpg';
+import {Link, withRouter} from 'react-router-dom';
 
 import {NavItemProfileContainer, 
     NavProfileLogo,
@@ -13,8 +10,9 @@ import {NavItemProfileContainer,
     
 import { handleDropDownProfile } from '../../../redux/nav/nav.actions';
 
-const NavItemProfile = ({name, logo, handleDropDownProfile}) => {    
+const NavItemProfile = ({name, url, logo}) => {    
     return (
+        <Link to={url}>
         <NavItemProfileContainer onClick={() => handleDropDownProfile()}> 
             <NavProfileLogo>
                 <Icon className={logo}/>
@@ -23,6 +21,7 @@ const NavItemProfile = ({name, logo, handleDropDownProfile}) => {
                 {name}
             </NavProfileText>
         </NavItemProfileContainer>
+        </Link>
     )
 }
 

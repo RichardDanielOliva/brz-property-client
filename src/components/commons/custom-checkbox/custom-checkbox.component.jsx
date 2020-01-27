@@ -7,12 +7,12 @@ import './custom-checkbox.styles.css';
 
 const CustomCheckbox = ({name, selectedOption, data}) => {
     return (
-        <div className="form-select-${name}-container">
+        <div className={`form-select-${name}-container`}>
             {
             data.map(({title, value}) => {
                 return(
                     <label class="container">{title}
-                        <input type="checkbox" value={value}/>
+                        <input type="checkbox" name={`form-select-${name}-container`} value={value}/>
                         <span class="checkmark"></span>
                     </label>
                 )  })}

@@ -3,8 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 
 import NavItemProfile from './nav-item-profile/nav-item-profile.component';
-import NavProfileDropDown from './nav-profile-dropdown/nav-profile-dropdown.component';
-
 import {
   NavContainer,
   NavItemsContainer,
@@ -18,10 +16,10 @@ const Nav = ({ displayProfileDrownDown, enterpriseDrownDown, languageDrownDown }
   return (
     <NavContainer>
       <NavItemsContainer>
-        {sectionItems.map(({name, logo}) => {
+        {sectionItems.map(({...props}) => {
           return (
             <NavItemContainer>
-              <NavItemProfile name={name} logo={logo}/>
+              <NavItemProfile {...props}/>
             </NavItemContainer>
         )})}
       </NavItemsContainer>

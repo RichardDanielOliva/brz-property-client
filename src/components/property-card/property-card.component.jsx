@@ -24,27 +24,30 @@ import {
 } from './property-card.style';
 
 
-const PropertyCard= ({title, description, buttonText, image}) => {
+const PropertyCard= ({...property}) => {
     return (
         <PropertyCardContainer>
             <HeaderContainer>
-                <PropertyImage src={""/**getImage(image)*/} alt="item"/>
+                <PropertyImage src={PublishImage} alt="item"/>
             </HeaderContainer>
            <BodyContainer>
-                <PublishDate>{title}</PublishDate>
-                <Direction><Type>{title}</Type></Direction>
-                <Price>{description}</Price>
+                <PublishDate>{property.advertiser.publishDate}</PublishDate>
+                <Direction>
+                    <Type>{property.type}</Type> 
+                    in {property.location.city}
+                </Direction>
+                <Price>{property.advertiser.price}</Price>
                 <FeaturesContainer>
                     
                 </FeaturesContainer>
            </BodyContainer>
            <FooterContainer>
                 <Button className="call-phone">
-                    {buttonText}
+                    {property.advertiser.phone}
                     <Icon className="fas fa-angle-double-right fa-lg"/>
                 </Button>
                 <Button className="contact">
-                    {buttonText}
+                    "Contact"
                     <Icon className="fas fa-angle-double-right fa-lg"/>
                 </Button>
            </FooterContainer>

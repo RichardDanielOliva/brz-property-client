@@ -11,15 +11,18 @@ import {
     Icon
   } from './custom-select.styles';
 
-const CustomSelect = ({name, selectedOption, data}) => {
+import {handleInputAttributte} from '../../../redux/filter/filter.actions';
+
+const CustomSelect = ({name, reduxState, data, handleInputAttributte}) => {
     return (
         <CustomSelectContainer>
             <AuxiliarRelativeContainer>
-                <Select>
+                <Select id={`filter-select-${name}`} 
+                    onChange={(event)=> handleInputAttributte(event.target.value, reduxState)}>
                     {data.map(({title, value}) => {
                             if(true)
                                 //return (<option className={`custom-select-${name}-${title}-option`} selected>
-                                return (<Option className={`custom-select-option`} value={value} selected>
+                                return (<Option className={`custom-select-option`} value={value}>
                                     {title}    
                                 </Option> )
                             else
@@ -35,4 +38,10 @@ const CustomSelect = ({name, selectedOption, data}) => {
     )
 }
 
-export default CustomSelect;
+const mapDispatchToProps = dispatch => ({
+    handleInputAttributte: (value, name) => (
+        dispatch(handleInputAttributte(value, name)))
+    }
+);
+  
+export default connect(null, mapDispatchToProps)(CustomSelect);

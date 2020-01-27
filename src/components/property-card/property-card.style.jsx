@@ -6,27 +6,39 @@ export const PropertyCardContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 33.333%;
-  height: 60vh;
-  justify-content: space-around;
-  align-content: space-around;
-  align-items: center;
+  width: 30%;
+  height: 50vh;
+
+  box-shadow: 0 1px 2px 0 rgba(102,102,100,0.24);
 `;
 
 export const HeaderContainer = styled.div`
-  position: absolute;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  height: 60%;
+`;
+
+export const BodyContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0,0,0,0.8);
+  color: rgba(250,250,250,1);
+  height: 40%;
+  width: 100%;
 `;
 
 export const PublishDate = styled.h3`
+  margin: 0;
 `
 export const Direction = styled.h3`
+  margin: 0;
 `
 export const Type = styled.h3`
+  margin: 0;
 `
 export const Price = styled.h3`
+  margin: 0;
 `
 export const FeaturesContainer = styled.div`
 `
@@ -38,15 +50,7 @@ export const PropertyImage = styled.img`
   height:auto;
 `;
 
-export const BodyContainer = styled.div`
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  background-color: rgba(0,0,0,0.8);
-  color: rgba(250,250,250,1);
-  bottom: 0;
-  width: 80%;
-`;
+
 
 export const TextContainer = styled.div`
   padding: 0% 5%;
