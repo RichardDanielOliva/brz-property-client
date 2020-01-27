@@ -29,7 +29,7 @@ const CustomSelect = ({name, selectedOption, data}) => {
                         })}
                     
                 </Select>
-                <Icon className="fas fa-angle-down fa-2x"/>
+                <Icon className="fas fa-angle-down"/>
             </AuxiliarRelativeContainer>
         </CustomSelectContainer>
     )

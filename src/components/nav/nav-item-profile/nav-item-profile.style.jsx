@@ -16,6 +16,8 @@ export const NavItemProfileContainer = styled.div`
   text-decoration-style: none;
   text-decoration: none;
 
+  cursor: pointer;
+  
   align-items: center;
 
   &:hover {
@@ -39,18 +41,19 @@ export const NavProfileText = styled.p`
 
 
 export const NavProfileLogo = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 50px;
   width: 50px;
 `;
 
 export const Icon = styled.i`
-  height: 100%;
-  width: 100%;
+  font-size: 1.75em;
   color: ${textColor};
   &:hover {
     color: ${hoverColor};
   }
-  bottom:0;
 `;
 
 

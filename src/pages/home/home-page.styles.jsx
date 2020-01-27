@@ -7,7 +7,8 @@ export const HomePageContainer = styled.div`
   flex-direction: column;
 
   @media (min-width: 770px) {
-    width: 100%;
+    width: calc(100vw - 100px);
+    margin-left: 100px;
   }
 `;
 
@@ -32,6 +33,8 @@ export const MainSearchTitleContainer = styled.h1`
   justify-content: center;
   align-items: center;
   color: rgba(0,0,0,0.9);
+  margin: 0;
+  margin-bottom: 30px;
 `;
 
 export const SearchContainer = styled.div`

@@ -20,6 +20,19 @@ export const HeaderContainer = styled.div`
   overflow: hidden;
 `;
 
+export const PublishDate = styled.h3`
+`
+export const Direction = styled.h3`
+`
+export const Type = styled.h3`
+`
+export const Price = styled.h3`
+`
+export const FeaturesContainer = styled.div`
+`
+
+
+
 export const PropertyImage = styled.img`
   width:100%;
   height:auto;

@@ -16,7 +16,7 @@ export const FilterTitle = styled.h3`
 
 export const FilterOptionsContainer = styled.div`
   display: flex;  
-  flex-direction: column;
+  width: 100%;
 `;
 
 export const FilterOptionContainer = styled.div`

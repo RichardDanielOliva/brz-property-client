@@ -13,38 +13,22 @@ import {
     HeaderContainer,
     PropertyImage,
     BodyContainer,
-    TextContainer,
     FooterContainer,
-    Title,
-    Description,
+    FeaturesContainer,
+    PublishDate,
+    Direction,
+    Type,
+    Price,
     Button,
     Icon
 } from './property-card.style';
 
-const getImage = (name)=>{
-    switch (name) {
-        case 'buy-property':
-            return BuyPropertyImage;
-        case 'rent-property':
-            return RentPropertyImage;
-        case 'share-property':
-            return SharePropertyImage;
-        case 'find-map':
-            return FindMapImage;
-        case 'find-help':
-            return FindHelpImage;
-        case 'publish':
-            return PublishImage;
-        default:
-            break;
-    }
-}
 
 const PropertyCard= ({title, description, buttonText, image}) => {
     return (
         <PropertyCardContainer>
             <HeaderContainer>
-                <PropertyImage src={getImage(image)} alt="item"/>
+                <PropertyImage src={""/**getImage(image)*/} alt="item"/>
             </HeaderContainer>
            <BodyContainer>
                 <PublishDate>{title}</PublishDate>

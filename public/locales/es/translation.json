@@ -3,11 +3,11 @@
     "sectionItem": [
       {
         "name": "Index",
-        "logo": "fas fa-home fa-2x"
+        "logo": "fas fa-home fa-fw"
       },
       {
         "name": "Services",
-        "logo": "fas fa-window-restore fa-2x"
+        "logo": "fas fa-window-restore fa-fw"
       },
       {
         "name": "User",
@@ -81,17 +81,10 @@
     "filter": {
       "commons": [{
         "name":"main",
+        "title": "Property Type",
         "optionType":"basic-group",
         "style":"property-filter",
-        "dataGroup": [{
-            "name": "operation",
-            "selectedOption":"buy",
-            "data": [
-              {"title":"Buy", "value":"buy"},
-              {"title":"Rent", "value":"rent"},
-              {"title":"Share", "value":"share"}
-            ]
-        },
+        "dataGroup": [
         {
             "name": "property-type",
             "selectedOption":"home",

@@ -42,6 +42,7 @@ export const NavItemsContainer = styled.div`
 export const NavItemContainer = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: 15px;
   height:10vh;
   width: 100%;
 `;

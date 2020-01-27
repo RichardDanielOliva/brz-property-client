@@ -10,7 +10,6 @@ import './psr-sorted-group.styles.css';
 const PSRSortedGroup = () => {
     const { t } = useTranslation();
     const {title, data} = t('propertySearchResult.sort');
-    console.log(data)
     return (
         <div className="prs-sorted-group-container">
             <span className="prs-sorted-group-title-container">

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const backGroundColor = 'rgba(255, 204, 0,0.7)';
+const backGroundColor = 'rgba(255, 204, 0, 1)';
 
 export const FilterPropertyContainer = styled.div`
   display: flex;  

@@ -36,7 +36,6 @@ const FilterProperty = () => {
     const { t } = useTranslation();
     const commonsOptions = t('propertySearchResult.filter.commons');
     const specificData = getEspecificData(t);
-    console.log(specificData)
 
     return (
         <FilterPropertyContainer>
