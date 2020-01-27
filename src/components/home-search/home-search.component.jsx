@@ -16,13 +16,13 @@ import {
     IconLeft
   } from './home-search.styles';
 
-import {handleOptionSelected} from '../../redux/main-search/main-search.actions'
+import {handleInputAttributte} from '../../redux/filter/filter.actions';
 
 const isSelected = (optionSelected, option) => {
     return optionSelected === option;
 }
 
-const HomeSearch = ({optionSelected, handleOptionSelected}) => {
+const HomeSearch = ({optionSelected, handleInputAttributte}) => {
     const { t } = useTranslation();
     const options = t('homePage.mainSearch.options');
 
@@ -32,7 +32,7 @@ const HomeSearch = ({optionSelected, handleOptionSelected}) => {
                 {options.map(({name, iconClass}) => {
                     return (<CustomButton 
                                 isSelected={isSelected(optionSelected,name)}
-                                onClick={()=> handleOptionSelected(name)}>
+                                onClick={()=> handleInputAttributte(name)}>
                                     <Icon className={iconClass}/>
                                     {name}
                             </CustomButton>)
@@ -62,12 +62,12 @@ const HomeSearch = ({optionSelected, handleOptionSelected}) => {
 };
 
 const mapStateToProps = state => ({
-    optionSelected: state.mainSearch.optionSelected,
+    optionSelected: state.filter.propertyType,
 });
 
 const mapDispatchToProps = dispatch => ({
-    handleOptionSelected: (name) => 
-        dispatch(handleOptionSelected(name))}
+    handleInputAttributte: (name) => 
+        dispatch(handleInputAttributte(name))}
 );
   
 export default connect(mapStateToProps, mapDispatchToProps)(HomeSearch);

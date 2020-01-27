@@ -14,9 +14,10 @@ import {
     Icon
   } from './select-property.styles';
 
-import {handlePropertySelected, displayPropertiesOptions} from '../../../redux/main-search/main-search.actions'
+import {displayPropertiesOptions} from '../../../redux/main-search/main-search.actions'
+import {handleInputAttributte} from '../../../redux/filter/filter.actions';
 
-const SelectProperty = ({propertySelected, showPropertiesOptions, displayPropertiesOptions, handlePropertySelected}) => {
+const SelectProperty = ({propertySelected, showPropertiesOptions, displayPropertiesOptions, handleInputAttributte}) => {
     const { t } = useTranslation();
     const propertyOptions = t('homePage.propertyOptions');
     const dropLogo = "drop-down";
@@ -34,7 +35,7 @@ const SelectProperty = ({propertySelected, showPropertiesOptions, displayPropert
             <PropertyOptions isSelected={showPropertiesOptions}>
             {propertyOptions.map((name) => {
                     return (<PropertyOption 
-                                onClick={()=> handlePropertySelected(name)}>
+                                onClick={()=> handleInputAttributte(name)}>
                                     {name}
                             </PropertyOption>)
                 })}
@@ -44,13 +45,13 @@ const SelectProperty = ({propertySelected, showPropertiesOptions, displayPropert
 }
 
 const mapStateToProps = state => ({
-    propertySelected: state.mainSearch.propertyTypeSelected,
+    propertySelected: state.filter.propertyType,
     showPropertiesOptions: state.mainSearch.showPropertiesOptions
 });
 
 const mapDispatchToProps = dispatch => ({
-    handlePropertySelected: (name) => 
-        dispatch(handlePropertySelected(name)),
+    handleInputAttributte: (name) => 
+        dispatch(handleInputAttributte(name)),
     displayPropertiesOptions: () =>
         dispatch(displayPropertiesOptions())
     }
