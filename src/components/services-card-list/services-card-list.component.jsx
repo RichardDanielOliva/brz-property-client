@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import ServicesCard from '../services-card/services-card.component';
 
-import { ServiceCardListContainer } from './services-card-list.style';
+import { ServiceCardListContainer, ServiceCardContainer } from './services-card-list.style';
 
 const ServiceCardList = () => {
     const { t } = useTranslation();
@@ -12,8 +12,14 @@ const ServiceCardList = () => {
 
     return (
         <ServiceCardListContainer>
-            {servicesInfo.map(({...props}) => {
-                return (<ServicesCard {...props}/>)
+            {servicesInfo
+                .filter((item, index)=> index <=2)
+                .map(({...props}) => {
+                return (
+                    <ServiceCardContainer>
+                        <ServicesCard {...props}/>
+                    </ServiceCardContainer> 
+                )
             })}
         </ServiceCardListContainer>
      )

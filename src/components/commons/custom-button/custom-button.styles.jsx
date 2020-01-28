@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 const bottomSelectedColor = '#FFCC00';
 const bottomHoverColor = '#FFCC00';
 
-const noSelectedStyle = css`
+const defaultStyle = css`
   background-color: rgba(250,250,250,0.8);
 
   &:hover {
@@ -15,11 +15,15 @@ const buttonSelectedStyles = css`
   background-color: ${bottomSelectedColor};
 `;
 
+const buttonSearchResultStyles = css`
+  background-color: ${bottomSelectedColor};
+`;
+
 const getButtonStyles = props => {
   if (props.isSelected) 
     return buttonSelectedStyles;
   else 
-    return noSelectedStyle
+    return defaultStyle;
 };
 
 export const CustomButtonContainer = styled.button`

@@ -8,6 +8,8 @@ import FindHelpImage from '../../assets/img/services/find-help.jpg';
 import FindMapImage from '../../assets/img/services/find-map.jpg';
 import PublishImage from '../../assets/img/services/publish.jpg';
 
+import FeatureItem from '../commons/feature-item/feature-item.component';
+
 import { 
     PropertyCardContainer,
     HeaderContainer,
@@ -17,7 +19,7 @@ import {
     FeaturesContainer,
     PublishDate,
     Direction,
-    Type,
+    TextColor,
     Price,
     Button,
     Icon
@@ -31,24 +33,23 @@ const PropertyCard= ({...property}) => {
                 <PropertyImage src={PublishImage} alt="item"/>
             </HeaderContainer>
            <BodyContainer>
-                <PublishDate>{property.advertiser.publishDate}</PublishDate>
-                <Direction>
-                    <Type>{property.type}</Type> 
-                    in {property.location.city}
-                </Direction>
-                <Price>{property.advertiser.price}</Price>
+                <PublishDate>{property.type}</PublishDate>
+                <Direction>{property.location.city}</Direction>
+                <Price>{property.advertiser.price} €</Price>
                 <FeaturesContainer>
-                    
+                    <FeatureItem name="rooms" value={property.rooms}/>
+                    <FeatureItem name="baths" value={property.baths}/>
+                    <FeatureItem name="area" value={property.area.toFixed(2)}/>
                 </FeaturesContainer>
            </BodyContainer>
            <FooterContainer>
                 <Button className="call-phone">
+                    <Icon className="fas fa-phone-alt fa-lg"/>
                     {property.advertiser.phone}
-                    <Icon className="fas fa-angle-double-right fa-lg"/>
                 </Button>
                 <Button className="contact">
-                    "Contact"
-                    <Icon className="fas fa-angle-double-right fa-lg"/>
+                    <Icon className="fas fa-envelope fa-lg"/>
+                    Contact                
                 </Button>
            </FooterContainer>
         </PropertyCardContainer>

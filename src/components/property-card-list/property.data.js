@@ -100,10 +100,8 @@ const EXAMPLE_PROPERTY_DATA = [
         "buildingArea": 150.45, 
         "baths": 2, 
         "rooms": 2, 
-        "toilets": 1, 
         "buildingAge": "BETWEEN_1951_1960", 
         "energyCertificate": "B", 
-        "comment": "This is a comment", 
         "area": 220.4499969482422, 
         "location": { 
             "country": "Spain", 
@@ -113,7 +111,7 @@ const EXAMPLE_PROPERTY_DATA = [
         }, 
         "advertiser": { 
             "id": "0", 
-            "type": "user", 
+            "type": "buy", 
             "phone": 12345678,
             "propertyMessage": "Excelent property ",
             "publishDate":"Hace dos dias",

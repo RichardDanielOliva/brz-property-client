@@ -9,3 +9,9 @@ export const ServiceCardListContainer = styled.div`
   align-content: space-around;
   align-items: center;
 `;
+
+export const ServiceCardContainer = styled.div`
+  display: flex;
+  width: 28%;
+  height: 45vh;
+`;

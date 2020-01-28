@@ -9,3 +9,9 @@ export const PropertyCardListContainer = styled.div`
   align-content: space-around;
   align-items: center;
 `;
+
+export const PropertyCardContainer = styled.div`
+  margin-top:30px;
+  width: 30%;
+  height: 50vh;
+`;

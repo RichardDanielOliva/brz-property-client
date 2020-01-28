@@ -6,9 +6,13 @@ import { useTranslation } from 'react-i18next';
 import PSRSortedGroup from './psr-sorted-group/psr-sorted-group.component';
 import PropertyCardList from '../property-card-list/property-card-list.component';
 import PropertyOperation from '../commons/property-operations/property-operation.component'
+import CustomButton from '../commons/custom-button/custom-button.component';
 
 
-import { PropertySearchResultContainer, PSR_HeaderContainer } from './property-search-result.styles';
+import { 
+    PropertySearchResultContainer, 
+    PSR_HeaderContainer,
+    Icon } from './property-search-result.styles';
 
 const PropertySearchResult = () => {
     return (
@@ -17,10 +21,10 @@ const PropertySearchResult = () => {
                 <PropertyOperation/>
                 {/**<PSRSortedGroup/>*/}
                 <div className="property-search-result-header-view-container">
-                    <button>
+                    <CustomButton>
+                        <Icon className="fas fa-map-marked-alt fa-lg"/>
                         Map
-                        <i className="fas fa-angle-double-right fa-lg"></i>
-                    </button>
+                    </CustomButton>
                 </div>
             </PSR_HeaderContainer>
             <div className="property-search-result-body-container">

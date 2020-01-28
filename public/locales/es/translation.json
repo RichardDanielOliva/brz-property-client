@@ -227,5 +227,12 @@
         {"title":"Lowest price", "value":"lowestPrice"}
       ]
     }
+  },
+  "property": {
+    "features": {
+      "baths":"baños",
+      "rooms":"habs.",
+      "area":"m2"
+    }
   }
 }

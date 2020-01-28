@@ -6,8 +6,8 @@ export const ServiceCardContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 33.333%;
-  height: 60vh;
+  width: 100%;
+  height: 100%;
   justify-content: space-around;
   align-content: space-around;
   align-items: center;
@@ -17,7 +17,7 @@ export const ServiceCardContainer = styled.div`
 
 export const BackgroundImage = styled.img`
   height: 100%;
-  opacity: 0.75;
+  opacity: 1;
 `;
 
 export const BodyContainer = styled.div`

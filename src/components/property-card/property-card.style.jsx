@@ -3,11 +3,10 @@ import styled, { css } from 'styled-components';
 const backgroundColor = '#FFF';
 
 export const PropertyCardContainer = styled.div`
-  position: relative;
   display: flex;
   flex-direction: column;
-  width: 30%;
-  height: 50vh;
+  width: 100%;
+  height: 100%;
 
   box-shadow: 0 1px 2px 0 rgba(102,102,100,0.24);
 `;
@@ -22,35 +21,44 @@ export const HeaderContainer = styled.div`
 export const BodyContainer = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: rgba(0,0,0,0.8);
-  color: rgba(250,250,250,1);
-  height: 40%;
-  width: 100%;
+  align-content: space-between;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: 15px;
 `;
 
-export const PublishDate = styled.h3`
+export const PublishDate = styled.h4`
+  font-size: 16px;
+  font-weight: 400;
+  overflow: hidden;
+
   margin: 0;
 `
 export const Direction = styled.h3`
+  font-size: 20px;
+  font-weight: 600;
+  overflow: hidden;
+
   margin: 0;
 `
-export const Type = styled.h3`
+export const TextColor = styled.span`
   margin: 0;
+  color: #FFCC00;
 `
-export const Price = styled.h3`
-  margin: 0;
+export const Price = styled.h2`
+  font-size: 26px;
+  font-weight: 400;
+
+  margin: 10px 0;
 `
 export const FeaturesContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
 `
-
-
 
 export const PropertyImage = styled.img`
   width:100%;
   height:auto;
 `;
-
-
 
 export const TextContainer = styled.div`
   padding: 0% 5%;
@@ -67,7 +75,7 @@ export const Description = styled.p`
 export const Button = styled.button`
   display: table-cell;
   background-color: rgba(0,0,0,0.0);
-  color: rgba(250,250,250,1);
+  color: #FFCC00;
 
   border: none;
   border-top: 1px solid #fff;
@@ -81,12 +89,17 @@ export const Button = styled.button`
   height: 50px;
   line-height: 30px;
 
-  font-size: 1rem;
-  font-weight: bolder;
+  font-size: 18px;
+  font-weight: 400;
+
+  &:hover{
+    background-color: rgba(0,0,0,0.1);
+  }
 `;
 
 export const Icon = styled.i`
-  margin-left:7px;
+  margin-right: 7px;
+  color: #FFCC00;
 `;
 
 export const FooterContainer = styled.div`

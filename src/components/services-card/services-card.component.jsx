@@ -45,7 +45,7 @@ const ServiceCard= ({title, description, buttonText, image}) => {
            <BodyContainer>
                <TextContainer>
                     <Title>{title}</Title>
-                    <Description>{description}</Description>
+                    {/**<Description>{description}</Description>*/}
                </TextContainer>
                 <Button>
                     {buttonText}
