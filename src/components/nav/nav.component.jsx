@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import useReactRouter from 'use-react-router';
 import { connect } from 'react-redux';
 
 import NavItemProfile from './nav-item-profile/nav-item-profile.component';
@@ -9,17 +10,21 @@ import {
   NavItemContainer
 } from './nav.styles';
 
-const Nav = ({ displayProfileDrownDown, enterpriseDrownDown, languageDrownDown }) => {
+const Nav = ({...props}) => {
   const { t } = useTranslation();
-  const sectionItems = t('nav.sectionItem')
+  const { location } = useReactRouter();
 
+  const sectionItems = t('nav.sectionItem')
+  console.log(location.pathname)
   return (
     <NavContainer>
       <NavItemsContainer>
         {sectionItems.map(({...props}) => {
           return (
             <NavItemContainer>
-              <NavItemProfile {...props}/>
+              <NavItemProfile 
+                actualLocation={location.pathname}
+                {...props} />
             </NavItemContainer>
         )})}
       </NavItemsContainer>

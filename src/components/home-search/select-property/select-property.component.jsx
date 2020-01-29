@@ -7,10 +7,11 @@ import {getLogoComponent} from '../../../utils/LogoFactory';
 import {
     SelectPropertyContainer,
     PropertySelect,
-    PropertySelectTitle,
+    PropertySelectText,
     PropertySelectDropDownMenu,
     PropertyOptions,
     PropertyOption,
+    PropertyOptionText,
     Icon
   } from './select-property.styles';
 
@@ -26,7 +27,7 @@ const SelectProperty = ({propertySelected, showPropertiesOptions, displayPropert
         <SelectPropertyContainer>
             <PropertySelect
                 onClick={()=>displayPropertiesOptions()}>
-                    {propertySelected}
+                    <PropertySelectText>{propertySelected}</PropertySelectText>
                     <Icon className="fas fa-angle-down fa-lg"/>
                 {/**<PropertySelectDropDownMenu>
                     {getLogoComponent(dropLogo)}
@@ -36,7 +37,7 @@ const SelectProperty = ({propertySelected, showPropertiesOptions, displayPropert
             {propertyOptions.map((name) => {
                     return (<PropertyOption 
                                 onClick={()=> handleInputAttributte(name, "propertyType")}>
-                                    {name}
+                                    <PropertyOptionText>{name}</PropertyOptionText>
                             </PropertyOption>)
                 })}
             </PropertyOptions>

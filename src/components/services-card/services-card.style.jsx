@@ -11,8 +11,9 @@ export const ServiceCardContainer = styled.div`
   justify-content: space-around;
   align-content: space-around;
   align-items: center;
-
+  border-radius: 10px;
   overflow: hidden;
+  box-shadow: 0 4px 4px 0 rgba(102,102,100,0.24);
 `;
 
 export const BackgroundImage = styled.img`
@@ -24,17 +25,22 @@ export const BodyContainer = styled.div`
   position: absolute;
   display: flex;
   flex-direction: column;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0,0,0,0.9);
   color: rgba(250,250,250,1);
   bottom: 0;
-  width: 80%;
+  width: 90%;
+  border-radius: 10px;
 `;
 
 export const TextContainer = styled.div`
   padding: 0% 5%;
+  display: flex;
+  flex-direction: column;
+
+  text-align: center;
 `;
 
-export const Title = styled.h2`
+export const Title = styled.h4`
   display: flex;
 `;
 
@@ -43,7 +49,9 @@ export const Description = styled.p`
 `;
 
 export const Button = styled.button`
-  display: table-cell;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: rgba(0,0,0,0.0);
   color: rgba(250,250,250,1);
 
@@ -59,8 +67,9 @@ export const Button = styled.button`
   height: 50px;
   line-height: 30px;
 
-  font-size: 1rem;
-  font-weight: bolder;
+  &:hover {
+    background-color:  rgba(0,41,115,0.7);
+  }
 `;
 
 export const Icon = styled.i`

@@ -8,14 +8,14 @@ export const PropertyCardContainer = styled.div`
   width: 100%;
   height: 100%;
 
-  box-shadow: 0 1px 2px 0 rgba(102,102,100,0.24);
+  box-shadow: 1px 2px rgba(102,102,100,0.24);
 `;
 
 export const HeaderContainer = styled.div`
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  height: 60%;
+  height: 70%;
 `;
 
 export const BodyContainer = styled.div`

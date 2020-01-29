@@ -30,6 +30,11 @@ export const Select =  styled.select`
     border-bottom: 2px solid rgba(182, 149, 3, 1);
     color: rgba(0, 0, 0,1);
 
+
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-weight: 300;
+
     cursor: pointer;
 
     /* for Firefox */
@@ -52,8 +57,18 @@ export const Option = styled.option`
   box-shadow: 0 0 10px 100px #d3aa04 inset;
 
   height: 30px;
+
+  
 `;
   
+export const OptionText = styled.p`
+position: absolute;
+right: 2%;
+font-size:1.5em;
+z-index: 2;
+`;
+
+
 export const Icon = styled.i`
   position: absolute;
   right: 2%;

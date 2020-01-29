@@ -27,12 +27,12 @@ const getButtonStyles = props => {
 };
 
 export const CustomButtonContainer = styled.button`
-  display: table-cell;
-  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
   width: 200px;
   height: 50px;
-  font-size: 0.9rem;
-  font-weight: bolder;
 
   border: none;
   border-radius: 30px;

@@ -4,7 +4,12 @@ import { connect } from 'react-redux';
 
 import ServicesCard from '../services-card/services-card.component';
 
-import { ServiceCardListContainer, ServiceCardContainer } from './services-card-list.style';
+import { 
+    ServiceCardListContainer,
+    CardHeader,
+    CardBody,
+     ServiceCardContainer 
+} from './services-card-list.style';
 
 const ServiceCardList = () => {
     const { t } = useTranslation();
@@ -12,15 +17,21 @@ const ServiceCardList = () => {
 
     return (
         <ServiceCardListContainer>
-            {servicesInfo
-                .filter((item, index)=> index <=2)
-                .map(({...props}) => {
-                return (
-                    <ServiceCardContainer>
-                        <ServicesCard {...props}/>
-                    </ServiceCardContainer> 
-                )
-            })}
+            <CardHeader>
+                <h1>Services</h1>
+                <h2>How can we help you?</h2>
+            </CardHeader>
+            <CardBody>
+                {servicesInfo
+                    .filter((item, index)=> index <=2)
+                    .map(({...props}) => {
+                    return (
+                        <ServiceCardContainer>
+                            <ServicesCard {...props}/>
+                        </ServiceCardContainer> 
+                    )
+                })}
+            </CardBody>
         </ServiceCardListContainer>
      )
 };

@@ -18,6 +18,13 @@ export const SelectPropertyContainer = styled.div`
   border-radius: 2px;
 
   background-color: rgba(250,250,250,0.9);
+
+
+`;
+
+export const PropertySelectText = styled.h4`
+  margin: 0;
+  padding: 0;
 `;
 
 export const PropertySelectDropDownMenu = styled.div`
@@ -31,12 +38,11 @@ export const PropertySelectTitle = styled.div`
 `;
 
 export const PropertySelect = styled.button`
-  display: table-cell;
-  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
-  font-size: 0.9rem;
-  font-weight: bolder;
 
   justify-content: space-around;
   border: none;
@@ -75,9 +81,18 @@ export const PropertyOptions = styled.div`
 `;
 
 export const PropertyOption = styled.div`
-  height: 25px;
+  height: 30px;
   cursor: pointer;
   text-align: center;
+`;
+
+export const PropertyOptionText = styled.h5`
+  margin: 0;
+  padding: 0;
+
+  &:hover{
+    background-color: ${bottomHoverColor};
+  }
 `;
 
 export const Icon = styled.i`

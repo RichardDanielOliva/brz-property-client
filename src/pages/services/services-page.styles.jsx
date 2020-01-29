@@ -12,6 +12,18 @@ export const ServicesPageContainer = styled.div`
   }
 `;
 
+export const ServicesTitleContainer = styled.div`
+  display: flex;
+  width: 80%;
+  margin: auto;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 10vh;
+`;
+
 export const ServicesCardListContainer = styled.div`
   position: relative;
   display: flex;
@@ -23,7 +35,7 @@ export const ServicesCardListContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-image: linear-gradient(to bottom,rgba(0, 41,115,0.2),rgba(0, 41, 115, 0.7),rgba(0, 41, 115,1));
+  background-image: linear-gradient(to bottom,rgba(0, 41,115,0.3),rgba(0, 41, 115, 0.9),rgba(0, 41, 115,1));
 `;
 
 export const MainSearchTitleContainer = styled.h1`
@@ -37,24 +49,12 @@ export const MainSearchTitleContainer = styled.h1`
   margin-bottom: 30px;
 `;
 
-export const SearchContainer = styled.div`
-  display: flex;
-  width: 50%;
-  height: 35%;
-  z-index: 1;
-`;
-
 export const BackgroundSearchImage = styled.img`
   width: 100vw;
   z-index: -1;
   height: auto;
   left: 0;
   position: absolute;
-`;
-
-export const ServicesContainer = styled.div`
-  display: flex;  
-  width: 100%;
 `;
 
 

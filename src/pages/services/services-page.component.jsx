@@ -12,6 +12,7 @@ import ServiceCardList from '../../components/services-card-list/services-card-l
 //Styles
 import {
   ServicesPageContainer,
+  ServicesTitleContainer,
   ServicesCardListContainer,
   BackgroundSearchImage
 } from './services-page.styles';

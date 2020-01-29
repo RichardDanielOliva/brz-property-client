@@ -18,7 +18,6 @@ import './App.css';
 
 const App = () => {
   const { location } = useReactRouter();
-
   const hideHeader = () => {
     return <Nav />;
   };

@@ -15,6 +15,7 @@ import {
     SearchContainer,
     CustomSearchInputContainer,
     ButtonsContainer,
+    ButtonText,
     Icon,
     IconLeft
   } from './home-search.styles';
@@ -55,13 +56,13 @@ const HomeSearch = ({optionSelected, handleInputAttributte}) => {
             <ButtonsContainer>
                 <Link to="/search">
                     <CustomButton>
-                        Search
+                        <ButtonText>Search</ButtonText>
                         <IconLeft className="fas fa-search fa-lg"/>
                     </CustomButton>
                 </Link>
                 <Link to="/search/map">
                     <CustomButton>
-                        Search by map
+                        <ButtonText>Search by map</ButtonText>
                         <IconLeft className="fas fa-map-marked-alt fa-lg"/>
                     </CustomButton>
                 </Link>

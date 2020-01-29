@@ -29,6 +29,11 @@ export const ButtonsContainer = styled.div`
   align-items: center;
 `;
 
+export const ButtonText =  styled.h4`
+  margin: 0;
+  padding: 0;
+`;
+
 export const Icon =  styled.i`
   margin-right:7px;
 `;

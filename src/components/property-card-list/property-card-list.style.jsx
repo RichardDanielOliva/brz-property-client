@@ -13,5 +13,5 @@ export const PropertyCardListContainer = styled.div`
 export const PropertyCardContainer = styled.div`
   margin-top:30px;
   width: 30%;
-  height: 50vh;
+  height: 60vh;
 `;

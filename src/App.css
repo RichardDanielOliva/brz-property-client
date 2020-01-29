@@ -5,3 +5,44 @@ div {
 * {
   box-sizing: border-box;
 }
+
+h1{
+  font-family: 'Raleway';
+  font-size: 40px;
+  font-weight: 800;
+}
+
+h2{
+  font-family: 'Poppins';
+  font-size: 26px;
+  font-weight: 600;
+}
+
+h3{
+  font-family: 'Poppins';
+  font-size: 20px;
+  font-weight: 600;
+}
+
+h4{
+  font-family: 'Poppins';
+  font-size: 18px;
+  font-weight: 600;
+}
+
+h5{
+  font-family: 'Poppins';
+  font-size: 18px;
+  font-weight: 400;
+}
+
+p{
+  font-family: 'Poppins';
+  font-size: 14px;
+  font-weight: 300;
+  border:0;
+  margin:0;
+}
+/**font-family: 'Noto Sans', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Raleway', sans-serif;*/

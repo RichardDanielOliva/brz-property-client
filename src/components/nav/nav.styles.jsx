@@ -8,8 +8,6 @@ export const NavContainer = styled.nav`
   display: flex;
   height: 100vh;
   width: 100px;
-
-  justify-content: space-between;
   
   position: fixed;
   top: 0;
@@ -19,21 +17,7 @@ export const NavContainer = styled.nav`
   background-color: rgba(0,0,0,1);
 `;
 
-export const MainLogoContainer = styled(Link)`
-  height: 100%;
-  margin: 5px;
-`;
-
-export const AppImage = styled.img`
-  height: 45px;
-`;
-
-export const NavFilterContainer = styled.div`
-  width: 30%;
-`;
-
 export const NavItemsContainer = styled.div`
-  margin-top: 40px;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -42,7 +26,10 @@ export const NavItemsContainer = styled.div`
 export const NavItemContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 15px;
-  height:10vh;
+  height: 13vh;
   width: 100%;
+
+  a{
+    text-decoration: none;
+  }
 `;

@@ -32,6 +32,15 @@ export const ButtonsContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+
+  a{
+    text-decoration: none;
+  }
+`;
+
+export const ButtonText =  styled.h4`
+  margin: 0;
+  padding: 0;
 `;
 
 export const Icon =  styled.i`

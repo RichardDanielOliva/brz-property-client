@@ -1,10 +1,19 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const hoverColor = '#FFCC00';
 const textColor = 'rgba(250,250,250,0.9)';
 
+const itemSelectedStyles = css`
+  background-color: rgba(238,238,238,0.6);
+`;
+
+const getSelectedItemStyled = props => {
+  if (props.isSelected) 
+    return itemSelectedStyles;
+};
+
 export const NavItemProfileContainer = styled.div`
-  height: 100%;
+  height: 13vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -19,16 +28,10 @@ export const NavItemProfileContainer = styled.div`
   align-items: center;
 
   &:hover {
-    font-weight: bold;
-    transform: scale(1.05, 1.05);
-
-    p{
-      color: ${hoverColor};
-    }
-    i {
-      color: ${hoverColor};
-    }
+    background-color: rgba(238,238,238,0.6);
   }
+
+  ${getSelectedItemStyled}
 `;
 
 export const NavProfileText = styled.p`

@@ -10,17 +10,19 @@ import {NavItemProfileContainer,
     
 import { handleDropDownProfile } from '../../../redux/nav/nav.actions';
 
-const NavItemProfile = ({name, url, logo}) => {    
+const NavItemProfile = ({name, url, logo, actualLocation}) => {    
     return (
         <Link to={url}>
-        <NavItemProfileContainer onClick={() => handleDropDownProfile()}> 
-            <NavProfileLogo>
-                <Icon className={logo}/>
-            </NavProfileLogo>
-            <NavProfileText>
-                {name}
-            </NavProfileText>
-        </NavItemProfileContainer>
+            <NavItemProfileContainer
+                isSelected={url===actualLocation}
+                onClick={() => handleDropDownProfile()}> 
+                <NavProfileLogo>
+                    <Icon className={logo}/>
+                </NavProfileLogo>
+                <NavProfileText>
+                    {name}
+                </NavProfileText>
+            </NavItemProfileContainer>
         </Link>
     )
 }

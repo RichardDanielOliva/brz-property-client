@@ -48,7 +48,7 @@ const ServiceCard= ({title, description, buttonText, image}) => {
                     {/**<Description>{description}</Description>*/}
                </TextContainer>
                 <Button>
-                    {buttonText}
+                    <p>{buttonText}</p>
                     <Icon className="fas fa-angle-double-right fa-lg"/>
                 </Button>
            </BodyContainer>

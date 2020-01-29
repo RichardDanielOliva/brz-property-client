@@ -8,6 +8,7 @@ import {
     AuxiliarRelativeContainer,
     Select,
     Option,
+    OptionText,
     Icon
   } from './custom-select.styles';
 
@@ -22,15 +23,12 @@ const CustomSelect = ({name, reduxState, data, handleInputAttributte}) => {
                     {data.map(({title, value}) => {
                             if(true)
                                 //return (<option className={`custom-select-${name}-${title}-option`} selected>
-                                return (<Option className={`custom-select-option`} value={value}>
-                                    {title}    
-                                </Option> )
-                            else
-                                return (<Option className={`custom-select-${name}-li`}>
-                                    {title}
-                                </Option>)
+                                return (
+                                    <Option className={`custom-select-option`} value={value}>
+                                        {title}
+                                    </Option> 
+                                )
                         })}
-                    
                 </Select>
                 <Icon className="fas fa-angle-down"/>
             </AuxiliarRelativeContainer>
