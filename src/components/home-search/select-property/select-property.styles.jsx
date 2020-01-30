@@ -81,7 +81,7 @@ export const PropertyOptions = styled.div`
 `;
 
 export const PropertyOption = styled.div`
-  height: 30px;
+  height: 30nppx;
   cursor: pointer;
   text-align: center;
 `;
