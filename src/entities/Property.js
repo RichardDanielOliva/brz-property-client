@@ -9,27 +9,17 @@ export class Property{
 }
 
 export class Location {
-    constructor (addressed, city, state, country, postalCode){
+    constructor (addressed, city, state, country, postalCode, streetId){
         this.addressed = addressed;
         this.city = city;
         this.state = state;
         this.country = country;
         this.postalCode = postalCode;
+        this.streetId = streetId;
     }
 }
 
-export class Advertiser {
-    constructor (operation, propertyMessage, phone, publishDate, price, id){
-        this.id =  id;
-        this.operation =  operation;
-        this.propertyMessage = propertyMessage;
-        this.phone = phone,
-        this.publishDate = publishDate;
-        this.price = price;
-    }
-}
-
-export class HomeFeature{
+export  class HomeFeature{
     constructor (type, status, area, buildingArea, baths, rooms, buildingAge, energyCertificate){
         this.type = type; 
         this.status = status; 
@@ -41,3 +31,16 @@ export class HomeFeature{
         this.energyCertificate = energyCertificate;
     }
 }
+
+
+/**export class Advertiser {
+    constructor (operation, propertyMessage, phone, publishDate, price, userid, userRole){
+        this.userid =  userid;
+        this.userRole = userRole;
+        this.operation =  operation;
+        this.propertyMessage = propertyMessage;
+        this.phone = phone,
+        this.publishDate = publishDate;
+        this.price = price;
+    }
+}*/
