@@ -6,16 +6,16 @@ import PropertyCard from '../property-card/property-card.component';
 
 import { PropertyCardListContainer, PropertyCardContainer } from './property-card-list.style';
 import EXAMPLE_PROPERTY_DATA from './property.data';
-import {getPropertyList} from '../../services/PropertyServices';
 
-const PropertyCardList = ({...property}) => {
+const PropertyCardList = ({filter, properties}) => {
     const { t } = useTranslation();
-    const properties= EXAMPLE_PROPERTY_DATA;
+    const properties2= EXAMPLE_PROPERTY_DATA;
     
-    getPropertyList(property);
+    //const propertiesList = getPropertyList(property);
+    console.log(properties);
     return (
         <PropertyCardListContainer>
-            {properties.map(({...props}) => {
+            {properties2.properties.map(({...props}) => {
                 return (
                     <PropertyCardContainer>
                         <PropertyCard {...props}/>
@@ -26,22 +26,25 @@ const PropertyCardList = ({...property}) => {
 };
 
 const mapStateToProps = state => ({
-    type: state.filter.propertyType,
-    operation: state.filter.propertyOperation,
-    price: {
-        min: state.filter.propertyMinPrice,
-        max: state.filter.propertyMaxPrice,
+    filter: {
+        type: state.filter.propertyType,
+        operation: state.filter.propertyOperation,
+        price: {
+            min: state.filter.propertyMinPrice,
+            max: state.filter.propertyMaxPrice,
+        },
+        area:{
+            from: state.filter.homeAreaFrom,
+            to: state.filter.homeAreaTo
+        },
+        home: {
+            rooms: state.filter.homeRooms,
+            baths: state.filter.homeBathRooms,
+            extras: state.filter.homeExtras,
+        },
+        status: state.filter.homeStatus,
     },
-    area:{
-        from: state.filter.homeAreaFrom,
-        to: state.filter.homeAreaTo
-    },
-    home: {
-        rooms: state.filter.homeRooms,
-        baths: state.filter.homeBathRooms,
-        extras: state.filter.homeExtras,
-    },
-    status: state.filter.homeStatus,
+    properties: state.properties.data
 });
   
 export default connect(mapStateToProps)(PropertyCardList);

@@ -26,7 +26,7 @@ export const BodyContainer = styled.div`
   margin: 15px;
 `;
 
-export const PublishDate = styled.h4`
+export const Type = styled.h4`
   font-size: 16px;
   font-weight: 400;
   overflow: hidden;

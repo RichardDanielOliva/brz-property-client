@@ -1,10 +1,17 @@
 export class Property{
-    constructor (features, advertiser, location, extras, images){
+    constructor (features, advertiser, location, images, id){
         this.features = features;
         this.location = location;
         this.advertiser = advertiser;
-        this.extras = extras;
         this.images = images;
+        this._id = id;
+    }
+}
+
+export class PropertyList{
+    constructor (properties, page){
+        this.page = page;
+        this.properties = properties;
     }
 }
 
@@ -20,7 +27,8 @@ export class Location {
 }
 
 export  class HomeFeature{
-    constructor (type, status, area, buildingArea, baths, rooms, buildingAge, energyCertificate){
+    constructor (type, status, area, extra, buildingArea, baths, rooms, buildingAge, energyCertificate){
+        this.extras = extra;
         this.type = type; 
         this.status = status; 
         this.area = area;
@@ -32,15 +40,20 @@ export  class HomeFeature{
     }
 }
 
-
-/**export class Advertiser {
-    constructor (operation, propertyMessage, phone, publishDate, price, userid, userRole){
+export class Advertiser{
+    constructor (operation, propertyMessage, UserContact, publishDate, price, userid){
         this.userid =  userid;
-        this.userRole = userRole;
         this.operation =  operation;
         this.propertyMessage = propertyMessage;
-        this.phone = phone,
+        this.UserContact = UserContact;
         this.publishDate = publishDate;
         this.price = price;
     }
-}*/
+}
+
+export class UserContact{
+    constructor (phones, emails){
+        this.phones =  phones;
+        this.emails =  emails;
+    }
+}
