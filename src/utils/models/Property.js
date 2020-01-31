@@ -26,6 +26,30 @@ export class Location {
     }
 }
 
+export  class OfficeFeature{
+    constructor (status, area, extra, buildingArea, baths, buildingAge, energyCertificate){
+        this.extras = extra;
+        this.status = status; 
+        this.area = area;
+        this.buildingArea = buildingArea; 
+        this.baths = baths; 
+        this.buildingAge = buildingAge;
+        this.energyCertificate = energyCertificate;
+    }
+}
+
+export  class PremiseFeature{
+    constructor (status, area, extra, buildingArea, baths, buildingAge, energyCertificate){
+        this.extras = extra;
+        this.status = status; 
+        this.area = area;
+        this.buildingArea = buildingArea; 
+        this.baths = baths; 
+        this.buildingAge = buildingAge;
+        this.energyCertificate = energyCertificate;
+    }
+}
+
 export  class HomeFeature{
     constructor (type, status, area, extra, buildingArea, baths, rooms, buildingAge, energyCertificate){
         this.extras = extra;

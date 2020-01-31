@@ -26,8 +26,9 @@ export const fetchPropertiesStartAsync = (filterState) => {
     fetch(getPropertyAPIUrl(filterState))
       .then(res => res.json())
       .then(res => {
-          let propertyList = mapJsonToPropertyList(res)
-
+        console.log(res)
+          let propertyList = mapJsonToPropertyList(res, filterState)
+          console.log(propertyList)
           dispatch(fetchPropertiesSuccess(propertyList));
           return propertyList;
       })
