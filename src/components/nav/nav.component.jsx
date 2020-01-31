@@ -15,7 +15,7 @@ const Nav = ({...props}) => {
   const { location } = useReactRouter();
 
   const sectionItems = t('nav.sectionItem')
-  console.log(location.pathname)
+  console.log(sectionItems)
   return (
     <NavContainer>
       <NavItemsContainer>

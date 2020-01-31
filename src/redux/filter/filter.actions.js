@@ -6,6 +6,12 @@ export const handleInputAttributte = (value, name) => ({
   name: name
 });
 
+/**export const handleInputAttributte = (value, name) => {
+  return dispatch => {
+    dispatch
+  }
+};*/
+
 export const handleCheckboxAttributte = (value, name) => ({
   type: FilterActionTypes.SET_COMPOUND_ATTRIBUTTE,
   payload: value,

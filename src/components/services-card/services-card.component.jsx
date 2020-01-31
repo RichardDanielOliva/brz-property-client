@@ -61,5 +61,5 @@ const mapStateToProps = state => ({
 });
 
   
-export default connect(mapStateToProps, null)(ServiceCard);
+export default connect(mapStateToProps)(ServiceCard);
 

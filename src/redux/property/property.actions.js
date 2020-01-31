@@ -1,6 +1,9 @@
 import PropertyActionTypes from "./property.types";
 
-import {getPropertyList} from '../../business/services/PropertyServices';
+import {mapJsonToPropertyList} from '../../utils/services/properties.converter';
+import {getPropertyAPIUrl} from '../../utils/services/properties.services.api-url';
+
+import EXAMPLE_PROPERTY_DATA from '../../utils/default-data/property.data';
 
 export const fetchPropertiesStart = () => ({
   type: PropertyActionTypes.FETCH_PROPERTIES_START
@@ -16,17 +19,21 @@ export const fetchPropertiesFailure = errorMessage => ({
   payload: errorMessage
 });
 
-export const fetchPropertiesStartAsync = () => {
+export const fetchPropertiesStartAsync = (filterState) => {
   return dispatch => {
     dispatch(fetchPropertiesStart());
 
-    const propertiesList = getPropertyList();
+    fetch(getPropertyAPIUrl(filterState))
+      .then(res => res.json())
+      .then(res => {
+          let propertyList = mapJsonToPropertyList(res)
 
-    propertiesList ? 
-      fetchPropertiesSuccess(propertiesList) 
-      :fetchPropertiesFailure(propertiesList.message)
+          dispatch(fetchPropertiesSuccess(propertyList));
+          return propertyList;
+      })
+      .catch(error => {
+          dispatch(fetchPropertiesSuccess(EXAMPLE_PROPERTY_DATA));
+          //dispatch(fetchPropertiesFailure(error));
+      })
   };
 };
-
-
-

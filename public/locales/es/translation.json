@@ -91,11 +91,11 @@
         "dataGroup": [
         {
             "name": "property-type",
-            "reduxState":"propertyOperation",
+            "reduxState":"propertyType",
             "selectedOption":"home",
             "data": [
               {"title":"Home", "value":"home"},
-              {"title":"Apartment", "value":"apartment"},
+              {"title":"Premise", "value":"premise"},
               {"title":"Office", "value":"office"}
             ]  
         }]

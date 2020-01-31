@@ -2,16 +2,24 @@
   "nav": {
     "sectionItem": [
       {
-        "name": "Language",
-        "logo": "language"
+        "name": "Index",
+        "url": "/",
+        "logo": "fas fa-home fa-fw"
       },
       {
-        "name": "Enterprise",
-        "logo": "enterprise-profile"
+        "name": "Services",
+        "url": "/services",
+        "logo": "fas fa-window-restore fa-fw"
       },
       {
         "name": "User",
-        "logo": "user-profile"
+        "url": "/user",
+        "logo": "fas fa-user-friends fa-2x"
+      },
+      {
+        "name": "Enterprise",
+        "url": "/enterprise",
+        "logo": "fas fa-briefcase fa-2x"
       }
     ],
     "defaultProfile": {
@@ -21,9 +29,9 @@
   "homePage":{
     "mainSearch":{
       "options": [
-        {"name":"Buy", "iconClass":"fas fa-angle-double-right fa-lg"},
-        {"name":"Rent", "iconClass":"fas fa-angle-double-right fa-lg"},
-        {"name":"Share", "iconClass":"fas fa-angle-double-right fa-lg"}
+        {"name":"Buy", "reduxState":"propertyOperation", "iconClass":"fas fa-store-alt fa-lg"},
+        {"name":"Rent", "reduxState":"propertyOperation", "iconClass":"fas fa-door-open fa-lg"},
+        {"name":"Share", "reduxState":"propertyOperation", "iconClass":"fab fa-slideshare fa-lg"}
       ]
     },
     "propertyOptions": [
@@ -72,5 +80,159 @@
         "image":"share-property"
       }
     ]
+  },
+  "propertySearchResult":{
+    "filter": {
+      "commons": [{
+        "name":"main",
+        "title": "Property Type",
+        "optionType":"basic-group",
+        "style":"property-filter",
+        "dataGroup": [
+        {
+            "name": "property-type",
+            "reduxState":"propertyOperation",
+            "selectedOption":"home",
+            "data": [
+              {"title":"Home", "value":"home"},
+              {"title":"Apartment", "value":"apartment"},
+              {"title":"Office", "value":"office"}
+            ]  
+        }]
+      }],
+      "home": [{
+        "name":"price",
+        "title": "Price",
+        "optionType":"basic-group",
+        "style":"property-filter",
+        "dataGroup": [{
+            "name": "min-prices",
+            "reduxState":"propertyMinPrice",
+            "data": [
+              {"title":"Min", "value":null},
+              {"title":"25", "value":25},
+              {"title":"50", "value":50},
+              {"title":"75", "value":75}
+              ]
+            },
+            {
+            "name": "max-price",
+            "reduxState":"propertyMaxPrice",
+            "selectedOption":"precio hasta",
+            "data": [
+              {"title":"Max", "value":null},
+              {"title":"50", "value":"50"},
+              {"title":"75", "value":"75"},
+              {"title":"100", "value":"100"}
+            ]
+            }]
+        },
+        {
+          "name":"features",
+          "title": "Features",
+          "optionType":"basic-group",
+          "style":"property-filter",
+          "dataGroup": [{
+              "defaultValue": "rooms",
+              "name": "rooms",
+              "reduxState":"homeRooms",
+              "actualValue":"precio desde",
+              "data": [
+                {"title":"Rooms", "value":null},
+                {"title":"1 or more", "value":"1"},
+                {"title":"2 or more", "value":"2"},
+                {"title":"3 or more", "value":"3"},
+                {"title":"4 or more", "value":"4"}
+              ]
+          },
+          {
+              "defaultValue":"bathrooms",
+              "name": "baths",
+              "reduxState":"homeBathRooms",
+              "selectedOption":"precio hasta",
+              "data": [
+                {"title":"Bathrooms", "value":null},
+                {"title":"1 or more", "value":"1"},
+                {"title":"2 or more", "value":"2"},
+                {"title":"3 or more", "value":"3"}
+              ]
+          }]
+          },
+          {
+              "name":"Surface",
+              "title": "Surface",
+              "optionType":"basic-group",
+              "style":"property-filter",
+              "dataGroup": [{
+                  "defaultValue": "floor area from",
+                  "reduxState":"homeAreaFrom",
+                  "name": "surface-area-from",
+                  "actualValue":"precio desde",
+                  "data": [
+                    {"title":"from", "value":null},
+                    {"title":"60 m2", "value":"60"}
+                  ]
+              },
+              {
+                  "defaultValue":"floor area to",
+                  "reduxState":"homeAreaTo",
+                  "name": "surface-area-to",
+                  "selectedOption":"precio hasta",
+                  "data": [
+                    {"title":"to", "value":null},
+                    {"title":"60 m2", "value":"60"}
+                  ]
+              }]
+          },
+          {
+              "name":"extras",
+              "reduxState":"homeExtras",
+              "title": "Extras",
+              "optionType":"checkbox-group",
+              "style":"property-checkbox",
+              "data": [
+                {"title":"Parking", "value":"parking"}, 
+                {"title":"Lift", "value":"lift"},
+                {"title":"Furnished", "value":"furnished"},
+                {"title":"Heating", "value":"heating"},
+                {"title":"Garden", "value":"garden"},
+                {"title":"Swimming Pool", "value":"swimmingPool"},
+                {"title":"Terrace", "value":"terrace"},
+                {"title":"Box room", "value":"boxRoom"}
+              ]
+          },
+          {
+              "name":"status",
+              "reduxState":"homeStatus",
+              "title": "Status",
+              "optionType":"checkbox-group",
+              "style":"property-checkbox",
+              "data": [
+                {"title":"New home", "value":"newHome"}, 
+                {"title":"Almost new", "value":"almostNew"},
+                {"title":"Very good", "value":"veryGood"},
+                {"title":"For renovation", "value":"forRenovation"},
+                {"title":"Reburbished", "value":"reburbished"}
+              ]
+          }
+      ]
+    },
+    "sort":{
+      "name":"sort",
+      "title": "Sort by",
+      "data": [
+        {"title":"Newest", "value":"newest"}, 
+        {"title":"Oldest", "value":"oldest"},
+        {"title":"Highest price", "value":"highestPrice"},
+        {"title":"Lowest price", "value":"lowestPrice"}
+      ]
+    }
+  },
+  "property": {
+    "features": {
+      "baths":"baños",
+      "rooms":"habs.",
+      "area":"m2"
+    }
   }
 }

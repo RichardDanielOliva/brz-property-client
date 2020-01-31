@@ -14,6 +14,7 @@ import {
 
 import {handleInputAttributte} from '../../../redux/filter/filter.actions';
 
+
 const CustomSelect = ({name, reduxState, data, handleInputAttributte}) => {
     return (
         <CustomSelectContainer>

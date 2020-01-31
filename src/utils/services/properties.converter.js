@@ -1,24 +1,6 @@
-import {Property,PropertyList,UserContact, Advertiser, Location, HomeFeature} from '../entities/Property';
+import {Property,PropertyList,UserContact, Advertiser, Location, HomeFeature} from '../models/Property';
 
-import EXAMPLE_PROPERTY_DATA from './property.data';
-
-const HOME_BASE_URL = "http://localhost:8090/api/homes/homes";
-
-export const getPropertyList = ({...property}) => {
-    let propertiesList;  
-
-    return  fetch(HOME_BASE_URL)
-                .then((response) => response.json())
-                .then((myJson) => {
-                    return mapToPropertyList(myJson)
-                })
-                .catch(function(error) {
-                    console.log('Hubo un problema con la petición Fetch:' + error.message);
-                    return EXAMPLE_PROPERTY_DATA;
-                });
-}
-
-const mapToPropertyList = (json) => {
+export const mapJsonToPropertyList = (json) => {
     let homes = json._embedded.homes;
     let properties = homes.map((home)=>
                             mapJsonHomeToProperty(home))
