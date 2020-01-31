@@ -13,14 +13,15 @@ import {
   } from './custom-select.styles';
 
 import {handleInputAttributte} from '../../../redux/filter/filter.actions';
+import {fetchPropertiesStartAsync} from '../../../redux/property/property.actions';
 
-
-const CustomSelect = ({name, reduxState, data, handleInputAttributte}) => {
+const CustomSelect = ({name, reduxState, data, handleInputAttributte, filterState}) => {
+    console.log(filterState)
     return (
         <CustomSelectContainer>
             <AuxiliarRelativeContainer>
                 <Select id={`filter-select-${name}`} 
-                    onChange={(event)=> handleInputAttributte(event.target.value, reduxState)}>
+                    onChange={(event)=> handleInputAttributte(event.target.value, reduxState, filterState)}>
                     {data.map(({title, value}) => {
                             if(true)
                                 //return (<option className={`custom-select-${name}-${title}-option`} selected>
@@ -38,8 +39,10 @@ const CustomSelect = ({name, reduxState, data, handleInputAttributte}) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    handleInputAttributte: (value, name) => (
-        dispatch(handleInputAttributte(value, name)))
+    handleInputAttributte: (value, name, filterState) => {
+        dispatch(handleInputAttributte(value, name))
+        dispatch(fetchPropertiesStartAsync(filterState))
+        }
     }
 );
   

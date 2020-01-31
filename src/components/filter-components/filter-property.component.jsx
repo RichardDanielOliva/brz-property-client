@@ -6,6 +6,8 @@ import { useTranslation } from 'react-i18next';
 import FilterBasicGroup from './filter-basic-group/filter-basic-group.component';
 import FilterCheckboxGroup from './filter-checkbox-group/filter-checkbox-group.component';
 
+import { selectFilterResume} from '../../redux/filter/filter.selectors';
+
 import {
     FilterPropertyContainer,
     GroupContainer
@@ -32,7 +34,7 @@ const getEspecificData = (t) => {
     }
 }
 
-const FilterProperty = () => {
+const FilterProperty = (filterState) => {
     const { t } = useTranslation();
     const commonsOptions = t('propertySearchResult.filter.commons');
     const specificData = getEspecificData(t);
@@ -43,7 +45,7 @@ const FilterProperty = () => {
                 {commonsOptions.map(({...props}) => {
                     return(
                         <GroupContainer>
-                            <FilterBasicGroup {...props}/>
+                            <FilterBasicGroup {...props} filterState={filterState}/>
                         </GroupContainer>
                     )
                     })}
@@ -62,16 +64,7 @@ const FilterProperty = () => {
 }
 
 const mapStateToProps = state => ({
-    homeState: {
-        rooms: "myClubs",
-        bathrooms : "myClubsActualPage",
-        surface: {
-            from: "",
-            to: ""
-        },
-        extras: "",
-        status: ""
-    }
-});
+    filterState: selectFilterResume(state)
+})
 
 export default connect(mapStateToProps)(FilterProperty);

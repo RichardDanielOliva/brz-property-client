@@ -6,7 +6,7 @@ const INITIAL_STATE = {
   propertyMinPrice: null,
   propertyMaxPrice: null,
 
-  homeRooms: null,
+  homeRooms: 0,
   homeBathRooms: null,
   homeAreaFrom: null,
   homeAreaTo: null,
@@ -20,16 +20,16 @@ const FilterReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case FilterActionTypes.SET_SIMPLE_ATTRIBUTTE:
       return {
-        ...state,
+        ...actualState,
         [action.name]: action.payload
       };
     case FilterActionTypes.SET_COMPOUND_ATTRIBUTTE:
         return {
-          ...state,
+          ...actualState,
           [action.name]: action.payload
       };
     default:
-      return state;
+      return actualState;
   }
 };
 
