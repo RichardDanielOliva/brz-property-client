@@ -12,7 +12,7 @@ import {
     FilterOptionContainer
   } from './filter-basic-group.styles';
 
-const FilterBasicGroup = ({title, dataGroup, filterState}) => {
+const FilterBasicGroup = ({title, dataGroup}) => {
     return (
         <FilterGroupContainer>
             <FilterTitle>
@@ -22,7 +22,7 @@ const FilterBasicGroup = ({title, dataGroup, filterState}) => {
                 {dataGroup.map(({...props}) => {
                     return(
                         <FilterOptionContainer>
-                            <CustomSelect {...props} filterState={filterState}/>
+                            <CustomSelect {...props}/>
                         </FilterOptionContainer>
                     )})}
             </FilterOptionsContainer>

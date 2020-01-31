@@ -19,13 +19,15 @@ export const OptionsContainer = styled.div`
 
 export const SearchContainer = styled.div`
   display: flex;
-  height: 55px;
+  height: 65px;
+  width: 65%
+  box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.15);
 `;
 
 export const CustomSearchInputContainer = styled.div`
   display: flex;
   height: 100%;
-  width: 500px;
+  width: 100%;
 `;
 
 export const ButtonsContainer = styled.div`

@@ -8,11 +8,12 @@ import backgroundSearchImageUrl from '../../assets/img/home-search.jpg';
 
 //Components
 import ServiceCardList from '../../components/services-card-list/services-card-list.component';
+import Header from '../../components/header/header.component';
 
 //Styles
 import {
   ServicesPageContainer,
-  ServicesTitleContainer,
+  HeaderContainer,
   ServicesCardListContainer,
   BackgroundSearchImage
 } from './services-page.styles';
@@ -20,10 +21,13 @@ import {
 const ServicesPage = () => {
   return (
     <ServicesPageContainer>
+      <HeaderContainer>
+        <Header/>
+      </HeaderContainer>
       <ServicesCardListContainer>
         <ServiceCardList/>
-        <BackgroundSearchImage src={backgroundSearchImageUrl} alt="item"/>
       </ServicesCardListContainer>
+      <BackgroundSearchImage src={backgroundSearchImageUrl} alt="item"/>
     </ServicesPageContainer>
   );
 };

@@ -1,9 +1,26 @@
 import styled from 'styled-components';
 
 export const HomePageContainer = styled.div`
+  position: relative;
   display: flex;
   width: 100%;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
   margin: auto;
+  flex-direction: column;
+
+  @media (min-width: 770px) {
+    width: calc(100vw - 100px);
+    margin-left: 100px;
+  }
+  background-image: linear-gradient(to bottom, rgba(255, 204, 0,0.5),rgba(255, 204, 0, 0.9), rgba(255, 204, 0,1));
+`;
+
+export const HeaderContainer = styled.div`
+  display: flex;
+  width: 100%;
+  height: 12%;
   flex-direction: column;
 
   @media (min-width: 770px) {
@@ -18,12 +35,10 @@ export const MainSearchContainer = styled.div`
   flex-direction: column;
 
   width: 100%;
-  height: 100vh;
+  height: 80vh;
   overflow: hidden;
   justify-content: center;
   align-items: center;
-
-  background-image: linear-gradient(to bottom, rgba(255, 204, 0,0.2),rgba(255, 204, 0, 0.7), rgba(255, 204, 0,1));
 `;
 
 export const MainSearchTitleContainer = styled.h1`
@@ -39,8 +54,8 @@ export const MainSearchTitleContainer = styled.h1`
 
 export const SearchContainer = styled.div`
   display: flex;
-  width: 50%;
-  height: 35%;
+  width: 65%;
+  height: 50%;
   z-index: 1;
 `;
 

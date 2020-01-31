@@ -9,7 +9,7 @@ export const SelectPropertyContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  width: 120px;
+  width: 200px;
   height: 100%;
   justify-content: space-around;
   align-items: center;

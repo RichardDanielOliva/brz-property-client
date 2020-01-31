@@ -7,8 +7,9 @@ import ServicesCard from '../services-card/services-card.component';
 import { 
     ServiceCardListContainer,
     CardHeader,
+    Title,
     CardBody,
-     ServiceCardContainer 
+    ServiceCardContainer 
 } from './services-card-list.style';
 
 const ServiceCardList = () => {
@@ -18,8 +19,7 @@ const ServiceCardList = () => {
     return (
         <ServiceCardListContainer>
             <CardHeader>
-                <h1>Services</h1>
-                <h2>How can we help you?</h2>
+                <Title>How can we help you?</Title>
             </CardHeader>
             <CardBody>
                 {servicesInfo

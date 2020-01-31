@@ -13,7 +13,7 @@ export const ServiceCardContainer = styled.div`
   align-items: center;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 4px 0 rgba(102,102,100,0.24);
+  box-shadow: 2px 3px 3px 2px rgba(0,0,0,0.30);
 `;
 
 export const BackgroundImage = styled.img`

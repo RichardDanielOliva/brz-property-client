@@ -9,6 +9,7 @@ import FindMapImage from '../../assets/img/services/find-map.jpg';
 import PublishImage from '../../assets/img/services/publish.jpg';
 
 import FeatureItem from '../commons/feature-item/feature-item.component';
+import SlideShow from '../slideshow/slideshow.component'
 
 import { 
     PropertyCardContainer,
@@ -30,7 +31,8 @@ const PropertyCard= ({...property}) => {
     return (
         <PropertyCardContainer>
             <HeaderContainer>
-                <PropertyImage src={PublishImage} alt="item"/>
+                {/**<PropertyImage src={PublishImage} alt="item"/>*/}
+                <SlideShow images={getProvisionalImages()}/>
             </HeaderContainer>
            <BodyContainer>
                 <Type>{property.features.type}</Type>
@@ -55,6 +57,12 @@ const PropertyCard= ({...property}) => {
         </PropertyCardContainer>
      )
 };
+
+const getProvisionalImages = () => {
+    return([
+        "image1", "image2", "image3"
+    ])
+}
 
 const mapStateToProps = state => ({
     optionSelected: state.mainSearch.optionSelected,

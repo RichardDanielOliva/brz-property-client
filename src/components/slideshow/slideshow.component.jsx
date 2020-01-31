@@ -1,28 +1,70 @@
+import React from 'react';
+
+import BuyPropertyImage from '../../assets/img/services/buy-property.jpg';
+import RentPropertyImage from '../../assets/img/services/rent-property.jpg';
+import SharePropertyImage from '../../assets/img/services/share-property.jpg';
+import FindHelpImage from '../../assets/img/services/find-help.jpg';
+import FindMapImage from '../../assets/img/services/find-map.jpg';
+import PublishImage from '../../assets/img/services/publish.jpg';
+
+import {
+  SlideShowContainer,
+  SlideItemContainer,
+  PropertyImage,
+  NumberText,
+  Prev,
+  Next
+} from './slideshow.styles';
+
 class SlideShow extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {date: new Date()};
+      this.state = {actualSlide: 0};
+    }
+
+    displayImage = (imageIndex) =>{
+      let { actualSlide} = this.state;
+      return imageIndex == actualSlide;
+    }
+
+    nextImage = (num, totalImages) => {
+      let {actualSlide} = this.state
+
+      let nextSlide = actualSlide + num;
+
+      if(nextSlide >= 0 && nextSlide < totalImages)
+        this.setState({ actualSlide: nextSlide});
+    }
+
+    getImage = (name) => {
+      switch (name) {
+        case "image1":
+            return BuyPropertyImage;
+        case "image2":
+            return RentPropertyImage;
+        case "image3":
+            return SharePropertyImage;
+        default:
+          break;
+      }
     }
   
     render() {
+      let {images} = this.props;
+      let totalImages = images.length;
       return (
-        <div class="slideshow-container">
+        <SlideShowContainer>
+            {images.map((image, index) => {
+                return (
+                    <SlideItemContainer display={this.displayImage(index)}>
+                      <NumberText>{`${index+1} / ${totalImages}`}</NumberText>
+                      <PropertyImage src={this.getImage(image)}/>
+                    </SlideItemContainer>
+            )})}
 
-            <div class="mySlides fade">
-                <div class="numbertext">1 / 3</div>
-                <img src="img1.jpg" style="width:100%"/>
-                <div class="text">Caption Text</div>
-            </div>
-
-            <div class="mySlides fade">
-                <div class="numbertext">2 / 3</div>
-                <img src="img2.jpg" style="width:100%"/>
-                <div class="text">Caption Two</div>
-            </div>
-
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        </div>
+            <Prev onClick={() => this.nextImage(-1, totalImages)}>&#10094;</Prev>
+            <Next onClick={() => this.nextImage(1, totalImages)}>&#10095;</Next>
+        </SlideShowContainer>
       );
     }
   }

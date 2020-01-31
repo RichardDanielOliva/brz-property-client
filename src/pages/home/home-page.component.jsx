@@ -8,30 +8,34 @@ import backgroundSearchImageUrl from '../../assets/img/home-search.jpg';
 
 //Components
 import HomeSearch from '../../components/home-search/home-search.component';
-import ServiceCardList from '../../components/services-card-list/services-card-list.component';
+import Header from '../../components/header/header.component';
 
 //Styles
 import {
   HomePageContainer,
+  HeaderContainer,
   MainSearchContainer,
   MainSearchTitleContainer,
   SearchContainer,
-  BackgroundSearchImage,
-  ServicesContainer
+  BackgroundSearchImage
 } from './home-page.styles';
 
 const HomePage = () => {
   return (
     <HomePageContainer>
+      <HeaderContainer>
+            <Header/>
+      </HeaderContainer>
       <MainSearchContainer>
         <MainSearchTitleContainer>
-          <i className="fas fa-map-marked-alt fa-3x"/>
-          Encuentra dónde vas a vivir</MainSearchTitleContainer>
+          {/**<i className="fas fa-map-marked-alt fa-3x"/>*/}
+          Encuentra dónde vas a vivir
+        </MainSearchTitleContainer>
         <SearchContainer>
           <HomeSearch/>
         </SearchContainer>
-        <BackgroundSearchImage src={backgroundSearchImageUrl} alt="item"/>
       </MainSearchContainer>
+      <BackgroundSearchImage src={backgroundSearchImageUrl} alt="item"/>
     </HomePageContainer>
   );
 };
