@@ -39,7 +39,8 @@ const EXAMPLE_PROPERTY_DATA = {
         },
         "images": [
             ""
-        ]
+        ],
+        "geometry":{ type: "Point", coordinates: [  42.823610, -8.543413 ] }
     },
     { 
         "id" : "5e331bc52abc361ef85a5256", 
@@ -74,7 +75,8 @@ const EXAMPLE_PROPERTY_DATA = {
         },
         "images": [
             ""
-        ]
+        ],
+        "geometry":{ type: "Point", coordinates: [  42.8542, -8.843413 ] }
     },
     { 
         "id" : "5e331bc52abc361ef85a5256", 
@@ -109,7 +111,8 @@ const EXAMPLE_PROPERTY_DATA = {
         },
         "images": [
             ""
-        ]
+        ],
+        "geometry":{ type: "Point", coordinates: [  45.823610, -8.843413 ] }
     },
     { 
         "id" : "5e331bc52abc361ef85a5256", 
@@ -144,7 +147,8 @@ const EXAMPLE_PROPERTY_DATA = {
         },
         "images": [
             ""
-        ]
+        ],
+        "geometry":{ type: "Point", coordinates: [  42.866610, -8.558413 ] }
     },
     { 
         "id" : "5e331bc52abc361ef85a5256", 
@@ -179,7 +183,8 @@ const EXAMPLE_PROPERTY_DATA = {
         },
         "images": [
             ""
-        ]
+        ],
+        "geometry":{ type: "Point", coordinates: [  42.323610, -8.243413 ] }
     },
     { 
         "id" : "5e331bc52abc361ef85a5256", 
@@ -214,7 +219,8 @@ const EXAMPLE_PROPERTY_DATA = {
         },
         "images": [
             ""
-        ]
+        ],
+        "geometry":{ type: "Point", coordinates: [  42.123610, -8.223413 ] }
     },
     ]
 }

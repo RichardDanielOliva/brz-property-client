@@ -28,7 +28,7 @@ const App = () => {
         {hideHeader()}
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/search" component={PropertySearchPage} />
+          <Route path="/search" component={PropertySearchPage} />
           <Route exact path="/services" component={ServicesPage} />
         </Switch>
       </Suspense>

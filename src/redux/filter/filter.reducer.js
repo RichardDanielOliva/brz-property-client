@@ -12,8 +12,10 @@ const INITIAL_STATE = {
   areaTo: null,
   homeExtras: null, 
   homeType: null,
-  propertyStatus: null
+  propertyStatus: null,
 
+  latitude: 42.823610,
+  logitude:-8.543413
 };
 
 const FilterReducer = (state = INITIAL_STATE, action) => {

@@ -25,6 +25,5 @@ const mapStateToProps = state => ({
     properties: state.properties.data
 });
 
-  
 export default connect(mapStateToProps)(PropertyCardList);
 

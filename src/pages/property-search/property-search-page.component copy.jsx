@@ -4,7 +4,6 @@ import useReactRouter from 'use-react-router';
 
 import FilterProperty from '../../components/filter-components/filter-property.component';
 import PropertySearchResult from '../../components/property-search-result/property-search-result.component';
-import PropertiesMap from '../../components/properties-map/properties-map.component';
 
 import { selectFilterResume} from '../../redux/filter/filter.selectors';
 import {fetchPropertiesStartAsync} from '../../redux/property/property.actions';
@@ -17,15 +16,20 @@ import {
   } from './property-search-page.styles';
 
 const PropertySearchResultWithSpinner = WithSpinner(PropertySearchResult);
-const PropertyMapWithSpinner = WithSpinner(PropertiesMap);
 
-const PropertySearchPage = ({ isLoading, properties, fetchPropertiesStartAsync, filterState, ...props }) => {
+class PropertySearchPage extends React.Component { 
+    componentDidMount(){
+        const { fetchPropertiesStartAsync, filterState} = this.props;
+        fetchPropertiesStartAsync(filterState);
+    }
+
+    render() {
+        let { isLoading, properties,fetchPropertiesStartAsync, filterState, ...props } = this.props;
+
         if(!properties){
             fetchPropertiesStartAsync(filterState);
             isLoading = true;
         }
-        const { location } = useReactRouter();
-        console.log(location)
     
         return (
             <PropertySearchPageContainer>
@@ -33,16 +37,13 @@ const PropertySearchPage = ({ isLoading, properties, fetchPropertiesStartAsync, 
                     <FilterProperty/>
                 </PropertySearchFilterContainer>
                 <PropertySearchResultContainer>
-                    {(location.pathname!="/search/map") ?
-                        <PropertySearchResultWithSpinner isLoading={isLoading} {...props}/>
-                        : <PropertyMapWithSpinner isLoading={isLoading} {...props}/>
-                    }
+                    <PropertySearchResultWithSpinner isLoading={isLoading} {...props}/>
                 </PropertySearchResultContainer>
             </PropertySearchPageContainer>
         )
     }
 
-
+}
 
 const mapStateToProps = state => ({
     isLoading: state.properties.isFetching,
