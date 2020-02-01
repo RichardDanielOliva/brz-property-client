@@ -36,15 +36,16 @@ const mapCurrentStateToFilterObject= filter => ({
       max: filter.propertyMaxPrice,
   },
   area:{
-      from: filter.homeAreaFrom,
-      to: filter.homeAreaTo
+      from: filter.areaFrom,
+      to: filter.areaTo
   },
-  home: {
+  features: {
       rooms: filter.homeRooms,
       baths: filter.homeBathRooms,
       extras: filter.homeExtras,
+      types: filter.homeType
   },
-  status: filter.homeStatus,
+  status: filter.propertyStatus,
 }
 )
 

@@ -1,17 +1,18 @@
 import FilterActionTypes from "./filter.types";
 
 const INITIAL_STATE = {
-  propertyType: "Home",
-  propertyOperation: "Buy",
+  propertyType: "HOME",
+  propertyOperation: "BUY",
   propertyMinPrice: null,
   propertyMaxPrice: null,
 
-  homeRooms: 0,
+  homeRooms: null,
   homeBathRooms: null,
-  homeAreaFrom: null,
-  homeAreaTo: null,
-  homeExtras: [],
-  homeStatus: []
+  areaFrom: null,
+  areaTo: null,
+  homeExtras: null, 
+  homeType: null,
+  propertyStatus: null
 
 };
 

@@ -2,11 +2,11 @@ import {Property,PropertyList,UserContact, Advertiser, Location, HomeFeature, Of
 
 export const mapJsonToPropertyList = (json, filter) => {
     switch (filter.type) {
-        case "home":
+        case "HOME":
             return mapJsonToHomesList(json);
-        case "premise":
+        case "PREMISE":
             return mapJsonToPremisesList(json);
-        case "office":
+        case "OFFICE":
             return mapJsonToOfficesList(json);
         default:
             break;
@@ -19,7 +19,7 @@ const mapJsonToHomesList = (json) => {
     let homes = json._embedded.homes;
     let properties = homes.map((home)=>
                             mapJsonHomeToProperty(home))
-    let page = json.page;
+    let page = json.page ? json.page : null;
     return new PropertyList(properties, page)
 }
 

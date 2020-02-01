@@ -34,9 +34,9 @@ const SelectProperty = ({propertySelected, showPropertiesOptions, displayPropert
                 </PropertySelectDropDownMenu>*/}
             </PropertySelect>
             <PropertyOptions isSelected={showPropertiesOptions}>
-            {propertyOptions.map((name) => {
+            {propertyOptions.map(({name, value, reduxState}) => {
                     return (<PropertyOption 
-                                onClick={()=> handleInputAttributte(name, "propertyType")}>
+                                onClick={()=> handleInputAttributte(value, reduxState)}>
                                     <PropertyOptionText>{name}</PropertyOptionText>
                             </PropertyOption>)
                 })}
