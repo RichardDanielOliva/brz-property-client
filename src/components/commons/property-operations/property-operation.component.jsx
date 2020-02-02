@@ -25,7 +25,7 @@ const PropertyOperation = ({optionSelected, handleInputAttributte}) => {
                 {operations.map(({name, value, reduxState, iconClass}) => {
                     return (<CustomButton 
                                 isSelected={isSelected(optionSelected, value)}
-                                onClick={()=> handleInputAttributte(value, reduxState)}>
+                                onClick={() => handleInputAttributte(value, reduxState)}>
                                     <Icon className={iconClass}/>
                                     <ButtonText>{name}</ButtonText>
                             </CustomButton>)

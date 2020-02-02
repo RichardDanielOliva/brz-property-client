@@ -70,6 +70,7 @@ const mapJsonOfficeToProperty = (offices) => {
             offices.location.streetId ? offices.location.streetId:null
         ),
         offices.images ? offices.images : null,
+        offices.geometry ? offices.geometry : null,
         offices.id ? offices.id : null
     )
 }
@@ -107,6 +108,7 @@ const mapJsonHomeToProperty = (home) => {
             home.location.streetId ? home.location.streetId:null
         ),
         home.images ? home.images : null,
+        home.geometry ? home.geometry : null,
         home.id ? home.id : null
     )
 }

@@ -1,9 +1,10 @@
 export class Property{
-    constructor (features, advertiser, location, images, id){
+    constructor (features, advertiser, location, images, geometry, id){
         this.features = features;
         this.location = location;
         this.advertiser = advertiser;
         this.images = images;
+        this.geometry = geometry;
         this._id = id;
     }
 }

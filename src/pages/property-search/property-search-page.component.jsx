@@ -25,7 +25,6 @@ const PropertySearchPage = ({ isLoading, properties, fetchPropertiesStartAsync, 
             isLoading = true;
         }
         const { location } = useReactRouter();
-        console.log(location)
     
         return (
             <PropertySearchPageContainer>
@@ -33,10 +32,7 @@ const PropertySearchPage = ({ isLoading, properties, fetchPropertiesStartAsync, 
                     <FilterProperty/>
                 </PropertySearchFilterContainer>
                 <PropertySearchResultContainer>
-                    {(location.pathname!="/search/map") ?
-                        <PropertySearchResultWithSpinner isLoading={isLoading} {...props}/>
-                        : <PropertyMapWithSpinner isLoading={isLoading} {...props}/>
-                    }
+                    <PropertySearchResultWithSpinner isLoading={isLoading} {...props}/>
                 </PropertySearchResultContainer>
             </PropertySearchPageContainer>
         )
