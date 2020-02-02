@@ -1,10 +1,36 @@
 import store from '../store';
 import FilterActionTypes from "./filter.types";
 import {fetchPropertiesStartAsync} from '../property/property.actions';
-import {selectFilterResume} from './filter.selectors'
 
+import {
+  geocodeByAddress,
+  getLatLng,
+} from 'react-places-autocomplete';
 
-export const handleInputAttributte2 = (value, name) => ({
+export const handleInputAutocompleteSelect = (address) =>{
+  return dispatch => {
+    geocodeByAddress(address)
+      .then(results => getLatLng(results[0]))
+      .then(latLng => {
+                console.log('Success', latLng)
+                dispatch(setLocationCoordinates(latLng));  
+                dispatch(handleInputAutocompleteChange(address))   
+        })
+      .catch(error => console.error('Error', error));
+    }
+}
+
+export const handleInputAutocompleteChange = (address) => ({
+  type: FilterActionTypes.SET_ADDRESS_LOCATION,
+  payload: address
+});
+
+export const setLocationCoordinates = (latLng) => ({
+  type: FilterActionTypes.SET_LOCATION_COORDINATES,
+  payload: latLng
+});
+
+export const setSimpleAttributte = (value, name) => ({
   type: FilterActionTypes.SET_SIMPLE_ATTRIBUTTE,
   payload: value,
   name: name
@@ -17,7 +43,7 @@ export const handleInputAttributte = (value, name) => {
   const filterState = mapCurrentStateToFilterObject(currentState.filter);
 
   return dispatch => {
-    dispatch(handleInputAttributte2(value, name));
+    dispatch(setSimpleAttributte(value, name));
     dispatch(fetchPropertiesStartAsync(filterState));
   }
 };

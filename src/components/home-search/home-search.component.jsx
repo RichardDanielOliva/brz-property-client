@@ -7,7 +7,7 @@ import CustomButton from '../commons/custom-button/custom-button.component';
 import CustomSearchInput from '../commons/search-input/search-input.component';
 import SelectProperty from './select-property/select-property.component';
 import PropertyOperation from '../commons/property-operations/property-operation.component'
-
+import HomeSearchInput from './home-search-input/home-search-input.component'
 
 import {
     HomeSearchContainer,
@@ -47,10 +47,11 @@ const HomeSearch = ({optionSelected, handleInputAttributte}) => {
             <SearchContainer>
                 <SelectProperty/>
                 <CustomSearchInputContainer>
-                    <CustomSearchInput
+                    <HomeSearchInput/>
+                    {/**<CustomSearchInput
                         onChange={() => null}
                         className={false ? 'searching' : ''}
-                        placeholder="Insert a location"/>
+                    placeholder="Insert a location"/>*/}
                 </CustomSearchInputContainer>
             </SearchContainer>
             <ButtonsContainer>

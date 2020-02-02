@@ -2,39 +2,68 @@ import React from 'react';
 
 //Redux
 import { connect } from 'react-redux';
-import { handleSearchInput } from '../../../redux/nav/nav.actions';
+import { handleInputAutocompleteChange, handleInputAutocompleteSelect } from '../../../redux/filter/filter.actions';
 
-import { getLogoComponent } from '../../../utils/LogoFactory';
+import PlacesAutocomplete, {
+  geocodeByAddress,
+  getLatLng,
+} from 'react-places-autocomplete';
 
 import {
   HomeSearchInputContainer,
-  SearchInput,
-  SearchLogoContainer
+  LocationSearchInput
 } from './home-search-input.style';
 
-const HomeSearchInput = ({ children, searchInputText, handleSearchInput }) => {
-  const DefaultInputText = children;
-
+const HomeSearchInput = ({ address, handleInputAutocompleteChange, handleInputAutocompleteSelect}) => {
   return (
-    <HomeSearchInputContainer id="Home-Search-Input">
-      <SearchInput
-        onChange={event => handleSearchInput(event.target.value)}
-        className={searchInputText ? 'searching' : ''}
-        placeholder={DefaultInputText}
-      ></SearchInput>
-      <SearchLogoContainer searchInputText={searchInputText}>
-        {getLogoComponent('search')}
-      </SearchLogoContainer>
-    </HomeSearchInputContainer>
+    <PlacesAutocomplete
+      value={address}
+      onChange={handleInputAutocompleteChange}
+      onSelect={handleInputAutocompleteSelect}
+    >
+      {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+        <HomeSearchInputContainer id="Home-Search-Input">
+          <LocationSearchInput
+            {...getInputProps({
+              placeholder: 'Search Places ...',
+              className: 'location-search-input',
+            })}/>
+
+            <div className="autocomplete-dropdown-container">
+              {loading && <div>Loading...</div>}
+              {suggestions.map(suggestion => {
+                const className = suggestion.active
+                  ? 'suggestion-item--active'
+                  : 'suggestion-item';
+                // inline style for demonstration purpose
+                const style = suggestion.active
+                  ? { backgroundColor: '#fafafa', cursor: 'pointer' }
+                  : { backgroundColor: '#ffffff', cursor: 'pointer' };
+                return (
+                  <div
+                    {...getSuggestionItemProps(suggestion, {
+                      className,
+                      style,
+                    })}
+                  >
+                    <span>{suggestion.description}</span>
+                  </div>
+                );
+              })}
+            </div>
+        </HomeSearchInputContainer>
+      )}
+    </PlacesAutocomplete>
   );
 };
 
 const mapStateToProps = state => ({
-  searchInputText: state.nav.searchInputValue
+  address: state.filter.address
 });
 
 const mapDispatchToProps = dispatch => ({
-  handleSearchInput: inputValue => dispatch(handleSearchInput(inputValue))
+  handleInputAutocompleteChange: address => dispatch(handleInputAutocompleteChange(address)),
+  handleInputAutocompleteSelect: address => dispatch(handleInputAutocompleteSelect(address))
 });
 
 export default connect(

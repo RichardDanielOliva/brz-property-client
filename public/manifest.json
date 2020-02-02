@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "brv-client",
+  "name": "brv-client",
   "icons": [
     {
       "src": "favicon.ico",

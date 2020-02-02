@@ -6,20 +6,23 @@ const svgColor = 'rgb(0, 3, 90)';
 const backgroundSvgColor = 'rgb(0, 3, 150)';
 
 export const HomeSearchInputContainer = styled.div`{
+    position: relative;
     display: flex;
+    flex-direction:column
     height: 100%;
+    width: 100%;
     align-items: center;
   }`;
 
-export const SearchInput = styled.input`
+export const LocationSearchInput = styled.input`
   background: none;
   background-color: ${backgroundInputColor};
   color: ${textColor};
   font-size: 14px;
   border-radius: 2px;
   border: none;
-  width: 85%;
-  height: 65%;
+  height: 100%;
+  width: 100%;
   text-align: center;
 `;
 
