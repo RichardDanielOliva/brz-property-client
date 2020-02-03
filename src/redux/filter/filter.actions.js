@@ -10,11 +10,13 @@ import {
 export const handleInputAutocompleteSelect = (address) =>{
   return dispatch => {
     geocodeByAddress(address)
-      .then(results => getLatLng(results[0]))
+      .then(results => {
+        console.log('Result ', results)
+        return getLatLng(results[0])})
       .then(latLng => {
-                console.log('Success', latLng)
-                dispatch(setLocationCoordinates(latLng));  
-                dispatch(handleInputAutocompleteChange(address))   
+          console.log('Success', latLng)
+          dispatch(setLocationCoordinates(latLng));  
+          dispatch(handleInputAutocompleteChange(address))   
         })
       .catch(error => console.error('Error', error));
     }
@@ -72,6 +74,15 @@ const mapCurrentStateToFilterObject= filter => ({
       types: filter.homeType
   },
   status: filter.propertyStatus,
+  location: {
+    type: "Point",
+    coordinates: {
+      x: filter.logitude,
+      y: filter.latitude
+    },
+    maxDistance: filter.maxDistance,
+    minDistance: filter.minDistance
+  }
 }
 )
 

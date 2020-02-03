@@ -15,10 +15,11 @@ const INITIAL_STATE = {
   propertyStatus: null,
 
   address: null,
-
   latitude: 42.880619,
   logitude:-8.546610,
   zoom: 14,
+  minDistance: 0,
+  maxDistance: 500,
 };
 
 const FilterReducer = (state = INITIAL_STATE, action) => {
