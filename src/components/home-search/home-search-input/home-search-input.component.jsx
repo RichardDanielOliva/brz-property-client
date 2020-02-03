@@ -4,14 +4,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { handleInputAutocompleteChange, handleInputAutocompleteSelect } from '../../../redux/filter/filter.actions';
 
-import PlacesAutocomplete, {
-  geocodeByAddress,
-  getLatLng,
-} from 'react-places-autocomplete';
+import PlacesAutocomplete from 'react-places-autocomplete';
 
 import {
   HomeSearchInputContainer,
-  LocationSearchInput
+  LocationSearchInput,
+  AutocompleteDropdownContainer
 } from './home-search-input.style';
 
 const HomeSearchInput = ({ address, handleInputAutocompleteChange, handleInputAutocompleteSelect}) => {
@@ -29,7 +27,7 @@ const HomeSearchInput = ({ address, handleInputAutocompleteChange, handleInputAu
               className: 'location-search-input',
             })}/>
 
-            <div className="autocomplete-dropdown-container">
+            <AutocompleteDropdownContainer className="autocomplete-dropdown-container">
               {loading && <div>Loading...</div>}
               {suggestions.map(suggestion => {
                 const className = suggestion.active
@@ -50,7 +48,7 @@ const HomeSearchInput = ({ address, handleInputAutocompleteChange, handleInputAu
                   </div>
                 );
               })}
-            </div>
+            </AutocompleteDropdownContainer>
         </HomeSearchInputContainer>
       )}
     </PlacesAutocomplete>
