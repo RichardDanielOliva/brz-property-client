@@ -19,12 +19,11 @@ const INITIAL_STATE = {
   logitude:-8.546610,
   zoom: 14,
   minDistance: 0,
-  maxDistance: 500,
+  maxDistance: 5000,
 };
 
 const FilterReducer = (state = INITIAL_STATE, action) => {
   let actualState = state;
-  console.log(action)
   switch (action.type) {
     case FilterActionTypes.SET_ADDRESS_LOCATION:
       return {
@@ -44,10 +43,33 @@ const FilterReducer = (state = INITIAL_STATE, action) => {
       };
 
     case FilterActionTypes.SET_COMPOUND_ATTRIBUTTE:
-        return {
-          ...actualState,
-          [action.name]: action.payload
-      };
+        if(null === actualState[action.name])
+          return {
+            ...actualState,
+            [action.name]: [action.payload]
+          };
+        
+          if(actualState[action.name].includes(action.payload)){
+            if(actualState[action.name].length > 1)
+              return {
+                ...actualState,
+                [action.name]: actualState[action.name].filter(item => item!==action.payload)
+              };
+            else
+            return {
+              ...actualState,
+              [action.name]: null
+            };
+
+          }
+
+          actualState[action.name].push(action.payload)
+
+          return {
+            ...actualState
+          };
+        
+        
     default:
       return actualState;
   }

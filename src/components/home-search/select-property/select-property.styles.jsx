@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 
-const bottomSelectedColor = '#FFCC00';
 const bottomHoverColor = '#FFCC00';
 const svgFillColor = 'rgb(0, 0, 0)';
 
@@ -18,8 +17,6 @@ export const SelectPropertyContainer = styled.div`
   border-radius: 2px;
 
   background-color: rgba(250,250,250,0.9);
-
-
 `;
 
 export const PropertySelectText = styled.h4`

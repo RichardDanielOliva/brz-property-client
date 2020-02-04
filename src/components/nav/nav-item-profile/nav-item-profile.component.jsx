@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {Link, withRouter} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 import {NavItemProfileContainer, 
     NavProfileLogo,
@@ -27,14 +27,10 @@ const NavItemProfile = ({name, url, logo, actualLocation}) => {
     )
 }
 
-const mapStateToProps = state => ({
-
-})
-
 const mapDispatchToProps = dispatch => ({
     handleDropDownProfile: () => 
         dispatch(handleDropDownProfile())}
   );
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavItemProfile);
+export default connect(null, mapDispatchToProps)(NavItemProfile);

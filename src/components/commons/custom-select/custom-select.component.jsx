@@ -1,33 +1,40 @@
 import React from 'react';
-import {Link, withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
-import { useTranslation } from 'react-i18next';
 
 import {
     CustomSelectContainer,
     AuxiliarRelativeContainer,
     Select,
     Option,
-    OptionText,
     Icon
   } from './custom-select.styles';
 
 import {handleInputAttributte} from '../../../redux/filter/filter.actions';
 
-const CustomSelect = ({name, reduxState, data, handleInputAttributte}) => {
+const isChecked = (filterSimpleState, reduxState, value) => {
+    if(null === filterSimpleState[reduxState])
+        return false
+
+    return filterSimpleState[reduxState] == value;
+}
+
+const getDefaultValue = (filterSimpleState, reduxState) => {
+    if(null === filterSimpleState[reduxState])
+        return 
+
+    return filterSimpleState[reduxState]
+}
+
+const CustomSelect = ({name, reduxState, data, filterSimpleState, handleInputAttributte}) => {
     return (
         <CustomSelectContainer>
             <AuxiliarRelativeContainer>
-                <Select id={`filter-select-${name}`} 
+                <Select value={getDefaultValue(filterSimpleState, reduxState)} id={`filter-select-${name}`} 
                     onChange={(event)=> handleInputAttributte(event.target.value, reduxState)}>
                     {data.map(({title, value}) => {
-                            if(true)
-                                //return (<option className={`custom-select-${name}-${title}-option`} selected>
-                                return (
-                                    <Option className={`custom-select-option`} value={value}>
-                                        {title}
-                                    </Option> 
-                                )
+                        return (<Option key={`filter-select-${reduxState}-${value}`} className={`custom-select-option`} value={value}>
+                            {title}
+                        </Option> )
                         })}
                 </Select>
                 <Icon className="fas fa-angle-down"/>
@@ -36,6 +43,19 @@ const CustomSelect = ({name, reduxState, data, handleInputAttributte}) => {
     )
 }
 
+const mapStateToProps = state => ({
+    filterSimpleState: {
+        propertyType: state.filter.propertyType,
+        propertyOperation: state.filter.propertyOperation,
+        propertyMinPrice: state.filter.propertyMinPrice,
+        propertyMaxPrice: state.filter.propertyMaxPrice,
+        areaTo: state.filter.areaTo,
+        areaFrom: state.filter.areaFrom,
+        homeRooms: state.filter.homeRooms,
+        homeBathRooms: state.filter.homeBathRooms
+    }
+})
+
 const mapDispatchToProps = dispatch => ({
     handleInputAttributte: (value, name) => {
         dispatch(handleInputAttributte(value, name))
@@ -43,4 +63,4 @@ const mapDispatchToProps = dispatch => ({
     }
 );
   
-export default connect(null, mapDispatchToProps)(CustomSelect);
+export default connect(mapStateToProps, mapDispatchToProps)(CustomSelect);

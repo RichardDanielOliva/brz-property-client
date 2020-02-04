@@ -1,6 +1,4 @@
 import React from 'react';
-import {Link, withRouter} from 'react-router-dom';
-import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import CustomSelect from '../../commons/custom-select/custom-select.component';

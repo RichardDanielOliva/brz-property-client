@@ -14,7 +14,7 @@ import {
     BodyContainer,
     TextContainer,
     Title,
-    Description,
+  //  Description,
     Button,
     Icon
 } from './services-card.style';

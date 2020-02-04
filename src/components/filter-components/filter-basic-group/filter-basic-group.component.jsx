@@ -1,7 +1,4 @@
 import React from 'react';
-import {Link, withRouter} from 'react-router-dom';
-import { connect } from 'react-redux';
-import { useTranslation } from 'react-i18next';
 
 import CustomSelect from '../../commons/custom-select/custom-select.component';
 
@@ -19,10 +16,10 @@ const FilterBasicGroup = ({title, dataGroup}) => {
                 {title}
             </FilterTitle>
             <FilterOptionsContainer>
-                {dataGroup.map(({...props}) => {
+                {dataGroup.map(({name, ...props}) => {
                     return(
-                        <FilterOptionContainer>
-                            <CustomSelect {...props}/>
+                        <FilterOptionContainer key={`filter-option-${name}`}>
+                            <CustomSelect name={name} {...props}/>
                         </FilterOptionContainer>
                     )})}
             </FilterOptionsContainer>

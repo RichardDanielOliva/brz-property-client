@@ -1,6 +1,5 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { connect } from 'react-redux';
+//import { useTranslation } from 'react-i18next';
 import LogoRef from '../../assets/logos/provisional_logo.png';
 
 import {
@@ -14,8 +13,8 @@ import {
 } from './header.styles';
 
 const Header = () => {
-  const { t } = useTranslation();
-  const sectionItems = t('nav.sectionItem')
+  //const { t } = useTranslation();
+  //const sectionItems = t('nav.sectionItem')
 
   return (
     <HeaderContainer>
@@ -25,7 +24,7 @@ const Header = () => {
       <LanguageContainer>
         <LanguageList>
           <LanguageItem><LanguageText>[ES]</LanguageText></LanguageItem>
-          <LanguageItem><LanguageText href="?lang=en" title="English" lang="en" hreflang="en" class="linkIdioma">[EN]</LanguageText></LanguageItem>
+          <LanguageItem><LanguageText href="?lang=en" title="English" lang="en" hreflang="en" className="linkIdioma">[EN]</LanguageText></LanguageItem>
         </LanguageList>
         <LanguageText>Language</LanguageText>
       </LanguageContainer>

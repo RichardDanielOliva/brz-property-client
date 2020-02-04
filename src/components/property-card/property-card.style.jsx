@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-const backgroundColor = '#FFF';
+//const backgroundColor = '#FFF';
 
 export const PropertyCardContainer = styled.div`
   display: flex;

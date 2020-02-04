@@ -23,7 +23,7 @@ const PropertyOperation = ({optionSelected, handleInputAttributte}) => {
     return (
         <PropertyOperationContainer>
                 {operations.map(({name, value, reduxState, iconClass}) => {
-                    return (<CustomButton 
+                    return (<CustomButton key={`custom-button-${value}`}
                                 isSelected={isSelected(optionSelected, value)}
                                 onClick={() => handleInputAttributte(value, reduxState)}>
                                     <Icon className={iconClass}/>

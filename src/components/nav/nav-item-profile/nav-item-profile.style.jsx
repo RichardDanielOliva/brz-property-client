@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 
-const hoverColor = '#FFCC00';
 const textColor = 'rgba(250,250,250,0.9)';
 
 const itemSelectedStyles = css`

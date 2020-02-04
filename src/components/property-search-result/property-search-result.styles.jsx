@@ -1,4 +1,5 @@
-import styled, { css } from 'styled-components';
+// import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const PropertySearchResultContainer = styled.div`
   display: flex;
@@ -7,7 +8,7 @@ export const PropertySearchResultContainer = styled.div`
   width: 100%;
 `;
 
-export const PSR_HeaderContainer = styled.div`
+export const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -18,7 +19,7 @@ export const PSR_HeaderContainer = styled.div`
   border-bottom: 2px solid rgba(255,204,0,1);
 `;
 
-export const PSR_BodyContainer = styled.div`
+export const BodyContainer = styled.div`
   display: flex;
   min-width: 100%;
   min-height: 92vh;

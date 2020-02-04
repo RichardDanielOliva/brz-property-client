@@ -7,12 +7,15 @@ import { handleInputAutocompleteChange, handleInputAutocompleteSelect } from '..
 import PlacesAutocomplete from 'react-places-autocomplete';
 
 import {
-  HomeSearchInputContainer,
-  LocationSearchInput,
-  AutocompleteDropdownContainer
-} from './home-search-input.style';
+  LocationSearchInputContainer,
+  SearchInput,
+  AutocompleteDropdownContainer,
+  SugestionContainer,
+  SugestionDescriptionContainer,
+  //Icon
+} from './location-search-input.style';
 
-const HomeSearchInput = ({ address, handleInputAutocompleteChange, handleInputAutocompleteSelect}) => {
+const LocationSearchInput = ({ address, handleInputAutocompleteChange, handleInputAutocompleteSelect}) => {
   return (
     <PlacesAutocomplete
       value={address}
@@ -20,8 +23,8 @@ const HomeSearchInput = ({ address, handleInputAutocompleteChange, handleInputAu
       onSelect={handleInputAutocompleteSelect}
     >
       {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-        <HomeSearchInputContainer id="Home-Search-Input">
-          <LocationSearchInput
+        <LocationSearchInputContainer id="Home-Search-Input">
+          <SearchInput
             {...getInputProps({
               placeholder: 'Search Places ...',
               className: 'location-search-input',
@@ -35,21 +38,22 @@ const HomeSearchInput = ({ address, handleInputAutocompleteChange, handleInputAu
                   : 'suggestion-item';
                 // inline style for demonstration purpose
                 const style = suggestion.active
-                  ? { backgroundColor: '#fafafa', cursor: 'pointer' }
-                  : { backgroundColor: '#ffffff', cursor: 'pointer' };
+                  ? { cursor: 'pointer' }
+                  : { cursor: 'pointer' };
                 return (
-                  <div
+                  <SugestionContainer
                     {...getSuggestionItemProps(suggestion, {
                       className,
                       style,
                     })}
                   >
-                    <span>{suggestion.description}</span>
-                  </div>
+                    <i className="fas fa-map-marker-alt"/>
+                    <SugestionDescriptionContainer>{suggestion.description}</SugestionDescriptionContainer>
+                  </SugestionContainer>
                 );
               })}
             </AutocompleteDropdownContainer>
-        </HomeSearchInputContainer>
+        </LocationSearchInputContainer>
       )}
     </PlacesAutocomplete>
   );
@@ -67,4 +71,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(HomeSearchInput);
+)(LocationSearchInput);

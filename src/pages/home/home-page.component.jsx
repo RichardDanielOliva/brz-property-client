@@ -1,8 +1,4 @@
 import React from 'react';
-//Redux
-import { connect } from 'react-redux';
-//Hook mediaQuery
-import { useMediaQuery } from '../../effects/useMediaQuery.effect';
 
 import backgroundSearchImageUrl from '../../assets/img/home-search.jpg';
 
@@ -40,10 +36,4 @@ const HomePage = () => {
   );
 };
 
-const mapStateToProps = state => ({
-});
-
-export default connect(
-  mapStateToProps,
-  null
-)(HomePage);
+export default HomePage;

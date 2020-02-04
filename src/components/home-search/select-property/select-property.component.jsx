@@ -2,13 +2,10 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 
-import {getLogoComponent} from '../../../utils/LogoFactory';
-
 import {
     SelectPropertyContainer,
     PropertySelect,
     PropertySelectText,
-    PropertySelectDropDownMenu,
     PropertyOptions,
     PropertyOption,
     PropertyOptionText,
@@ -21,7 +18,6 @@ import {handleInputAttributte} from '../../../redux/filter/filter.actions';
 const SelectProperty = ({propertySelected, showPropertiesOptions, displayPropertiesOptions, handleInputAttributte}) => {
     const { t } = useTranslation();
     const propertyOptions = t('homePage.propertyOptions');
-    const dropLogo = "drop-down";
 
     return(
         <SelectPropertyContainer>
@@ -29,13 +25,11 @@ const SelectProperty = ({propertySelected, showPropertiesOptions, displayPropert
                 onClick={()=>displayPropertiesOptions()}>
                     <PropertySelectText>{propertySelected}</PropertySelectText>
                     <Icon className="fas fa-angle-down fa-lg"/>
-                {/**<PropertySelectDropDownMenu>
-                    {getLogoComponent(dropLogo)}
-                </PropertySelectDropDownMenu>*/}
             </PropertySelect>
             <PropertyOptions isSelected={showPropertiesOptions}>
             {propertyOptions.map(({name, value, reduxState}) => {
                     return (<PropertyOption 
+                                key={`select-property-${reduxState}-${value}`}
                                 onClick={()=> handleInputAttributte(value, reduxState)}>
                                     <PropertyOptionText>{name}</PropertyOptionText>
                             </PropertyOption>)

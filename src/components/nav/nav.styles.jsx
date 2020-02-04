@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
-const backgroundColor = '#FFCC00';
-const bottomBorderColor = '#FFCC00';
+//const backgroundColor = '#FFCC00';
 
 export const NavContainer = styled.nav`
   display: flex;

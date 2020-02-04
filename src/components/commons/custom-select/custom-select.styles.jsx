@@ -1,7 +1,6 @@
-/*the container must be positioned relative:*/
 import styled from 'styled-components';
 
-const backGroundColor = 'rgba(255, 204, 0, 0.9)';
+/*const backGroundColor = 'rgba(255, 204, 0, 0.9)';*/
 
 export const CustomSelectContainer = styled.div`
   display:flex;
@@ -57,15 +56,13 @@ export const Option = styled.option`
   box-shadow: 0 0 10px 100px #d3aa04 inset;
 
   height: 30px;
-
-  
 `;
   
 export const OptionText = styled.p`
-position: absolute;
-right: 2%;
-font-size:1.5em;
-z-index: 2;
+  position: absolute;
+  right: 2%;
+  font-size:1.5em;
+  z-index: 2;
 `;
 
 

@@ -1,6 +1,4 @@
 import React from 'react';
-import {Link, withRouter} from 'react-router-dom';
-import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import FilterBasicGroup from './filter-basic-group/filter-basic-group.component';
@@ -12,12 +10,12 @@ import {
     GroupContainer
   } from './filter-property.styles';
 
-const getAppropriateGroup= ({optionType, ...props}) => {
+const getAppropriateGroup= ({optionType, name, ...props}) => {
     switch (optionType) {
         case "basic-group":
-            return <FilterBasicGroup {...props}/>
+            return <FilterBasicGroup name={name} {...props}/>
         case "checkbox-group":
-            return <FilterCheckboxGroup {...props}/>
+            return <FilterCheckboxGroup name={name} {...props}/>
         default:
             break;
     }
@@ -41,19 +39,19 @@ const FilterProperty = () => {
     return (
         <FilterPropertyContainer>
                 <div>
-                {commonsOptions.map(({...props}) => {
+                {commonsOptions.map(({name, ...props}) => {
                     return(
-                        <GroupContainer>
-                            <FilterBasicGroup {...props} />
+                        <GroupContainer key={`filter-property-${name}`}>
+                            <FilterBasicGroup name={name} {...props} />
                         </GroupContainer>
                     )
                     })}
                 </div>
                 <div>
-                {specificData.map(({...args}) => {
+                {specificData.map(({name, ...args}) => {
                     return(
-                        <GroupContainer>
-                            {getAppropriateGroup(args)}
+                        <GroupContainer key={`filter-property-${name}`}>
+                            {getAppropriateGroup(args, name)}
                         </GroupContainer>
                     )
                 })}

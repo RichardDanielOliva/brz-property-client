@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const backGroundColor = 'rgba(255, 204, 0,0.9)';
+//const backGroundColor = 'rgba(255, 204, 0,0.9)';
 
 export const FilterCheckboxContainer = styled.div`
   display: flex;  

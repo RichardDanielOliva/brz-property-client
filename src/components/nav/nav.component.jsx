@@ -19,9 +19,9 @@ const Nav = ({...props}) => {
   return (
     <NavContainer>
       <NavItemsContainer>
-        {sectionItems.map(({...props}) => {
+        {sectionItems.map(({id, ...props}) => {
           return (
-            <NavItemContainer>
+            <NavItemContainer key={`nav-item-${id}`}>
               <NavItemProfile 
                 actualLocation={location.pathname}
                 {...props} />

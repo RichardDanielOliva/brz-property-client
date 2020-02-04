@@ -15,10 +15,6 @@ const buttonSelectedStyles = css`
   background-color: ${bottomSelectedColor};
 `;
 
-const buttonSearchResultStyles = css`
-  background-color: ${bottomSelectedColor};
-`;
-
 const getButtonStyles = props => {
   if (props.isSelected) 
     return buttonSelectedStyles;

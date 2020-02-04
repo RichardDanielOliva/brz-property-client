@@ -2,21 +2,25 @@
   "nav": {
     "sectionItem": [
       {
+        "id":"nav-item-index",
         "name": "Index",
         "url": "/",
         "logo": "fas fa-home fa-fw"
       },
       {
+        "id":"nav-item-services",
         "name": "Services",
         "url": "/services",
         "logo": "fas fa-window-restore fa-fw"
       },
       {
+        "id":"nav-item-user",
         "name": "User",
         "url": "/user",
         "logo": "fas fa-user-friends fa-2x"
       },
       {
+        "id":"nav-item-enterprise",
         "name": "Enterprise",
         "url": "/enterprise",
         "logo": "fas fa-briefcase fa-2x"

@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import useReactRouter from 'use-react-router';
+//import useReactRouter from 'use-react-router';
 import { Switch, Route } from 'react-router-dom';
 
 // Redux
@@ -17,7 +17,7 @@ import Nav from './components/nav/nav.component';
 import './App.css';
 
 const App = () => {
-  const { location } = useReactRouter();
+  //const { location } = useReactRouter();
   const hideHeader = () => {
     return <Nav />;
   };

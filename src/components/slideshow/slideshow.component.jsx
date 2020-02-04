@@ -3,9 +3,6 @@ import React from 'react';
 import BuyPropertyImage from '../../assets/img/services/buy-property.jpg';
 import RentPropertyImage from '../../assets/img/services/rent-property.jpg';
 import SharePropertyImage from '../../assets/img/services/share-property.jpg';
-import FindHelpImage from '../../assets/img/services/find-help.jpg';
-import FindMapImage from '../../assets/img/services/find-map.jpg';
-import PublishImage from '../../assets/img/services/publish.jpg';
 
 import {
   SlideShowContainer,
@@ -24,7 +21,7 @@ class SlideShow extends React.Component {
 
     displayImage = (imageIndex) =>{
       let { actualSlide} = this.state;
-      return imageIndex == actualSlide;
+      return imageIndex === actualSlide;
     }
 
     nextImage = (num, totalImages) => {
@@ -56,9 +53,11 @@ class SlideShow extends React.Component {
         <SlideShowContainer>
             {images.map((image, index) => {
                 return (
-                    <SlideItemContainer display={this.displayImage(index)}>
-                      <NumberText>{`${index+1} / ${totalImages}`}</NumberText>
-                      <PropertyImage src={this.getImage(image)}/>
+                    <SlideItemContainer 
+                      key={`slide-item-container-${image}`} 
+                      display={this.displayImage(index).toString()}>
+                          <NumberText>{`${index+1} / ${totalImages}`}</NumberText>
+                          <PropertyImage src={this.getImage(image)}/>
                     </SlideItemContainer>
             )})}
 

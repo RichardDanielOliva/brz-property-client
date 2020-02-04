@@ -9,7 +9,7 @@ const noDisplayStyles = css`
 `;
 
 const displayImages = props => {
-  if (props.display) 
+  if (props.display === "true") 
     return displayStyles;
   else 
     return noDisplayStyles;

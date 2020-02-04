@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const BorderColor = '#FFCC00';
+//const BorderColor = '#FFCC00';
 
 export const PropertyOperationContainer = styled.div`
   display: flex;

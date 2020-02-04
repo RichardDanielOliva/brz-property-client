@@ -1,26 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import BuyPropertyImage from '../../assets/img/services/buy-property.jpg';
-import RentPropertyImage from '../../assets/img/services/rent-property.jpg';
-import SharePropertyImage from '../../assets/img/services/share-property.jpg';
-import FindHelpImage from '../../assets/img/services/find-help.jpg';
-import FindMapImage from '../../assets/img/services/find-map.jpg';
-import PublishImage from '../../assets/img/services/publish.jpg';
-
 import FeatureItem from '../commons/feature-item/feature-item.component';
 import SlideShow from '../slideshow/slideshow.component'
 
 import { 
     PropertyCardContainer,
     HeaderContainer,
-    PropertyImage,
     BodyContainer,
     FooterContainer,
     FeaturesContainer,
     Type,
     Direction,
-    TextColor,
     Price,
     Button,
     Icon

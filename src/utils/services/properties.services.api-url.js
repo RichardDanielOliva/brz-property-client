@@ -1,7 +1,7 @@
 const HOME_BASE_URL = "http://localhost:8090/api/homes/homes";
-const HOME_BUY_URL = "http://localhost:8090/api/homes/homes";
-const HOME_RENT_URL = "http://localhost:8090/api/homes/homes";
-const HOME_SHARE_URL = "http://localhost:8090/api/homes/homes";
+//const HOME_BUY_URL = "http://localhost:8090/api/homes/homes";
+//const HOME_RENT_URL = "http://localhost:8090/api/homes/homes";
+//const HOME_SHARE_URL = "http://localhost:8090/api/homes/homes";
 const HOME_FILTER_URL = "http://localhost:8090/api/homes/findByFilter";
 const PREMISE_BASE_URL = "http://localhost:8090/api/premises/premises";
 const OFFICE_BASE_URL = "http://localhost:8090/api/offices/offices";
@@ -30,7 +30,7 @@ const getHomeUrl = (filter) => {
     return HOME_BASE_URL;
 }
 
-const isFilterResquest = (filter) => {
+/**const isFilterResquest = (filter) => {
     return (filter.price.min || 
         filter.price.max ||
         filter.area.from ||
@@ -41,7 +41,7 @@ const isFilterResquest = (filter) => {
         filter.features.types ||
         filter.status
         )
-}
+}*/
 
 export const getPropertyAPIOptions = (filter) => {
     //if(isFilterResquest(filter))

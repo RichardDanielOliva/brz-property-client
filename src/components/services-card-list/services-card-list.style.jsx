@@ -1,4 +1,5 @@
-import styled, { css } from 'styled-components';
+// import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const ServiceCardListContainer = styled.div`
   display: flex;

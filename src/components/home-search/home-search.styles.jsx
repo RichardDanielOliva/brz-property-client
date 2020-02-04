@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const BorderColor = '#FFCC00';
+//const BorderColor = '#FFCC00';
 
 export const HomeSearchContainer = styled.div`
   display: flex;
