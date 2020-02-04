@@ -48,10 +48,6 @@ const HomeSearch = ({optionSelected, handleInputAttributte}) => {
                 <SelectProperty/>
                 <CustomSearchInputContainer>
                     <HomeSearchInput/>
-                    {/**<CustomSearchInput
-                        onChange={() => null}
-                        className={false ? 'searching' : ''}
-                    placeholder="Insert a location"/>*/}
                 </CustomSearchInputContainer>
             </SearchContainer>
             <ButtonsContainer>

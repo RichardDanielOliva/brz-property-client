@@ -77,8 +77,8 @@ const mapCurrentStateToFilterObject= filter => ({
   location: {
     type: "Point",
     coordinates: {
-      x: filter.logitude,
-      y: filter.latitude
+      y: filter.logitude,
+      x: filter.latitude
     },
     maxDistance: filter.maxDistance,
     minDistance: filter.minDistance
