@@ -101,19 +101,19 @@
             ]  
         }]
       }],
-      "home": [{
+      "price":{
         "name":"price",
         "title": "Price",
         "optionType":"basic-group",
         "style":"property-filter",
-        "dataGroup": [{
+        "buyData": [{
             "name": "min-prices",
             "reduxState":"propertyMinPrice",
             "data": [
               {"title":"Min", "value":""},
-              {"title":"100", "value":100},
-              {"title":"500", "value":500},
-              {"title":"1000", "value":1000}
+              {"title":"10.000", "value":10000},
+              {"title":"15.000", "value":15000},
+              {"title":"20.000", "value":20000}
               ]
             },
             {
@@ -122,12 +122,55 @@
             "selectedOption":"precio hasta",
             "data": [
               {"title":"Max", "value":""},
-              {"title":"500", "value":500},
-              {"title":"1000", "value":1000},
-              {"title":"200000", "value":200000}
+              {"title":"10.000", "value":10000},
+              {"title":"15.000", "value":15000},
+              {"title":"20.000", "value":20000}
             ]
-            }]
-        },
+            }],
+          "rentData": [{
+              "name": "min-prices",
+              "reduxState":"propertyMinPrice",
+              "data": [
+                {"title":"Min", "value":""},
+                {"title":"300", "value":300},
+                {"title":"600", "value":600},
+                {"title":"900", "value":900}
+                ]
+              },
+              {
+              "name": "max-price",
+              "reduxState":"propertyMaxPrice",
+              "selectedOption":"precio hasta",
+              "data": [
+                {"title":"Max", "value":""},
+                {"title":"300", "value":300},
+                {"title":"600", "value":600},
+                {"title":"900", "value":900}
+              ]
+              }],
+            "shareData": [{
+                "name": "min-prices",
+                "reduxState":"propertyMinPrice",
+                "data": [
+                  {"title":"Min", "value":""},
+                  {"title":"100", "value":100},
+                  {"title":"150", "value":150},
+                  {"title":"200", "value":200}
+                  ]
+                },
+                {
+                "name": "max-price",
+                "reduxState":"propertyMaxPrice",
+                "selectedOption":"precio hasta",
+                "data": [
+                  {"title":"Max", "value":""},
+                  {"title":"100", "value":100},
+                  {"title":"150", "value":150},
+                  {"title":"200", "value":200}
+                ]
+          }]
+      },
+      "home": [
         {
           "name":"features",
           "title": "Features",

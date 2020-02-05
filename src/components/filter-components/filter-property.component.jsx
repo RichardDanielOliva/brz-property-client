@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import FilterBasicGroup from './filter-basic-group/filter-basic-group.component';
@@ -21,19 +22,32 @@ const getAppropriateGroup= ({optionType, name, ...props}) => {
     }
 }
 
-const getEspecificData = (t) => {
-    let key = "provisional"
-    switch (key) {
-        case "provisional":
+const getPriceData = (priceOptions, operationType = "BUY") => {
+    switch (operationType) {
+        case "BUY":
+            return priceOptions.buyData;
+        case "RENT":
+                return priceOptions.rentData;
+        case "SHARE":
+            return priceOptions.shareData;
+        default:
+            break;
+    }
+}
+
+const getEspecificData = (t, propertyType="HOME") => {
+    switch (propertyType) {
+        case "HOME":
             return t('propertySearchResult.filter.home');
         default:
             break;
     }
 }
 
-const FilterProperty = () => {
+const FilterProperty = ({propertyType, propertyOperation}) => {
     const { t } = useTranslation();
     const commonsOptions = t('propertySearchResult.filter.commons');
+    const priceOptions = t('propertySearchResult.filter.price');
     const specificData = getEspecificData(t);
 
     return (
@@ -47,6 +61,11 @@ const FilterProperty = () => {
                     )
                     })}
                 </div>
+                    <GroupContainer key={`filter-property-price`}>
+                        <FilterBasicGroup 
+                            title={priceOptions.title} 
+                            dataGroup={getPriceData(priceOptions, propertyOperation)} />
+                    </GroupContainer>
                 <div>
                 {specificData.map(({name, ...args}) => {
                     return(
@@ -60,4 +79,9 @@ const FilterProperty = () => {
     )
 }
 
-export default FilterProperty;
+const mapStateToProps = state => ({
+    propertyType: state.filter.propertyType,
+    propertyOperation: state.filter.propertyOperation
+})
+
+export default connect(mapStateToProps)(FilterProperty);
