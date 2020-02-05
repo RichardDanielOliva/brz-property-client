@@ -5,14 +5,20 @@ const INITIAL_STATE = {
   propertyOperation: "BUY",
   propertyMinPrice: null,
   propertyMaxPrice: null,
+  areaFrom: null,
+  areaTo: null,
 
   homeRooms: null,
   homeBathRooms: null,
-  areaFrom: null,
-  areaTo: null,
+
   homeExtras: null, 
   homeType: null,
   propertyStatus: null,
+
+  officeExtras: null,
+
+  premiseType: null,
+  premiseExtras: null,
 
   address: null,
   latitude: 42.880619,

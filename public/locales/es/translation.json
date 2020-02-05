@@ -214,7 +214,14 @@
                   "actualValue":"precio desde",
                   "data": [
                     {"title":"from", "value":""},
-                    {"title":"60 m2", "value":"60"}
+                    {"title":"50 m2", "value":"50"},
+                    {"title":"100 m2", "value":"100"},
+                    {"title":"150 m2", "value":"150"},
+                    {"title":"200 m2", "value":"200"},
+                    {"title":"250 m2", "value":"250"},
+                    {"title":"300 m2", "value":"300"},
+                    {"title":"350 m2", "value":"350"},
+                    {"title":"400 m2", "value":"400"}
                   ]
               },
               {
@@ -224,7 +231,14 @@
                   "selectedOption":"precio hasta",
                   "data": [
                     {"title":"to", "value":""},
-                    {"title":"60 m2", "value":"60"}
+                    {"title":"50 m2", "value":"50"},
+                    {"title":"100 m2", "value":"100"},
+                    {"title":"150 m2", "value":"150"},
+                    {"title":"200 m2", "value":"200"},
+                    {"title":"250 m2", "value":"250"},
+                    {"title":"300 m2", "value":"300"},
+                    {"title":"350 m2", "value":"350"},
+                    {"title":"400 m2", "value":"400"}
                   ]
               }]
           },
@@ -275,8 +289,131 @@
                 {"title":"Reburbished", "value":"REFUBISHED"}
               ]
           }
-      ]
-    },
+      ],
+
+    "office":[
+      {
+        "name":"Surface",
+        "title": "Surface",
+        "optionType":"basic-group",
+        "style":"property-filter",
+        "dataGroup": [{
+            "defaultValue": "floor area from",
+            "reduxState":"areaFrom",
+            "name": "surface-area-from",
+            "actualValue":"precio desde",
+            "data": [
+              {"title":"from", "value":""},
+              {"title":"50 m2", "value":"50"},
+              {"title":"100 m2", "value":"100"},
+              {"title":"150 m2", "value":"150"},
+              {"title":"200 m2", "value":"200"},
+              {"title":"250 m2", "value":"250"},
+              {"title":"300 m2", "value":"300"},
+              {"title":"350 m2", "value":"350"},
+              {"title":"400 m2", "value":"400"}
+            ]
+        },
+        {
+            "defaultValue":"floor area to",
+            "reduxState":"areaTo",
+            "name": "surface-area-to",
+            "selectedOption":"precio hasta",
+            "data": [
+              {"title":"to", "value":""},
+              {"title":"50 m2", "value":"50"},
+              {"title":"100 m2", "value":"100"},
+              {"title":"150 m2", "value":"150"},
+              {"title":"200 m2", "value":"200"},
+              {"title":"250 m2", "value":"250"},
+              {"title":"300 m2", "value":"300"},
+              {"title":"350 m2", "value":"350"},
+              {"title":"400 m2", "value":"400"}
+            ]
+        }]
+      },
+      {
+        "name":"office-extras",
+        "reduxState":"officeExtras",
+        "title": "Extras",
+        "optionType":"checkbox-group",
+        "style":"property-checkbox",
+        "data": [	
+          {"title":"Parking", "value":"PARKING"}, 
+          {"title":"Wifi", "value":"WIFI"},
+          {"title":"Air conditioning", "value":"AIR_CONDITIONING"},
+          {"title":"Heating", "value":"HEATING"}
+        ]
+    }],
+    "premise":[
+      {
+        "name":"Surface",
+        "title": "Surface",
+        "optionType":"basic-group",
+        "style":"property-filter",
+        "dataGroup": [{
+            "defaultValue": "floor area from",
+            "reduxState":"areaFrom",
+            "name": "surface-area-from",
+            "actualValue":"precio desde",
+            "data": [
+              {"title":"from", "value":""},
+              {"title":"50 m2", "value":"50"},
+              {"title":"100 m2", "value":"100"},
+              {"title":"150 m2", "value":"150"},
+              {"title":"200 m2", "value":"200"},
+              {"title":"250 m2", "value":"250"},
+              {"title":"300 m2", "value":"300"},
+              {"title":"350 m2", "value":"350"},
+              {"title":"400 m2", "value":"400"}
+            ]
+        },
+        {
+            "defaultValue":"floor area to",
+            "reduxState":"areaTo",
+            "name": "surface-area-to",
+            "selectedOption":"precio hasta",
+            "data": [
+              {"title":"to", "value":""},
+              {"title":"50 m2", "value":"50"},
+              {"title":"100 m2", "value":"100"},
+              {"title":"150 m2", "value":"150"},
+              {"title":"200 m2", "value":"200"},
+              {"title":"250 m2", "value":"250"},
+              {"title":"300 m2", "value":"300"},
+              {"title":"350 m2", "value":"350"},
+              {"title":"400 m2", "value":"400"}
+            ]
+        }]
+      },
+      {
+        "name":"premise-type",
+        "reduxState":"premiseType",
+        "title": "Type",
+        "optionType":"checkbox-group",
+        "style":"property-checkbox",
+        "data": [
+          {"title":"Commercial store", "value":"COMMERCIAL_STORE"}, 
+          {"title":"Industrial building", "value":"INDUSTRIAL_BUILDING"}
+        ]
+      },
+      {
+        "name":"premise-extras",
+        "reduxState":"premiseExtras",
+        "title": "Extras",
+        "optionType":"checkbox-group",
+        "style":"property-checkbox",
+        "data": [	
+          {"title":"Parking", "value":"PARKING"}, 
+          {"title":"Wifi", "value":"WIFI"},
+          {"title":"Air conditioning", "value":"AIR_CONDITIONING"},
+          {"title":"Smoke vent", "value":"SMOKE_VENT"},
+          {"title":"Heating", "value":"HEATING"}
+        ]
+    }
+    
+    ]
+  },
     "sort":{
       "name":"sort",
       "title": "Sort by",

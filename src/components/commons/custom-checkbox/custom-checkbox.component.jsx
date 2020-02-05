@@ -44,6 +44,9 @@ const mapStateToProps = state => ({
         homeExtras: state.filter.homeExtras,
         homeType: state.filter.homeType,
         propertyStatus: state.filter.propertyStatus,
+        officeExtras: state.filter.officeExtras,
+        premiseType: state.filter.premiseType,
+        premiseExtras: state.filter.premiseExtras,
     }
 })
 

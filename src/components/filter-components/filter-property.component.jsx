@@ -39,6 +39,10 @@ const getEspecificData = (t, propertyType="HOME") => {
     switch (propertyType) {
         case "HOME":
             return t('propertySearchResult.filter.home');
+        case "PREMISE":
+                return t('propertySearchResult.filter.office');
+        case "OFFICE":
+            return t('propertySearchResult.filter.premise');
         default:
             break;
     }
@@ -48,7 +52,7 @@ const FilterProperty = ({propertyType, propertyOperation}) => {
     const { t } = useTranslation();
     const commonsOptions = t('propertySearchResult.filter.commons');
     const priceOptions = t('propertySearchResult.filter.price');
-    const specificData = getEspecificData(t);
+    const specificData = getEspecificData(t, propertyType);
 
     return (
         <FilterPropertyContainer>
