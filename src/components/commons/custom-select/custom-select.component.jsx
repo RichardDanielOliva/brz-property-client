@@ -52,7 +52,9 @@ const mapStateToProps = state => ({
         areaTo: state.filter.areaTo,
         areaFrom: state.filter.areaFrom,
         homeRooms: state.filter.homeRooms,
-        homeBathRooms: state.filter.homeBathRooms
+        homeBathRooms: state.filter.homeBathRooms,
+
+        sortBy: state.filter.sortBy,
     }
 })
 

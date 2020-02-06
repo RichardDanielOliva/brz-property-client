@@ -3,25 +3,25 @@
     "sectionItem": [
       {
         "id":"nav-item-index",
-        "name": "Index",
+        "name": "Inicio",
         "url": "/",
         "logo": "fas fa-home fa-fw"
       },
       {
         "id":"nav-item-services",
-        "name": "Services",
+        "name": "Servicios",
         "url": "/services",
         "logo": "fas fa-window-restore fa-fw"
       },
       {
         "id":"nav-item-user",
-        "name": "User",
+        "name": "Usuario",
         "url": "/user",
         "logo": "fas fa-user-friends fa-2x"
       },
       {
         "id":"nav-item-enterprise",
-        "name": "Enterprise",
+        "name": "Empresas",
         "url": "/enterprise",
         "logo": "fas fa-briefcase fa-2x"
       }
@@ -33,15 +33,15 @@
   "homePage":{
     "mainSearch":{
       "options": [
-        {"name":"Buy", "value":"BUY", "reduxState":"propertyOperation", "iconClass":"fas fa-store-alt fa-lg"},
-        {"name":"Rent","value":"RENT", "reduxState":"propertyOperation", "iconClass":"fas fa-door-open fa-lg"},
-        {"name":"Share","value":"SHARE", "reduxState":"propertyOperation", "iconClass":"fab fa-slideshare fa-lg"}
+        {"name":"Comprar", "value":"BUY", "reduxState":"propertyOperation", "iconClass":"fas fa-store-alt fa-lg"},
+        {"name":"Alquilar","value":"RENT", "reduxState":"propertyOperation", "iconClass":"fas fa-door-open fa-lg"},
+        {"name":"Compartir","value":"SHARE", "reduxState":"propertyOperation", "iconClass":"fab fa-slideshare fa-lg"}
       ]
     },
     "propertyOptions": [
-      {"name":"Home", "value":"HOME", "reduxState":"propertyType"},
-      {"name":"Premises", "value":"PREMISE", "reduxState":"propertyType"},
-      {"name":"Offices", "value":"OFFICE", "reduxState":"propertyType"}
+      {"name":"Vivienda", "value":"HOME", "reduxState":"propertyType"},
+      {"name":"Local o Nave", "value":"PREMISE", "reduxState":"propertyType"},
+      {"name":"Oficinas", "value":"OFFICE", "reduxState":"propertyType"}
       ],
     "services":[
       {
@@ -86,7 +86,7 @@
     "filter": {
       "commons": [{
         "name":"main",
-        "title": "Property Type",
+        "title": "Tipo de propiedad",
         "optionType":"basic-group",
         "style":"property-filter",
         "dataGroup": [
@@ -95,15 +95,15 @@
             "reduxState":"propertyType",
             "selectedOption":"home",
             "data": [
-              {"title":"Home", "value":"HOME"},
-              {"title":"Premise", "value":"PREMISE"},
-              {"title":"Office", "value":"OFFICE"}
+              {"title":"Vivienda", "value":"HOME"},
+              {"title":"Local o Nave", "value":"PREMISE"},
+              {"title":"Oficina", "value":"OFFICE"}
             ]  
         }]
       }],
       "price":{
         "name":"price",
-        "title": "Price",
+        "title": "Precio",
         "optionType":"basic-group",
         "style":"property-filter",
         "buyData": [{
@@ -119,7 +119,6 @@
             {
             "name": "max-price",
             "reduxState":"propertyMaxPrice",
-            "selectedOption":"precio hasta",
             "data": [
               {"title":"Max", "value":""},
               {"title":"10.000", "value":10000},
@@ -173,16 +172,16 @@
       "home": [
         {
           "name":"features",
-          "title": "Features",
+          "title": "Caracteristicas",
           "optionType":"basic-group",
           "style":"property-filter",
           "dataGroup": [{
               "defaultValue": "rooms",
-              "name": "rooms",
+              "name": "Habitaciones",
               "reduxState":"homeRooms",
               "actualValue":"precio desde",
               "data": [
-                {"title":"Rooms", "value":""},
+                {"title":"Habitaciones", "value":""},
                 {"title":"1 or more", "value":"1"},
                 {"title":"2 or more", "value":"2"},
                 {"title":"3 or more", "value":"3"},
@@ -191,11 +190,11 @@
           },
           {
               "defaultValue":"bathrooms",
-              "name": "baths",
+              "name": "Baños",
               "reduxState":"homeBathRooms",
               "selectedOption":"precio hasta",
               "data": [
-                {"title":"Bathrooms", "value":""},
+                {"title":"Baños", "value":""},
                 {"title":"1 or more", "value":"1"},
                 {"title":"2 or more", "value":"2"},
                 {"title":"3 or more", "value":"3"}
@@ -204,16 +203,16 @@
           },
           {
               "name":"Surface",
-              "title": "Surface",
+              "title": "Superficie",
               "optionType":"basic-group",
               "style":"property-filter",
               "dataGroup": [{
-                  "defaultValue": "floor area from",
+                  "defaultValue": "desde",
                   "reduxState":"areaFrom",
                   "name": "surface-area-from",
                   "actualValue":"precio desde",
                   "data": [
-                    {"title":"from", "value":""},
+                    {"title":"desde", "value":""},
                     {"title":"50 m2", "value":"50"},
                     {"title":"100 m2", "value":"100"},
                     {"title":"150 m2", "value":"150"},
@@ -230,7 +229,7 @@
                   "name": "surface-area-to",
                   "selectedOption":"precio hasta",
                   "data": [
-                    {"title":"to", "value":""},
+                    {"title":"hasta", "value":""},
                     {"title":"50 m2", "value":"50"},
                     {"title":"100 m2", "value":"100"},
                     {"title":"150 m2", "value":"150"},
@@ -245,17 +244,17 @@
           {
             "name":"home-type",
             "reduxState":"homeType",
-            "title": "Type",
+            "title": "Tipo de vivienda",
             "optionType":"checkbox-group",
             "style":"property-checkbox",
             "data": [
-              {"title":"Apartment", "value":"APARTMENT"}, 
+              {"title":"Apartamento", "value":"APARTMENT"}, 
               {"title":"Duplex", "value":"DUPLEX_APARTMENT"},
               {"title":"Penthouse", "value":"PENTHOUSE"},
               {"title":"Loft", "value":"LOFT"},
-              {"title":"Ground floor", "value":"GROUND_FLOOR"},
+              {"title":"Sotano", "value":"GROUND_FLOOR"},
               {"title":"Studio", "value":"STUDIO"},
-              {"title":"House", "value":"HOUSE"}
+              {"title":"Casa", "value":"HOUSE"}
             ]
         },
         {
@@ -266,26 +265,26 @@
             "style":"property-checkbox",
             "data": [
               {"title":"Parking", "value":"PARKING"}, 
-              {"title":"Lift", "value":"LIFT"},
+              {"title":"Ascensor", "value":"LIFT"},
               {"title":"Furnished", "value":"FURNISHED"},
               {"title":"Heating", "value":"HEATING"},
               {"title":"Garden", "value":"GARDEN"},
-              {"title":"Swimming Pool", "value":"SWIMMING_POOL"},
-              {"title":"Terrace", "value":"TERRACE"},
+              {"title":"Piscina", "value":"SWIMMING_POOL"},
+              {"title":"Terraza", "value":"TERRACE"},
               {"title":"Box room", "value":"BOX_ROOM"}
             ]
           },
           {
               "name":"status",
               "reduxState":"propertyStatus",
-              "title": "Status",
+              "title": "Estado",
               "optionType":"checkbox-group",
               "style":"property-checkbox",
               "data": [
-                {"title":"New home", "value":"NEW_HOME"}, 
-                {"title":"Almost new", "value":"ALMOST_NEW"},
-                {"title":"Very good", "value":"VERY_GOOD"},
-                {"title":"For renovation", "value":"FOR_RENOVATION"},
+                {"title":"Obra nueva", "value":"NEW_HOME"}, 
+                {"title":"Como nuevo", "value":"ALMOST_NEW"},
+                {"title":"Aceptable", "value":"VERY_GOOD"},
+                {"title":"Para renovar", "value":"FOR_RENOVATION"},
                 {"title":"Reburbished", "value":"REFUBISHED"}
               ]
           }
@@ -416,12 +415,13 @@
   },
     "sort":{
       "name":"sort",
+      "reduxState":"sortBy",
       "title": "Sort by",
       "data": [
-        {"title":"Newest", "value":"newest"}, 
-        {"title":"Oldest", "value":"oldest"},
-        {"title":"Highest price", "value":"highestPrice"},
-        {"title":"Lowest price", "value":"lowestPrice"}
+        {"title":"Newest", "value":"NEWEST"}, 
+        {"title":"Oldest", "value":"OLDEST"},
+        {"title":"Highest price", "value":"HIGHEST_PRICE"},
+        {"title":"Lowest price", "value":"LOWEST_PRICE"}
       ]
     }
   },

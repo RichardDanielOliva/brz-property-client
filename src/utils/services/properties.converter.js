@@ -11,12 +11,10 @@ export const mapJsonToPropertyList = (json, filter) => {
         default:
             break;
     }
-
-
 }
 
 const mapJsonToHomesList = (json) => {
-    let homes = json._embedded.homes;
+    let homes = json._embedded.properties;
     let properties = homes.map((home)=>
                             mapJsonHomeToProperty(home))
     let page = json.page ? json.page : null;
@@ -24,7 +22,7 @@ const mapJsonToHomesList = (json) => {
 }
 
 const mapJsonToOfficesList = (json) => {
-    let offices = json._embedded.offices;
+    let offices = json._embedded.properties;
     let properties = offices.map((office)=>
                                 mapJsonOfficeToProperty(office))
     let page = json.page;
@@ -32,7 +30,7 @@ const mapJsonToOfficesList = (json) => {
 }
 
 const mapJsonToPremisesList = (json) => {
-    let premises = json._embedded.premises;
+    let premises = json._embedded.properties;
     let properties = premises.map((premise)=>
                                 mapJsonOfficeToProperty(premise))
     let page = json.page;

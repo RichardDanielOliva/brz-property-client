@@ -8,11 +8,11 @@ export const PropertySearchPageContainer = styled.div`
 
 export const PropertySearchFilterContainer = styled.aside`
   display: flex;
-  width: 20%;
+  width: 18%;
   min-height: 100vh;
 `;
 
 export const PropertySearchResultContainer = styled.main`
   display: flex;
-  width: 80%;
+  width: 81%;
 `;

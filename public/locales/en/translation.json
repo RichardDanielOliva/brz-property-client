@@ -2,21 +2,25 @@
   "nav": {
     "sectionItem": [
       {
+        "id":"nav-item-index",
         "name": "Index",
         "url": "/",
         "logo": "fas fa-home fa-fw"
       },
       {
+        "id":"nav-item-services",
         "name": "Services",
         "url": "/services",
         "logo": "fas fa-window-restore fa-fw"
       },
       {
+        "id":"nav-item-user",
         "name": "User",
         "url": "/user",
         "logo": "fas fa-user-friends fa-2x"
       },
       {
+        "id":"nav-item-enterprise",
         "name": "Enterprise",
         "url": "/enterprise",
         "logo": "fas fa-briefcase fa-2x"
@@ -29,18 +33,15 @@
   "homePage":{
     "mainSearch":{
       "options": [
-        {"name":"Buy", "reduxState":"propertyOperation", "iconClass":"fas fa-store-alt fa-lg"},
-        {"name":"Rent", "reduxState":"propertyOperation", "iconClass":"fas fa-door-open fa-lg"},
-        {"name":"Share", "reduxState":"propertyOperation", "iconClass":"fab fa-slideshare fa-lg"}
+        {"name":"Buy", "value":"BUY", "reduxState":"propertyOperation", "iconClass":"fas fa-store-alt fa-lg"},
+        {"name":"Rent","value":"RENT", "reduxState":"propertyOperation", "iconClass":"fas fa-door-open fa-lg"},
+        {"name":"Share","value":"SHARE", "reduxState":"propertyOperation", "iconClass":"fab fa-slideshare fa-lg"}
       ]
     },
     "propertyOptions": [
-        "Home",
-        "Premises",
-        "Garages",
-        "Offices",
-        "Lands",
-        "Buildings"
+      {"name":"Home", "value":"HOME", "reduxState":"propertyType"},
+      {"name":"Premises", "value":"PREMISE", "reduxState":"propertyType"},
+      {"name":"Offices", "value":"OFFICE", "reduxState":"propertyType"}
       ],
     "services":[
       {
@@ -91,28 +92,28 @@
         "dataGroup": [
         {
             "name": "property-type",
-            "reduxState":"propertyOperation",
+            "reduxState":"propertyType",
             "selectedOption":"home",
             "data": [
-              {"title":"Home", "value":"home"},
-              {"title":"Apartment", "value":"apartment"},
-              {"title":"Office", "value":"office"}
+              {"title":"Home", "value":"HOME"},
+              {"title":"Premise", "value":"PREMISE"},
+              {"title":"Office", "value":"OFFICE"}
             ]  
         }]
       }],
-      "home": [{
+      "price":{
         "name":"price",
         "title": "Price",
         "optionType":"basic-group",
         "style":"property-filter",
-        "dataGroup": [{
+        "buyData": [{
             "name": "min-prices",
             "reduxState":"propertyMinPrice",
             "data": [
-              {"title":"Min", "value":null},
-              {"title":"25", "value":25},
-              {"title":"50", "value":50},
-              {"title":"75", "value":75}
+              {"title":"Min", "value":""},
+              {"title":"10.000", "value":10000},
+              {"title":"15.000", "value":15000},
+              {"title":"20.000", "value":20000}
               ]
             },
             {
@@ -120,13 +121,56 @@
             "reduxState":"propertyMaxPrice",
             "selectedOption":"precio hasta",
             "data": [
-              {"title":"Max", "value":null},
-              {"title":"50", "value":"50"},
-              {"title":"75", "value":"75"},
-              {"title":"100", "value":"100"}
+              {"title":"Max", "value":""},
+              {"title":"10.000", "value":10000},
+              {"title":"15.000", "value":15000},
+              {"title":"20.000", "value":20000}
             ]
-            }]
-        },
+            }],
+          "rentData": [{
+              "name": "min-prices",
+              "reduxState":"propertyMinPrice",
+              "data": [
+                {"title":"Min", "value":""},
+                {"title":"300", "value":300},
+                {"title":"600", "value":600},
+                {"title":"900", "value":900}
+                ]
+              },
+              {
+              "name": "max-price",
+              "reduxState":"propertyMaxPrice",
+              "selectedOption":"precio hasta",
+              "data": [
+                {"title":"Max", "value":""},
+                {"title":"300", "value":300},
+                {"title":"600", "value":600},
+                {"title":"900", "value":900}
+              ]
+              }],
+            "shareData": [{
+                "name": "min-prices",
+                "reduxState":"propertyMinPrice",
+                "data": [
+                  {"title":"Min", "value":""},
+                  {"title":"100", "value":100},
+                  {"title":"150", "value":150},
+                  {"title":"200", "value":200}
+                  ]
+                },
+                {
+                "name": "max-price",
+                "reduxState":"propertyMaxPrice",
+                "selectedOption":"precio hasta",
+                "data": [
+                  {"title":"Max", "value":""},
+                  {"title":"100", "value":100},
+                  {"title":"150", "value":150},
+                  {"title":"200", "value":200}
+                ]
+          }]
+      },
+      "home": [
         {
           "name":"features",
           "title": "Features",
@@ -138,7 +182,7 @@
               "reduxState":"homeRooms",
               "actualValue":"precio desde",
               "data": [
-                {"title":"Rooms", "value":null},
+                {"title":"Rooms", "value":""},
                 {"title":"1 or more", "value":"1"},
                 {"title":"2 or more", "value":"2"},
                 {"title":"3 or more", "value":"3"},
@@ -151,7 +195,7 @@
               "reduxState":"homeBathRooms",
               "selectedOption":"precio hasta",
               "data": [
-                {"title":"Bathrooms", "value":null},
+                {"title":"Bathrooms", "value":""},
                 {"title":"1 or more", "value":"1"},
                 {"title":"2 or more", "value":"2"},
                 {"title":"3 or more", "value":"3"}
@@ -165,66 +209,220 @@
               "style":"property-filter",
               "dataGroup": [{
                   "defaultValue": "floor area from",
-                  "reduxState":"homeAreaFrom",
+                  "reduxState":"areaFrom",
                   "name": "surface-area-from",
                   "actualValue":"precio desde",
                   "data": [
-                    {"title":"from", "value":null},
-                    {"title":"60 m2", "value":"60"}
+                    {"title":"from", "value":""},
+                    {"title":"50 m2", "value":"50"},
+                    {"title":"100 m2", "value":"100"},
+                    {"title":"150 m2", "value":"150"},
+                    {"title":"200 m2", "value":"200"},
+                    {"title":"250 m2", "value":"250"},
+                    {"title":"300 m2", "value":"300"},
+                    {"title":"350 m2", "value":"350"},
+                    {"title":"400 m2", "value":"400"}
                   ]
               },
               {
                   "defaultValue":"floor area to",
-                  "reduxState":"homeAreaTo",
+                  "reduxState":"areaTo",
                   "name": "surface-area-to",
                   "selectedOption":"precio hasta",
                   "data": [
-                    {"title":"to", "value":null},
-                    {"title":"60 m2", "value":"60"}
+                    {"title":"to", "value":""},
+                    {"title":"50 m2", "value":"50"},
+                    {"title":"100 m2", "value":"100"},
+                    {"title":"150 m2", "value":"150"},
+                    {"title":"200 m2", "value":"200"},
+                    {"title":"250 m2", "value":"250"},
+                    {"title":"300 m2", "value":"300"},
+                    {"title":"350 m2", "value":"350"},
+                    {"title":"400 m2", "value":"400"}
                   ]
               }]
           },
           {
-              "name":"extras",
-              "reduxState":"homeExtras",
-              "title": "Extras",
-              "optionType":"checkbox-group",
-              "style":"property-checkbox",
-              "data": [
-                {"title":"Parking", "value":"parking"}, 
-                {"title":"Lift", "value":"lift"},
-                {"title":"Furnished", "value":"furnished"},
-                {"title":"Heating", "value":"heating"},
-                {"title":"Garden", "value":"garden"},
-                {"title":"Swimming Pool", "value":"swimmingPool"},
-                {"title":"Terrace", "value":"terrace"},
-                {"title":"Box room", "value":"boxRoom"}
-              ]
+            "name":"home-type",
+            "reduxState":"homeType",
+            "title": "Type",
+            "optionType":"checkbox-group",
+            "style":"property-checkbox",
+            "data": [
+              {"title":"Apartment", "value":"APARTMENT"}, 
+              {"title":"Duplex", "value":"DUPLEX_APARTMENT"},
+              {"title":"Penthouse", "value":"PENTHOUSE"},
+              {"title":"Loft", "value":"LOFT"},
+              {"title":"Ground floor", "value":"GROUND_FLOOR"},
+              {"title":"Studio", "value":"STUDIO"},
+              {"title":"House", "value":"HOUSE"}
+            ]
+        },
+        {
+            "name":"extras",
+            "reduxState":"homeExtras",
+            "title": "Extras",
+            "optionType":"checkbox-group",
+            "style":"property-checkbox",
+            "data": [
+              {"title":"Parking", "value":"PARKING"}, 
+              {"title":"Lift", "value":"LIFT"},
+              {"title":"Furnished", "value":"FURNISHED"},
+              {"title":"Heating", "value":"HEATING"},
+              {"title":"Garden", "value":"GARDEN"},
+              {"title":"Swimming Pool", "value":"SWIMMING_POOL"},
+              {"title":"Terrace", "value":"TERRACE"},
+              {"title":"Box room", "value":"BOX_ROOM"}
+            ]
           },
           {
               "name":"status",
-              "reduxState":"homeStatus",
+              "reduxState":"propertyStatus",
               "title": "Status",
               "optionType":"checkbox-group",
               "style":"property-checkbox",
               "data": [
-                {"title":"New home", "value":"newHome"}, 
-                {"title":"Almost new", "value":"almostNew"},
-                {"title":"Very good", "value":"veryGood"},
-                {"title":"For renovation", "value":"forRenovation"},
-                {"title":"Reburbished", "value":"reburbished"}
+                {"title":"New home", "value":"NEW_HOME"}, 
+                {"title":"Almost new", "value":"ALMOST_NEW"},
+                {"title":"Very good", "value":"VERY_GOOD"},
+                {"title":"For renovation", "value":"FOR_RENOVATION"},
+                {"title":"Reburbished", "value":"REFUBISHED"}
               ]
           }
-      ]
-    },
+      ],
+
+    "office":[
+      {
+        "name":"Surface",
+        "title": "Surface",
+        "optionType":"basic-group",
+        "style":"property-filter",
+        "dataGroup": [{
+            "defaultValue": "floor area from",
+            "reduxState":"areaFrom",
+            "name": "surface-area-from",
+            "actualValue":"precio desde",
+            "data": [
+              {"title":"from", "value":""},
+              {"title":"50 m2", "value":"50"},
+              {"title":"100 m2", "value":"100"},
+              {"title":"150 m2", "value":"150"},
+              {"title":"200 m2", "value":"200"},
+              {"title":"250 m2", "value":"250"},
+              {"title":"300 m2", "value":"300"},
+              {"title":"350 m2", "value":"350"},
+              {"title":"400 m2", "value":"400"}
+            ]
+        },
+        {
+            "defaultValue":"floor area to",
+            "reduxState":"areaTo",
+            "name": "surface-area-to",
+            "selectedOption":"precio hasta",
+            "data": [
+              {"title":"to", "value":""},
+              {"title":"50 m2", "value":"50"},
+              {"title":"100 m2", "value":"100"},
+              {"title":"150 m2", "value":"150"},
+              {"title":"200 m2", "value":"200"},
+              {"title":"250 m2", "value":"250"},
+              {"title":"300 m2", "value":"300"},
+              {"title":"350 m2", "value":"350"},
+              {"title":"400 m2", "value":"400"}
+            ]
+        }]
+      },
+      {
+        "name":"office-extras",
+        "reduxState":"officeExtras",
+        "title": "Extras",
+        "optionType":"checkbox-group",
+        "style":"property-checkbox",
+        "data": [	
+          {"title":"Parking", "value":"PARKING"}, 
+          {"title":"Wifi", "value":"WIFI"},
+          {"title":"Air conditioning", "value":"AIR_CONDITIONING"},
+          {"title":"Heating", "value":"HEATING"}
+        ]
+    }],
+    "premise":[
+      {
+        "name":"Surface",
+        "title": "Surface",
+        "optionType":"basic-group",
+        "style":"property-filter",
+        "dataGroup": [{
+            "defaultValue": "floor area from",
+            "reduxState":"areaFrom",
+            "name": "surface-area-from",
+            "actualValue":"precio desde",
+            "data": [
+              {"title":"from", "value":""},
+              {"title":"50 m2", "value":"50"},
+              {"title":"100 m2", "value":"100"},
+              {"title":"150 m2", "value":"150"},
+              {"title":"200 m2", "value":"200"},
+              {"title":"250 m2", "value":"250"},
+              {"title":"300 m2", "value":"300"},
+              {"title":"350 m2", "value":"350"},
+              {"title":"400 m2", "value":"400"}
+            ]
+        },
+        {
+            "defaultValue":"floor area to",
+            "reduxState":"areaTo",
+            "name": "surface-area-to",
+            "selectedOption":"precio hasta",
+            "data": [
+              {"title":"to", "value":""},
+              {"title":"50 m2", "value":"50"},
+              {"title":"100 m2", "value":"100"},
+              {"title":"150 m2", "value":"150"},
+              {"title":"200 m2", "value":"200"},
+              {"title":"250 m2", "value":"250"},
+              {"title":"300 m2", "value":"300"},
+              {"title":"350 m2", "value":"350"},
+              {"title":"400 m2", "value":"400"}
+            ]
+        }]
+      },
+      {
+        "name":"premise-type",
+        "reduxState":"premiseType",
+        "title": "Type",
+        "optionType":"checkbox-group",
+        "style":"property-checkbox",
+        "data": [
+          {"title":"Commercial store", "value":"COMMERCIAL_STORE"}, 
+          {"title":"Industrial building", "value":"INDUSTRIAL_BUILDING"}
+        ]
+      },
+      {
+        "name":"premise-extras",
+        "reduxState":"premiseExtras",
+        "title": "Extras",
+        "optionType":"checkbox-group",
+        "style":"property-checkbox",
+        "data": [	
+          {"title":"Parking", "value":"PARKING"}, 
+          {"title":"Wifi", "value":"WIFI"},
+          {"title":"Air conditioning", "value":"AIR_CONDITIONING"},
+          {"title":"Smoke vent", "value":"SMOKE_VENT"},
+          {"title":"Heating", "value":"HEATING"}
+        ]
+    }
+    
+    ]
+  },
     "sort":{
       "name":"sort",
+      "reduxState":"sortBy",
       "title": "Sort by",
       "data": [
-        {"title":"Newest", "value":"newest"}, 
-        {"title":"Oldest", "value":"oldest"},
-        {"title":"Highest price", "value":"highestPrice"},
-        {"title":"Lowest price", "value":"lowestPrice"}
+        {"title":"Newest", "value":"NEWEST"}, 
+        {"title":"Oldest", "value":"OLDEST"},
+        {"title":"Highest price", "value":"HIGHEST_PRICE"},
+        {"title":"Lowest price", "value":"LOWEST_PRICE"}
       ]
     }
   },

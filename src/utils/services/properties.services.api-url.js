@@ -5,6 +5,7 @@ const HOME_BASE_URL = "http://localhost:8090/api/homes/homes";
 const HOME_FILTER_URL = "http://localhost:8090/api/homes/findByFilter";
 const PREMISE_BASE_URL = "http://localhost:8090/api/premises/premises";
 const OFFICE_BASE_URL = "http://localhost:8090/api/offices/offices";
+const OFFICE_FILTER_URL = "http://localhost:8090/api/offices/findByFilter";
 
 export const getPropertyAPIUrl = (filter) => {
     console.log(filter)
@@ -15,8 +16,7 @@ export const getPropertyAPIUrl = (filter) => {
             console.log(`API_URL : ${PREMISE_BASE_URL}`)
             return PREMISE_BASE_URL;
         case "OFFICE":
-            console.log(`API_URL : ${OFFICE_BASE_URL}`)
-            return OFFICE_BASE_URL;
+            return getOfficeUrl(filter);
         default:
             break;
     }
@@ -28,6 +28,14 @@ const getHomeUrl = (filter) => {
         return HOME_FILTER_URL;
 
     return HOME_BASE_URL;
+}
+
+const getOfficeUrl = (filter) => {
+    //if(isFilterResquest(filter))
+    if(true)
+        return OFFICE_FILTER_URL;
+
+    return OFFICE_BASE_URL;
 }
 
 /**const isFilterResquest = (filter) => {

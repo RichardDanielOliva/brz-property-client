@@ -47,32 +47,55 @@ export const fetchPropertiesStartAsync = () => {
   };
 };
 
-const mapCurrentStateToFilterObject= filter => ({
-  type: filter.propertyType,
-  operation: filter.propertyOperation,
-  price: {
-      min: filter.propertyMinPrice,
-      max: filter.propertyMaxPrice,
-  },
-  area:{
-      from: filter.areaFrom,
-      to: filter.areaTo
-  },
-  features: {
-      rooms: filter.homeRooms,
-      baths: filter.homeBathRooms,
-      extras: filter.homeExtras,
-      types: filter.homeType
-  },
-  status: filter.propertyStatus,
-  location: {
-    type: "Point",
-    coordinates: {
-      y: filter.logitude,
-      x: filter.latitude
+const mapCurrentStateToFilterObject = filter => ({
+    type: filter.propertyType,
+    operation: filter.propertyOperation,
+    price: {
+        min: filter.propertyMinPrice,
+        max: filter.propertyMaxPrice,
     },
-    maxDistance: filter.maxDistance,
-    minDistance: filter.minDistance
-  }
+    area:{
+        from: filter.areaFrom,
+        to: filter.areaTo
+    },
+    features: getFeatures(filter),
+    status: filter.propertyStatus,
+    location: {
+      type: "Point",
+      coordinates: {
+        y: filter.logitude,
+        x: filter.latitude
+      },
+      maxDistance: filter.maxDistance,
+      minDistance: filter.minDistance
+    },
+    sortBy: filter.sortBy,
+    page: {
+      size:filter.size,
+      number:filter.number
+    }
+})
+
+
+const getFeatures = filter => {
+  switch (filter.propertyType) {
+    case "HOME":
+        return {
+          rooms: filter.homeRooms,
+          baths: filter.homeBathRooms,
+          extras: filter.homeExtras,
+          types: filter.homeType
+      };
+    case "PREMISE":
+        return {
+          extras: filter.premiseExtras,
+          types: filter.premiseType
+      };
+    case "OFFICE":
+        return {
+          extras: filter.officeExtras,
+      };
+    default:
+        break;
 }
-)
+}

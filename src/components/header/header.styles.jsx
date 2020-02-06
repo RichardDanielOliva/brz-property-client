@@ -42,6 +42,7 @@ export const LanguageList = styled.ul`
 
 export const LanguageItem = styled.li`
   height:auto;
+  cursor: pointer;
 `;
 
 export const LanguageText = styled.h4`

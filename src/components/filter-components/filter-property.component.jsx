@@ -40,9 +40,9 @@ const getEspecificData = (t, propertyType="HOME") => {
         case "HOME":
             return t('propertySearchResult.filter.home');
         case "PREMISE":
-                return t('propertySearchResult.filter.office');
+                return t('propertySearchResult.filter.premise');
         case "OFFICE":
-            return t('propertySearchResult.filter.premise');
+            return t('propertySearchResult.filter.office');
         default:
             break;
     }

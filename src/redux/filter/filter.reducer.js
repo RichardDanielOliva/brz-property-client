@@ -20,12 +20,20 @@ const INITIAL_STATE = {
   premiseType: null,
   premiseExtras: null,
 
+  sortBy: null,
+
   address: null,
   latitude: 42.880619,
   logitude:-8.546610,
   zoom: 14,
   minDistance: 0,
   maxDistance: 5000,
+
+  number: 0,
+  totalElements: null,
+  totalPages: null,
+  size: 20,
+
 };
 
 const FilterReducer = (state = INITIAL_STATE, action) => {

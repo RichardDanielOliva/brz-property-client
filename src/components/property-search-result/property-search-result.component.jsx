@@ -2,18 +2,21 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import useReactRouter from 'use-react-router';
 
-//import PSRSortedGroup from './psr-sorted-group/psr-sorted-group.component';
+import PSRSortedGroup from './psr-sorted-group/psr-sorted-group.component';
 import PropertyCardList from '../property-card-list/property-card-list.component';
 import PropertyOperation from '../commons/property-operations/property-operation.component'
 import CustomButton from '../commons/custom-button/custom-button.component';
 import PropertiesMap from '../properties-map/properties-map.component';
-
+import LocationSearchInput from '../commons/location-search-input/location-search-input.component';
 
 import { 
     PropertySearchResultContainer, 
     HeaderContainer,
+    SubHeaderContainer,
     BodyContainer,
     ViewContainer,
+    LocationSearchContainer,
+    SortedContainer,
     ButtonText,
     Icon } from './property-search-result.styles';
 
@@ -39,7 +42,6 @@ const PropertySearchResult = () => {
         <PropertySearchResultContainer>
             <HeaderContainer>
                 <PropertyOperation/>
-                {/**<PSRSortedGroup/>*/}
                 <ViewContainer>
                     <Link to={viewButton.linkValue}>
                         <CustomButton>
@@ -48,7 +50,19 @@ const PropertySearchResult = () => {
                         </CustomButton>
                     </Link>
                 </ViewContainer>
+                {/**<PSRSortedGroup/>*/}
             </HeaderContainer>
+            {(location.pathname !== "/search/map") 
+                ?   <SubHeaderContainer>
+                        <LocationSearchContainer>
+                            <LocationSearchInput/>
+                        </LocationSearchContainer>
+                        <SortedContainer>
+                            <PSRSortedGroup/>
+                        </SortedContainer>
+                    </SubHeaderContainer>
+                : null
+            }
             <BodyContainer>
                 {(location.pathname !== "/search/map") ?
                     <PropertyCardList/>

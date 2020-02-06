@@ -1,5 +1,6 @@
 import React from 'react';
 //import { useTranslation } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import LogoRef from '../../assets/logos/provisional_logo.png';
 
 import {
@@ -12,7 +13,11 @@ import {
   LanguageText
 } from './header.styles';
 
-const Header = () => {
+const changeLanguage = (i18n, lng) => {
+  i18n.changeLanguage(lng);
+}
+
+const Header = ({i18n}) => {
   //const { t } = useTranslation();
   //const sectionItems = t('nav.sectionItem')
 
@@ -23,8 +28,8 @@ const Header = () => {
       </LogoContainer>
       <LanguageContainer>
         <LanguageList>
-          <LanguageItem><LanguageText>[ES]</LanguageText></LanguageItem>
-          <LanguageItem><LanguageText href="?lang=en" title="English" lang="en" hreflang="en" className="linkIdioma">[EN]</LanguageText></LanguageItem>
+          <LanguageItem onClick={() => changeLanguage(i18n, 'es')}><LanguageText >[ES]</LanguageText></LanguageItem>
+          <LanguageItem onClick={() => changeLanguage(i18n, 'en')}><LanguageText >[EN]</LanguageText></LanguageItem>
         </LanguageList>
         <LanguageText>Language</LanguageText>
       </LanguageContainer>
@@ -32,4 +37,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default withTranslation()(Header);
