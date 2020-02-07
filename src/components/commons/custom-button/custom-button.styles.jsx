@@ -27,8 +27,8 @@ export const CustomButtonContainer = styled.button`
   justify-content: center;
   align-items: center;
   
-  width: 200px;
-  height: 50px;
+  width: 100%;
+  height: 100%;
 
   border: none;
   border-radius: 30px;
@@ -37,11 +37,6 @@ export const CustomButtonContainer = styled.button`
   box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.15);
 
   cursor: pointer;
-
-  @media (max-width: 480px) {
-    font-size: 0.8rem;
-    width: 80px;
-  }
 
   ${getButtonStyles}
 `;

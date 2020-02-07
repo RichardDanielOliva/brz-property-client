@@ -24,7 +24,6 @@ const HomePage = () => {
       </HeaderContainer>
       <MainSearchContainer>
         <MainSearchTitleContainer>
-          {/**<i className="fas fa-map-marked-alt fa-3x"/>*/}
           Encuentra dónde vas a vivir
         </MainSearchTitleContainer>
         <SearchContainer>

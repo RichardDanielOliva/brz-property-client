@@ -12,7 +12,7 @@ import { handleDropDownProfile } from '../../../redux/nav/nav.actions';
 
 const NavItemProfile = ({name, url, logo, actualLocation}) => {    
     return (
-        <Link to={url}>
+        <Link to={url} style={{ width: '100%', height: '100%' }}>
             <NavItemProfileContainer
                 isSelected={url===actualLocation}
                 onClick={() => handleDropDownProfile()}> 

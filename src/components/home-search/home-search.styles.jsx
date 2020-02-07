@@ -15,12 +15,33 @@ export const HomeSearchContainer = styled.div`
 export const OptionsContainer = styled.div`
   display: flex;
   justify-content: space-around;
+
+  width: 100%
+  height: 50px;
+
+  @media only screen and (min-width: 770px){
+    width: 90%
+    height: 60px;
+  }
+
+  @media only screen and (min-width: 1198px){
+    width: 65%
+    height: 65px;
+  }
 `;
 
 export const SearchContainer = styled.div`
   display: flex;
   height: 65px;
-  width: 65%
+  width: 100%
+
+  @media only screen and (min-width: 770px){
+    width: 95%
+  }
+
+  @media only screen and (min-width: 1198px){
+    width: 70%
+  }
   box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.15);
 `;
 
@@ -28,12 +49,26 @@ export const CustomSearchInputContainer = styled.div`
   display: flex;
   height: 100%;
   width: 100%;
+
 `;
 
 export const ButtonsContainer = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+
+  width: 100%
+  height: 50px;
+
+  @media only screen and (min-width: 770px){
+    width: 90%
+    height: 60px;
+  }
+
+  @media only screen and (min-width: 1198px){
+    width: 65%
+    height: 65px;
+  }
 
   a{
     text-decoration: none;

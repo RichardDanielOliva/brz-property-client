@@ -35,13 +35,16 @@ const HomeSearch = ({fetchPropertiesStartAsync}) => {
                 </CustomSearchInputContainer>
             </SearchContainer>
             <ButtonsContainer>
-                <Link to="/search" onClick={() => fetchPropertiesStartAsync()}>
+                <Link to="/search" 
+                    style={{ width: '33%', height: '100%' }}
+                    onClick={() => fetchPropertiesStartAsync()}>
                     <CustomButton>
                         <ButtonText>Search</ButtonText>
                         <IconLeft className="fas fa-search fa-lg"/>
                     </CustomButton>
                 </Link>
-                <Link to="/search/map">
+                <Link to="/search/map"
+                    style={{ width: '33%', height: '100%' }}>
                     <CustomButton>
                         <ButtonText>Search by map</ButtonText>
                         <IconLeft className="fas fa-map-marked-alt fa-lg"/>

@@ -17,6 +17,7 @@ const displayImages = props => {
 
 export const SlideShowContainer = styled.div`
   width: 100%;
+  height: 100%;
   position: relative;
   margin: auto;
 `;

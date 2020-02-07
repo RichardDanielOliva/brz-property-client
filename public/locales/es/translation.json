@@ -181,7 +181,7 @@
               "reduxState":"homeRooms",
               "actualValue":"precio desde",
               "data": [
-                {"title":"Habitaciones", "value":""},
+                {"title":"Hab.", "value":""},
                 {"title":"1 or more", "value":"1"},
                 {"title":"2 or more", "value":"2"},
                 {"title":"3 or more", "value":"3"},
@@ -212,7 +212,7 @@
                   "name": "surface-area-from",
                   "actualValue":"precio desde",
                   "data": [
-                    {"title":"desde", "value":""},
+                    {"title":"Desde", "value":""},
                     {"title":"50 m2", "value":"50"},
                     {"title":"100 m2", "value":"100"},
                     {"title":"150 m2", "value":"150"},
@@ -229,7 +229,7 @@
                   "name": "surface-area-to",
                   "selectedOption":"precio hasta",
                   "data": [
-                    {"title":"hasta", "value":""},
+                    {"title":"Hasta", "value":""},
                     {"title":"50 m2", "value":"50"},
                     {"title":"100 m2", "value":"100"},
                     {"title":"150 m2", "value":"150"},

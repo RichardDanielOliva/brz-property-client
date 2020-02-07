@@ -13,6 +13,21 @@ export const PropertyCardListContainer = styled.div`
 
 export const PropertyCardContainer = styled.div`
   margin-top:30px;
-  width: 30%;
-  height: 60vh;
+  width: 80%;
+  height: 50vh;
+
+  @media (min-width: 770px) {
+    width: 48%;
+    height: 45vh;
+  }
+
+  @media (min-width: 998px) {
+    width: 45%;
+    height: 45vh;
+  }
+
+  @media (min-width: 1198px) {
+    width: 30%;
+    height: 50vh;
+  }
 `;

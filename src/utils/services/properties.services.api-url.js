@@ -4,6 +4,7 @@ const HOME_BASE_URL = "http://localhost:8090/api/homes/homes";
 //const HOME_SHARE_URL = "http://localhost:8090/api/homes/homes";
 const HOME_FILTER_URL = "http://localhost:8090/api/homes/findByFilter";
 const PREMISE_BASE_URL = "http://localhost:8090/api/premises/premises";
+const PREMISE_FILTER_URL = "http://localhost:8090/api/premises/findByFilter";
 const OFFICE_BASE_URL = "http://localhost:8090/api/offices/offices";
 const OFFICE_FILTER_URL = "http://localhost:8090/api/offices/findByFilter";
 
@@ -13,8 +14,7 @@ export const getPropertyAPIUrl = (filter) => {
         case "HOME":
             return getHomeUrl(filter);
         case "PREMISE":
-            console.log(`API_URL : ${PREMISE_BASE_URL}`)
-            return PREMISE_BASE_URL;
+            return getPremiseUrl(filter);
         case "OFFICE":
             return getOfficeUrl(filter);
         default:
@@ -36,6 +36,14 @@ const getOfficeUrl = (filter) => {
         return OFFICE_FILTER_URL;
 
     return OFFICE_BASE_URL;
+}
+
+const getPremiseUrl = (filter) => {
+    //if(isFilterResquest(filter))
+    if(true)
+        return PREMISE_FILTER_URL;
+
+    return PREMISE_BASE_URL;
 }
 
 /**const isFilterResquest = (filter) => {

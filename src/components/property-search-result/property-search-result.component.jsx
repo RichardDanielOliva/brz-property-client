@@ -10,7 +10,8 @@ import PropertiesMap from '../properties-map/properties-map.component';
 import LocationSearchInput from '../commons/location-search-input/location-search-input.component';
 
 import { 
-    PropertySearchResultContainer, 
+    PropertySearchResultContainer,
+    PropertyOperationContainer, 
     HeaderContainer,
     SubHeaderContainer,
     BodyContainer,
@@ -41,9 +42,13 @@ const PropertySearchResult = () => {
     return (
         <PropertySearchResultContainer>
             <HeaderContainer>
-                <PropertyOperation/>
+                <PropertyOperationContainer>
+                    <PropertyOperation/>
+                </PropertyOperationContainer>
                 <ViewContainer>
-                    <Link to={viewButton.linkValue}>
+                    <Link 
+                        style={{ width: '100%', height: '100%' }}
+                        to={viewButton.linkValue}>
                         <CustomButton>
                             <Icon className="fas fa-map-marked-alt fa-lg"/>
                             <ButtonText>{viewButton.name}</ButtonText>

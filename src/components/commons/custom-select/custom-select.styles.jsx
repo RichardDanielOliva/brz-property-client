@@ -61,7 +61,7 @@ export const Option = styled.option`
 export const OptionText = styled.p`
   position: absolute;
   right: 2%;
-  font-size:1.5em;
+  font-size:0.8em;
   z-index: 2;
 `;
 

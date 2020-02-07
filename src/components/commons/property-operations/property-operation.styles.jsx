@@ -3,30 +3,15 @@ import styled from 'styled-components';
 //const BorderColor = '#FFCC00';
 
 export const PropertyOperationContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-`;
-
-export const OptionsContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-`;
-
-export const SearchContainer = styled.div`
-  display: flex;
-  height: 55px;
-`;
-
-export const CustomSearchInputContainer = styled.div`
-  display: flex;
+  width: 100%;
   height: 100%;
-  width: 500px;
+  display: flex;
+  justify-content: space-around;
 `;
 
 export const ButtonsContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  width: 33%;
+  height: 100%;
 `;
 
 export const ButtonText =  styled.h4`

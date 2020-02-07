@@ -32,6 +32,7 @@ export const Type = styled.h4`
   overflow: hidden;
 
   margin: 0;
+  padding: 0;
 `
 export const Direction = styled.h3`
   font-size: 20px;
@@ -39,9 +40,11 @@ export const Direction = styled.h3`
   overflow: hidden;
 
   margin: 0;
+  padding: 0;
 `
 export const TextColor = styled.span`
   margin: 0;
+  padding: 0;
   color: #FFCC00;
 `
 export const Price = styled.h2`

@@ -12,6 +12,7 @@ export const FilterPropertyContainer = styled.div`
 
 export const GroupContainer = styled.div`
   display: flex;  
-  width: 100%;
+  width: 90%;
+  margin-left: 5%;
   margin-top: 10px;
 `;

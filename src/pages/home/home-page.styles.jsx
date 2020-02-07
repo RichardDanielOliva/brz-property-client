@@ -1,19 +1,29 @@
 import styled from 'styled-components';
 
 export const HomePageContainer = styled.div`
+  top: 80px;
   position: relative;
   display: flex;
   width: 100%;
-  width: 100%;
-  height: 100vh;
+  height: 50vh;
   overflow: hidden;
   margin: auto;
   flex-direction: column;
 
-  @media (min-width: 770px) {
+  @media (min-width: 998px) {
+    width: 100%;
+    height: 100vh;
+
+    top: 0;
+    width: calc(100vw - 90px);
+    margin-left: 90px;
+  }
+
+  @media only screen and (min-width: 1198px){
     width: calc(100vw - 100px);
     margin-left: 100px;
   }
+
   background-image: linear-gradient(to bottom, rgba(255, 204, 0,0.5),rgba(255, 204, 0, 0.9), rgba(255, 204, 0,1));
 `;
 
@@ -54,9 +64,18 @@ export const MainSearchTitleContainer = styled.h1`
 
 export const SearchContainer = styled.div`
   display: flex;
-  width: 65%;
+  width: 90%;
   height: 50%;
   z-index: 1;
+
+  @media only screen and (min-width: 996px){
+    width: 88%;
+  }
+
+  @media only screen and (min-width: 1198px){
+    width: 85%;
+  }
+
 `;
 
 export const BackgroundSearchImage = styled.img`
@@ -65,6 +84,14 @@ export const BackgroundSearchImage = styled.img`
   height: auto;
   left: 0;
   position: absolute;
+
+  @media only screen and (min-width: 770px){
+    width: 170vw;
+  }
+
+  @media only screen and (min-width: 1198px){
+    width: 100vw;
+  }
 `;
 
 export const ServicesContainer = styled.div`

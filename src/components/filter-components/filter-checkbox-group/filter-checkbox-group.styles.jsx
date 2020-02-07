@@ -4,8 +4,6 @@ import styled from 'styled-components';
 
 export const FilterCheckboxContainer = styled.div`
   display: flex;  
-  width: 80%;
-  margin-left:10%;
   flex-direction: column;
 `;
 

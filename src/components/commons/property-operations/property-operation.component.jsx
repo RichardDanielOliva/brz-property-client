@@ -6,6 +6,7 @@ import CustomButton from '../custom-button/custom-button.component';
 
 import {
     PropertyOperationContainer,
+    ButtonsContainer,
     ButtonText,
     Icon,
   } from './property-operation.styles';
@@ -23,12 +24,15 @@ const PropertyOperation = ({optionSelected, handleInputAttributte}) => {
     return (
         <PropertyOperationContainer>
                 {operations.map(({name, value, reduxState, iconClass}) => {
-                    return (<CustomButton key={`custom-button-${value}`}
+                    return (
+                        <ButtonsContainer>
+                            <CustomButton key={`custom-button-${value}`}
                                 isSelected={isSelected(optionSelected, value)}
                                 onClick={() => handleInputAttributte(value, reduxState)}>
                                     <Icon className={iconClass}/>
                                     <ButtonText>{name}</ButtonText>
-                            </CustomButton>)
+                            </CustomButton>
+                        </ButtonsContainer>)
                 })}
         </PropertyOperationContainer>
     )

@@ -4,8 +4,7 @@ import styled from 'styled-components';
 
 export const FilterGroupContainer = styled.div`
   display: flex;  
-  width: 80%;
-  margin-left:10%;
+  width: 100%
   flex-direction: column;
 `;
 
