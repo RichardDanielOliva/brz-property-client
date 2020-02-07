@@ -37,6 +37,15 @@ export const CardBody = styled.div`
 
 export const ServiceCardContainer = styled.div`
   display: flex;
-  width: 28%;
-  height: 50vh;
+  width: 31%;
+  height: 90%;
+
+  @media (min-width: 998px) {
+    height: 70%;
+  }
+
+  @media only screen and (min-width: 1198px){
+    height: 80%;
+    width: 28%;
+  }
 `;

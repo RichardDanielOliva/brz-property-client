@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const PropertySearchPageContainer = styled.div`
-top: 80px;
-position: relative;
+  top: 80px;
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;

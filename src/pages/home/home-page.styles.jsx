@@ -11,7 +11,6 @@ export const HomePageContainer = styled.div`
   flex-direction: column;
 
   @media (min-width: 998px) {
-    width: 100%;
     height: 100vh;
 
     top: 0;
