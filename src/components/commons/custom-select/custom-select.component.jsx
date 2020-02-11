@@ -29,7 +29,9 @@ const CustomSelect = ({name, reduxState, data, filterSimpleState, handleInputAtt
     return (
         <CustomSelectContainer>
             <AuxiliarRelativeContainer>
-                <Select value={getDefaultValue(filterSimpleState, reduxState)} id={`filter-select-${name}`} 
+                <Select 
+                    aria-label={`filter-select-${name}`}
+                    value={getDefaultValue(filterSimpleState, reduxState)} id={`filter-select-${name}`} 
                     onChange={(event)=> handleInputAttributte(event.target.value, reduxState)}>
                     {data.map(({title, value}) => {
                         return (<Option key={`filter-select-${reduxState}-${value}`} className={`custom-select-option`} value={value}>

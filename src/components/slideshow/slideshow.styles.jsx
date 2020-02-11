@@ -32,14 +32,16 @@ export const SlideItemContainer = styled.div`
 `;
 
 export const NumberText = styled.div`
+  background-color: rgba(0,0,0,0.1);
   color: #f2f2f2;
-  font-size: 12px;
+  font-size: 16px;
   padding: 8px 12px;
   position: absolute;
   top: 0;
 `;
 
 export const Prev = styled.a`
+  background-color: rgba(0,0,0,0.1);
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -48,17 +50,19 @@ export const Prev = styled.a`
   padding: 16px;
   color: white;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 22px;
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
   user-select: none;
 
   &:hover{
     background-color: rgba(0,0,0,0.8);
+    color: white;
   }
 `;
 
 export const Next = styled.a`
+  background-color: rgba(0,0,0,0.1);
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -67,7 +71,7 @@ export const Next = styled.a`
   padding: 16px;
   color: white;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 22px;
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
   user-select: none;
@@ -77,6 +81,7 @@ export const Next = styled.a`
 
   &:hover{
     background-color: rgba(0,0,0,0.8);
+    color: white;
   }
 `;
 

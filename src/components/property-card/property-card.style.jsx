@@ -78,7 +78,9 @@ export const Description = styled.p`
 export const Button = styled.button`
   display: table-cell;
   background-color: rgba(0,0,0,0.0);
-  color: #FFCC00;
+
+  color: rgba(0,0,0,1);
+  font-weight: bold;
 
   border: none;
   border-top: 1px solid #fff;
@@ -102,7 +104,7 @@ export const Button = styled.button`
 
 export const Icon = styled.i`
   margin-right: 7px;
-  color: #FFCC00;
+  color: rgba(0,0,0,1);
 `;
 
 export const FooterContainer = styled.div`

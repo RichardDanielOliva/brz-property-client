@@ -57,7 +57,7 @@ class SlideShow extends React.Component {
                       key={`slide-item-container-${image}`} 
                       display={this.displayImage(index).toString()}>
                           <NumberText>{`${index+1} / ${totalImages}`}</NumberText>
-                          <PropertyImage src={this.getImage(image)}/>
+                          <PropertyImage src={this.getImage(image)} alt={`property-image-${image}`}/>
                     </SlideItemContainer>
             )})}
 

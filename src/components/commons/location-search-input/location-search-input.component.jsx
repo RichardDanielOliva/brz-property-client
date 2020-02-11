@@ -25,9 +25,10 @@ const LocationSearchInput = ({ address, handleInputAutocompleteChange, handleInp
       {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
         <LocationSearchInputContainer id="Home-Search-Input">
           <SearchInput
+            aria-label="location search"
             {...getInputProps({
               placeholder: 'Search Places ...',
-              className: 'location-search-input',
+              className: 'location-search-input'
             })}/>
 
             <AutocompleteDropdownContainer className="autocomplete-dropdown-container">

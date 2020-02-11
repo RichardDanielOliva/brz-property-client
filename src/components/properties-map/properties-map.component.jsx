@@ -32,15 +32,14 @@ const PropertiesMap= ({latitude, logitude, zoom, properties}) => {
                     {properties.properties.map(({geometry, ...props}) => {
                         return (
                             <Marker position={geometry.coordinates}>
-                                <Popup>
-                                {/**A pretty CSS3 popup. <br /> Easily customizable.*/}
-                                <PropertyCard {...props}/> 
-                            </Popup>
-                        </Marker>
+                                <Popup closeButton={false}>
+                                    <PropertyCard {...props}/> 
+                                </Popup>
+                            </Marker>
                     )})}
                 </Map>
             </MapContainer>
-            <LocationSearchContainer>
+                <LocationSearchContainer>
                     <LocationSearchInput/>
                 </LocationSearchContainer>
         </PropertiesMapContainer>
