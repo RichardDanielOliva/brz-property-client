@@ -45,19 +45,19 @@
       ],
     "services":[
       {
-        "title":"Why don´t try our geograpichal app",
+        "title":"Prueba nuestro explorador SIG",
         "description":"Con Avis Select Series, te garantizamos que tendrás exactamente la marca y el modelo de coche que quieres. La mejor forma de empezar tu viaje.",
         "buttonText":"Find by map",
         "image":"find-map"
       },
       {
-        "title":"Do you need professional help?, We have it",
+        "title":"Necesitas ayudas profesional? lo tenemos",
         "description":"Con Avis Select Series, te garantizamos que tendrás exactamente la marca y el modelo de coche que quieres. La mejor forma de empezar tu viaje.",
         "buttonText":"Find professional help",
         "image":"find-help"
       },
       {
-        "title":"Do you want to published",
+        "title":"Quieres publicar",
         "description":"Con Avis Select Series, te garantizamos que tendrás exactamente la marca y el modelo de coche que quieres. La mejor forma de empezar tu viaje.",
         "buttonText":"Be advertised!",
         "image":"publish"
@@ -80,7 +80,16 @@
         "buttonText":"Find a property to share",
         "image":"share-property"
       }
-    ]
+    ],
+    "searchButtons":[
+      {
+        "text":"Buscar",
+        "link": "/search"
+      },
+      {
+      "text":"Mapa",
+      "link": "/search/map"
+    }]
   },
   "propertySearchResult":{
     "filter": {
@@ -293,7 +302,7 @@
     "office":[
       {
         "name":"Surface",
-        "title": "Surface",
+        "title": "Superficie",
         "optionType":"basic-group",
         "style":"property-filter",
         "dataGroup": [{
@@ -347,7 +356,7 @@
     "premise":[
       {
         "name":"Surface",
-        "title": "Surface",
+        "title": "Superficie",
         "optionType":"basic-group",
         "style":"property-filter",
         "dataGroup": [{
@@ -418,10 +427,10 @@
       "reduxState":"sortBy",
       "title": "Sort by",
       "data": [
-        {"title":"Newest", "value":"NEWEST"}, 
-        {"title":"Oldest", "value":"OLDEST"},
-        {"title":"Highest price", "value":"HIGHEST_PRICE"},
-        {"title":"Lowest price", "value":"LOWEST_PRICE"}
+        {"title":"Recientes", "value":"NEWEST"}, 
+        {"title":"Antigues", "value":"OLDEST"},
+        {"title":"Mayor precio", "value":"HIGHEST_PRICE"},
+        {"title":"Menor precio", "value":"LOWEST_PRICE"}
       ]
     }
   },

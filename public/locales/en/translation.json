@@ -80,7 +80,16 @@
         "buttonText":"Find a property to share",
         "image":"share-property"
       }
-    ]
+    ],
+    "searchButtons":[
+      {
+        "text":"Search",
+        "link": "/search"
+      },
+      {
+      "text":"Search by map",
+      "link": "/search/map"
+    }]
   },
   "propertySearchResult":{
     "filter": {

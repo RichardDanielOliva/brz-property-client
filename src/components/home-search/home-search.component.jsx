@@ -1,5 +1,5 @@
 import React from 'react';
-//import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 
@@ -21,7 +21,8 @@ import {
   } from './home-search.styles';
 
 const HomeSearch = ({fetchPropertiesStartAsync}) => {
-    //const { t } = useTranslation();
+    const { t } = useTranslation();
+    const searchButtons = t('homePage.searchButtons');
 
     return (
         <HomeSearchContainer>
@@ -35,18 +36,18 @@ const HomeSearch = ({fetchPropertiesStartAsync}) => {
                 </CustomSearchInputContainer>
             </SearchContainer>
             <ButtonsContainer>
-                <Link to="/search" 
+                <Link to={searchButtons[0].link} 
                     style={{ width: '33%', height: '100%' }}
                     onClick={() => fetchPropertiesStartAsync()}>
                     <CustomButton>
-                        <ButtonText>Search</ButtonText>
+                        <ButtonText>{searchButtons[0].text}</ButtonText>
                         <IconLeft className="fas fa-search fa-lg"/>
                     </CustomButton>
                 </Link>
-                <Link to="/search/map"
+                <Link to={searchButtons[1].link} 
                     style={{ width: '33%', height: '100%' }}>
                     <CustomButton>
-                        <ButtonText>Search by map</ButtonText>
+                        <ButtonText>{searchButtons[1].text}</ButtonText>
                         <IconLeft className="fas fa-map-marked-alt fa-lg"/>
                     </CustomButton>
                 </Link>
