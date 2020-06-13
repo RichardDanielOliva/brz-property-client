@@ -40,7 +40,7 @@ export  class OfficeFeature{
 }
 
 export  class PremiseFeature{
-    constructor (status, area, extra, buildingArea, baths, buildingAge, energyCertificate){
+    constructor (status, area, extra, buildingArea, baths, buildingAge, energyCertificate, type){
         this.extras = extra;
         this.status = status; 
         this.area = area;
@@ -48,6 +48,7 @@ export  class PremiseFeature{
         this.baths = baths; 
         this.buildingAge = buildingAge;
         this.energyCertificate = energyCertificate;
+        this.type = type; 
     }
 }
 

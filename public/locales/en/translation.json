@@ -14,15 +14,9 @@
         "logo": "fas fa-window-restore fa-fw"
       },
       {
-        "id":"nav-item-user",
-        "name": "User",
-        "url": "/user",
-        "logo": "fas fa-user-friends fa-2x"
-      },
-      {
-        "id":"nav-item-enterprise",
-        "name": "Enterprise",
-        "url": "/enterprise",
+        "id":"nav-item-admin",
+        "name": "Admin",
+        "url": "/admin",
         "logo": "fas fa-briefcase fa-2x"
       }
     ],
@@ -440,6 +434,116 @@
       "baths":"baños",
       "rooms":"habs.",
       "area":"m2"
+    }
+  },
+  "propertyFilter": {
+    "type": {
+        "name":"type",
+        "data": [
+          {"title":"Home", "value":"HOME"},
+          {"title":"Premise", "value":"PREMISE"},
+          {"title":"Office", "value":"OFFICE"}
+        ]  
+    },
+    "operation": {
+      "name":"operation",
+      "data": [
+        {"title":"Buy", "value":"BUY"},
+        {"title":"Rent", "value":"RENT"},
+        {"title":"Share", "value":"SHARE"}
+      ]  
+    },
+    "buildingAge": {
+      "name":"buildingAge",
+      "data": [
+        {"title":"Before 1950", "value":"BEFORE_1950"}, 
+        {"title":"Between 1951 and 1960", "value":"BETWEEN_1951_1960"},
+        {"title":"Between 1961 and 1970", "value":"BETWEEN_1961_1970"},
+        {"title":"Between 1971 and 1980", "value":"BETWEEN_1971_1980"},
+        {"title":"Between 1981 and 1990", "value":"BETWEEN_1981_1990"},
+        {"title":"Between 1991 and 2000", "value":"BETWEEN_1991_2000"},
+        {"title":"Between 2001 and 2010", "value":"BETWEEN_2001_2010"},
+        {"title":"Between 2011 and 2020", "value":"BETWEEN_2011_2020"}
+      ]
+    },
+    "status": {
+      "name":"status",
+      "data": [
+        {"title":"New", "value":"NEW_HOME"}, 
+        {"title":"Almost new", "value":"ALMOST_NEW"},
+        {"title":"Very good", "value":"VERY_GOOD"},
+        {"title":"For renovation", "value":"FOR_RENOVATION"},
+        {"title":"Reburbished", "value":"REFUBISHED"}
+      ]
+    },
+    "energyCertificate": {
+      "name":"Energy Certificate",
+      "data": [
+        {"title":"A", "value":"A"}, 
+        {"title":"B", "value":"B"},
+        {"title":"C", "value":"C"},
+        {"title":"D", "value":"D"},
+        {"title":"E", "value":"E"},
+        {"title":"F", "value":"F"},
+        {"title":"G", "value":"G"}
+      ]
+    },
+    "home": {
+      "type": {
+        "name":"Home type",
+        "data": [
+          {"title":"Apartment", "value":"APARTMENT"}, 
+          {"title":"Duplex", "value":"DUPLEX_APARTMENT"},
+          {"title":"Penthouse", "value":"PENTHOUSE"},
+          {"title":"Loft", "value":"LOFT"},
+          {"title":"Ground floor", "value":"GROUND_FLOOR"},
+          {"title":"Studio", "value":"STUDIO"},
+          {"title":"House", "value":"HOUSE"}
+        ]
+      },
+      "extras": {
+        "name":"Extras",
+        "data": [
+          {"title":"Parking", "value":"PARKING"}, 
+          {"title":"Lift", "value":"LIFT"},
+          {"title":"Furnished", "value":"FURNISHED"},
+          {"title":"Heating", "value":"HEATING"},
+          {"title":"Garden", "value":"GARDEN"},
+          {"title":"Swimming Pool", "value":"SWIMMING_POOL"},
+          {"title":"Terrace", "value":"TERRACE"},
+          {"title":"Box room", "value":"BOX_ROOM"}
+        ]
+      }
+    },
+    "premise": {
+      "type": {
+        "name":"Premise type",
+        "data": [
+          {"title":"Commercial store", "value":"COMMERCIAL_STORE"}, 
+          {"title":"Industrial building", "value":"INDUSTRIAL_BUILDING"}
+        ]
+      },
+      "extras": {
+        "name":"Extras",
+        "data": [
+          {"title":"Parking", "value":"PARKING"}, 
+          {"title":"Wifi", "value":"WIFI"},
+          {"title":"Air conditioning", "value":"AIR_CONDITIONING"},
+          {"title":"Smoke vent", "value":"SMOKE_VENT"},
+          {"title":"Heating", "value":"HEATING"}
+        ]
+      }
+    },
+    "office": {
+      "extras": {
+        "name":"Extras",
+        "data": [	
+          {"title":"Parking", "value":"PARKING"}, 
+          {"title":"Wifi", "value":"WIFI"},
+          {"title":"Air conditioning", "value":"AIR_CONDITIONING"},
+          {"title":"Heating", "value":"HEATING"}
+        ]
+      }
     }
   }
 }
