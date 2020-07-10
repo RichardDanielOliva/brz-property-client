@@ -19,11 +19,12 @@ import {
 
 
 const PropertyCard= ({...property}) => {
+    console.log(property.images)
     return (
         <PropertyCardContainer>
             <HeaderContainer>
                 {/**<PropertyImage src={PublishImage} alt="item"/>*/}
-                <SlideShow images={getProvisionalImages()}/>
+                <SlideShow images={property.images ? property.images : getProvisionalImages()}/>
             </HeaderContainer>
            <BodyContainer>
                 <Type>{property.features.type}</Type>
@@ -38,7 +39,7 @@ const PropertyCard= ({...property}) => {
            <FooterContainer>
                 <Button className="call-phone">
                     <Icon className="fas fa-phone-alt fa-lg"/>
-                    {property.advertiser.UserContact.phones[0]}
+                    {property.advertiser.userContact.phones[0]}
                 </Button>
                 <Button className="contact">
                     <Icon className="fas fa-envelope fa-lg"/>

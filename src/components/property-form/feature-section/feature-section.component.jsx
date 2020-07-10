@@ -31,12 +31,18 @@ const FeatureSection = ({
     } = t('propertyFilter');
 
     let {
-            type: propertyTypeOptions, 
-            extras: extraOptions,
+        type: propertyTypeOptions, 
+        extras: extraOptions,
     } = t(`propertyFilter.${selectedFeature.toLowerCase()}`);
 
+    let [invalidPropertyType, setInvalidPropertyType] = useState(false)
+    let [invalidSubPropertyType, setInvalidSubPropertyType] = useState(false)
 
-    let [validOperation, setValidOperation] = useState(false)
+    if(selectedFeature && selectedFeature !== '' && invalidPropertyType)
+        setInvalidPropertyType(false)
+
+    if(selectedFeature  && (feature.type || feature.type !== '') && invalidSubPropertyType)
+        setInvalidSubPropertyType(false)
 
     return (
         <SectionContainer>
@@ -49,13 +55,23 @@ const FeatureSection = ({
                             class="form-control"
                             onChange={ e => selectFeatureType(e.target.value) }
                             >
-                            <option value={''} selected>Choose...</option>
+                            <option value={''} selected>Choose...</option> 
                             {typeOptions.data.map(({title, value}) =>
-                                <option value={value}>{title}</option>
+                            {
+                                if (selectedFeature === value)
+                                    return <option value={value} selected>{title}</option> 
+                                else
+                                    return <option value={value}>{title}</option> 
+                            }
                             )}
                     </select>
+                    {invalidPropertyType && 
+                        <div class="alert alert-danger" role="alert">
+                            {invalidPropertyType}
+                        </div>
+                    }
                 </div>
-                {selectedFeature && ( selectedFeature != 'OFFICE') &&
+                {selectedFeature && ( selectedFeature !== 'OFFICE') &&
                     <div class="form-group col-6">
                         <label for={"feature-property-type"}>*{propertyTypeOptions.name}</label>
                         <select 
@@ -68,16 +84,27 @@ const FeatureSection = ({
                                 <option value={''} selected>Choose...</option>
                             }
                                 {propertyTypeOptions.data.map(({title, value}) =>
-                                            <option value={value}>{title}</option>
+                                {
+                                    if (feature.type === value)
+                                        return <option value={value} selected>{title}</option> 
+                                    else
+                                        return <option value={value}>{title}</option> 
+                                    
+                                }
                             )}
                          </select>
+                        {invalidSubPropertyType && 
+                        <div class="alert alert-danger" role="alert">
+                            {invalidSubPropertyType}
+                        </div>
+                        }
                     </div>
                 }
             </div>
             {selectedFeature &&
             <Fragment>
             <div class="row">
-                <div class={`form-group col-${selectedFeature == 'HOME' ? "4" : "6"}`}>
+                <div class={`form-group col-${selectedFeature === 'HOME' ? "4" : "6"}`}>
                     <label for={"feature-status"}>State</label>
                     <select 
                             id="feature-status" 
@@ -86,11 +113,16 @@ const FeatureSection = ({
                             >
                             <option value={''} selected>Choose...</option>
                             { statusOptions.data.map(({title, value}) =>
-                                <option value={value}>{title}</option>
+                                {
+                                    if (feature.status === value)
+                                        return <option value={value} selected>{title}</option> 
+                                    else
+                                        return <option value={value}>{title}</option> 
+                                }
                             )}
                     </select>
                 </div>
-                <div class={`form-group col-${selectedFeature == 'HOME' ? "4" : "6"}`}>
+                <div class={`form-group col-${selectedFeature === 'HOME' ? "4" : "6"}`}>
                     <label for={"feature-baths"}>Baths</label>
                     <Input 
                         id="feature-baths" 
@@ -100,7 +132,7 @@ const FeatureSection = ({
                         onChange={ e => setFeatureAttributte('baths', e.target.value)}
                         />
                 </div>
-                {selectedFeature == 'HOME' && 
+                {selectedFeature === 'HOME' && 
                     <div class="form-group col-4">
                         <label for={"feature-rooms"}>Rooms</label>
                         <Input 
@@ -143,7 +175,12 @@ const FeatureSection = ({
                             >
                             <option value={''} selected>Choose...</option>
                             { buildingAgeOptions.data.map(({title, value}) =>
-                                <option value={value}>{title}</option>
+                                {
+                                    if (feature.buildingAge === value)
+                                        return <option value={value} selected>{title}</option> 
+                                    else
+                                        return <option value={value}>{title}</option> 
+                                }
                             )}
                     </select>
                 </div>
@@ -152,16 +189,29 @@ const FeatureSection = ({
                 <div class="form-group col-6">
                         <label for={"feature-property-type"}>{extraOptions.name}</label>
                         <select 
+                            multiple
                             id="feature-property-type" 
                             class="form-control"
-                            onChange={ e => setFeatureAttributte('extras', e.target.value) }
+                            onChange={ e => {
+                                let selectedValue = []
+                                for (let i=0; i<e.target.options.length; i++) {
+                                    if (e.target.options[i].selected) 
+                                        selectedValue.push(e.target.options[i].value || e.target.options[i].text);
+                                  }
+                                console.log(selectedValue)
+                                setFeatureAttributte('extras', selectedValue) }
+                            }
                             >
                                 {feature.extras ? 
                                     <option value={''}>Choose...</option>: 
                                     <option value={''} selected>Choose...</option>
                                 }
-                                {extraOptions.data.map(({title, value}) =>
-                                            <option value={value}>{title}</option>
+                                {extraOptions.data.map(({title, value}) => {
+                                    if (feature.extras && feature.extras.includes(value))
+                                        return <option value={value} selected>{title}</option> 
+                                    else
+                                        return <option value={value}>{title}</option> 
+                                }
                             )}
                          </select>
                 </div>
@@ -173,8 +223,12 @@ const FeatureSection = ({
                             onChange={ e => setFeatureAttributte('energyCertificate', e.target.value) }
                             >
                                 <option value={''} selected>Choose...</option>
-                                {energyCertificateOptions.data.map(({title, value}) =>
-                                            <option value={value}>{title}</option>
+                                {energyCertificateOptions.data.map(({title, value}) =>{
+                                    if (feature.energyCertificate === value)
+                                        return <option value={value} selected>{title}</option> 
+                                    else
+                                        return <option value={value}>{title}</option> 
+                                }
                             )}
                          </select>
                 </div>                
@@ -194,6 +248,18 @@ const FeatureSection = ({
                     onClick={(event) => {
                         event.preventDefault();
                         let isValidForm = true
+
+                        if(!selectedFeature && selectedFeature === ''){
+                            setInvalidPropertyType("Please select one property")
+                            isValidForm = false
+                        }else
+                            setInvalidPropertyType('')  
+
+                        if(!selectedFeature && selectedFeature !== 'OFFICE' && (!feature.type || feature.type === '')){
+                            setInvalidSubPropertyType("Please select one")
+                            isValidForm = false
+                        }else
+                            setInvalidSubPropertyType('')
 
                         if(isValidForm)
                             setFormStep(2)}

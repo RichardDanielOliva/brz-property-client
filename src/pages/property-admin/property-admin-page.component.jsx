@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { Switch, Route } from 'react-router-dom';
-import PropertyTableWrapper from '../../components/property-table/property-table.component';
-import PropertyForm from '../../components/property-form/property-form.component';
+import PropertyTableWrapper from '../../components/property-table/property-table-wrapper.component';
+import PropertyFormWrapper from '../../components/property-form/property-form-wrapper.component';
 
 //Styles
 import {
@@ -14,8 +14,8 @@ const PropertyAdminPage = () => {
     <PropertyAdminContainer>
         <Switch>
           <Route exact path="/admin/property" component={PropertyTableWrapper} />
-          <Route exact path="/admin/property/create" component={PropertyForm} />
-          <Route exact path="/admin/property/edit" component={PropertyForm} />
+          <Route exact path="/admin/property/create" component={PropertyFormWrapper} />
+          <Route path="/admin/property/edit" component={PropertyFormWrapper} />
         </Switch>
     </PropertyAdminContainer>
   );

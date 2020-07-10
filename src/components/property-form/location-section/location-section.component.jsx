@@ -27,6 +27,27 @@ const LocationSection = ({location, latitude, logitude, coordinates, setLocation
     let [ locationMethod, setLocationMethod] = useState('map')
     let position =  [ latitude, logitude ]
 
+    let [invalidCountry, setInvalidCountry] = useState(false)
+    let [invalidState, setInvalidState] = useState(false)
+    let [invalidCity, setInvalidCity] = useState(false)
+    let [invalidAddressed, setInvalidAddressed] = useState(false)
+    let [invalidPC, setInvalidPC] = useState(false)
+
+    if((location.country || location.country !== '') && invalidCountry)
+        setInvalidCountry(false)
+    
+    if((location.state || location.state !== '') && invalidState)
+        setInvalidState(false)
+
+    if((location.city || location.city !== '') && invalidCity)
+        setInvalidCity(false)
+
+    if((location.addressed || location.addressed !== '') && invalidAddressed)
+        setInvalidAddressed(false)
+
+    if((location.postalCode || location.postalCode !== '') && invalidPC)
+        setInvalidPC(false)
+
     return (
         <SectionContainer>
             <SectionTitle>Location</SectionTitle>
@@ -43,6 +64,10 @@ const LocationSection = ({location, latitude, logitude, coordinates, setLocation
                                 value={location.country}
                                 onChange={ e => setLocationAttributte('country', e.target.value)}
                                 />
+                            {invalidCountry && 
+                            <div class="alert alert-danger" role="alert">
+                                {invalidCountry}
+                            </div>}
                         </div>
                         <div class="form-group col-4">
                             <label for={"location-state"}>*State</label>
@@ -53,6 +78,10 @@ const LocationSection = ({location, latitude, logitude, coordinates, setLocation
                                 value={location.state}
                                 onChange={ e => setLocationAttributte('state', e.target.value)}
                                 />
+                            {invalidState && 
+                            <div class="alert alert-danger" role="alert">
+                                {invalidState}
+                            </div> }                              
                         </div>
                         <div class="form-group col-4">
                             <label for={"location-city"}>*City</label>
@@ -63,6 +92,10 @@ const LocationSection = ({location, latitude, logitude, coordinates, setLocation
                                 value={location.city}
                                 onChange={ e => setLocationAttributte('city', e.target.value)}
                                 />
+                            {invalidCity && 
+                            <div class="alert alert-danger" role="alert">
+                                {invalidCity}
+                            </div>}
                         </div>
                     </div>
                     <div class="row">
@@ -75,6 +108,10 @@ const LocationSection = ({location, latitude, logitude, coordinates, setLocation
                                 value={location.addressed}
                                 onChange={ e => setLocationAttributte('addressed', e.target.value)}
                                 />
+                            {invalidAddressed && 
+                            <div class="alert alert-danger" role="alert">
+                                {invalidAddressed}
+                            </div>}
                         </div>
                         <div class="form-group col-4">
                             <label for={"location-country"}>*Postal code</label>
@@ -85,11 +122,15 @@ const LocationSection = ({location, latitude, logitude, coordinates, setLocation
                                 value={location.postalCode}
                                 onChange={ e => setLocationAttributte('postalCode', e.target.value)}
                                 />
+                            {invalidPC && 
+                            <div class="alert alert-danger" role="alert">
+                                {invalidPC}
+                            </div>}
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-6">
-                            <label for={"location-longitude"}>*Longitude</label>
+                            <label for={"location-longitude"}>Longitude</label>
                             <Input 
                                 id="location-longitude" 
                                 type="text" 
@@ -101,7 +142,7 @@ const LocationSection = ({location, latitude, logitude, coordinates, setLocation
                                 />
                         </div>
                         <div class="form-group col-6">
-                            <label for={"location-latitude"}>*Latitude</label>
+                            <label for={"location-latitude"}>Latitude</label>
                             <Input 
                                 id="location-latitude" 
                                 type="text" 
@@ -171,6 +212,36 @@ const LocationSection = ({location, latitude, logitude, coordinates, setLocation
                     onClick={(event) => {
                         event.preventDefault();
                         let isValidForm = true
+
+                        if(!location.country && location.country === ''){
+                            setInvalidCountry("Please one country")
+                            isValidForm = false
+                        }else
+                            setInvalidCountry('')  
+                        
+                        if(!location.state && location.state === ''){
+                            setInvalidState("Please one state")
+                            isValidForm = false
+                        }else
+                            setInvalidState('')
+                    
+                        if(!location.addressed && location.addressed === ''){
+                            setInvalidAddressed("Please one addressed")
+                            isValidForm = false
+                        }else
+                            setInvalidAddressed('')  
+                        
+                        if(!location.city && location.city === ''){
+                            setInvalidCity("Please one city")
+                            isValidForm = false
+                        }else
+                            setInvalidCity('')
+                    
+                        if(!location.postalCode && location.postalCode === ''){
+                            setInvalidPC("Please one Postal Code")
+                            isValidForm = false
+                        }else
+                            setInvalidPC('')
 
                         if(isValidForm)
                             setFormStep(3)}

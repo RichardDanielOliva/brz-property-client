@@ -31,7 +31,7 @@ const EXAMPLE_PROPERTY_DATA = {
             "userid": null,
             "operation": "BUY",
             "propertyMessage": "Excelent property",
-            "UserContact": 
+            "userContact": 
             {"phones": ["61234567"], 
             "emails": ["example@example.com"]},
             "publishDate": "2020-01-30T18:39:32.699+0000",
@@ -67,7 +67,7 @@ const EXAMPLE_PROPERTY_DATA = {
             "userid": null,
             "operation": "BUY",
             "propertyMessage": "Excelent property",
-            "UserContact": 
+            "userContact": 
             {"phones": ["61234567"], 
             "emails": ["example@example.com"]},
             "publishDate": "2020-01-30T18:39:32.699+0000",
@@ -103,7 +103,7 @@ const EXAMPLE_PROPERTY_DATA = {
             "userid": null,
             "operation": "BUY",
             "propertyMessage": "Excelent property",
-            "UserContact": 
+            "userContact": 
             {"phones": ["61234567"], 
             "emails": ["example@example.com"]},
             "publishDate": "2020-01-30T18:39:32.699+0000",
@@ -139,7 +139,7 @@ const EXAMPLE_PROPERTY_DATA = {
             "userid": null,
             "operation": "BUY",
             "propertyMessage": "Excelent property",
-            "UserContact": 
+            "userContact": 
             {"phones": ["61234567"], 
             "emails": ["example@example.com"]},
             "publishDate": "2020-01-30T18:39:32.699+0000",
@@ -175,7 +175,7 @@ const EXAMPLE_PROPERTY_DATA = {
             "userid": null,
             "operation": "BUY",
             "propertyMessage": "Excelent property",
-            "UserContact": 
+            "userContact": 
             {"phones": ["61234567"], 
             "emails": ["example@example.com"]},
             "publishDate": "2020-01-30T18:39:32.699+0000",
@@ -213,7 +213,7 @@ const EXAMPLE_PROPERTY_DATA = {
             "userid": null,
             "operation": "BUY",
             "propertyMessage": "Excelent property",
-            "UserContact": 
+            "userContact": 
             {"phones": ["61234567"], 
             "emails": ["example@example.com"]},
             "publishDate": "2020-01-30T18:39:32.699+0000",

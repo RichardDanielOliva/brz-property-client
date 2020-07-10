@@ -3,6 +3,7 @@ import PropertyActionTypes from "./property.types";
 const INITIAL_STATE = {
   data: null,
   isFetching: false,
+  propertySection: "",
   errorMessage: undefined
 };
 
@@ -17,6 +18,7 @@ const propertiesReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         isFetching: false,
+        errorMessage: false,
         data: action.payload
       };
     case PropertyActionTypes.FETCH_PROPERTIES_FAILURE:
@@ -24,6 +26,11 @@ const propertiesReducer = (state = INITIAL_STATE, action) => {
         ...state,
         isFetching: false,
         errorMessage: action.payload
+      };
+    case PropertyActionTypes.SET_PROPERTY_SECTION:
+      return {
+        ...state,
+        propertySection: action.payload
       };
     default:
       return state;

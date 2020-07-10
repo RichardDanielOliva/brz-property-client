@@ -1,4 +1,4 @@
-import {Property,PropertyList,UserContact, Advertiser, Location, HomeFeature, OfficeFeature} from '../models/Property';
+import {Property,PropertyList,UserContact,PremiseFeature, Advertiser, Location, HomeFeature, OfficeFeature} from '../models/Property';
 
 export const mapJsonToPropertyList = (json, filter) => {
     switch (filter.type) {
@@ -14,7 +14,7 @@ export const mapJsonToPropertyList = (json, filter) => {
 }
 
 const mapJsonToHomesList = (json) => {
-    let homes = json._embedded.properties;
+    let homes = json._embedded.properties || json._embedded.homes;
     let properties = homes.map((home)=>
                             mapJsonHomeToProperty(home))
     let page = json.page ? json.page : null;
@@ -22,7 +22,7 @@ const mapJsonToHomesList = (json) => {
 }
 
 const mapJsonToOfficesList = (json) => {
-    let offices = json._embedded.properties;
+    let offices = json._embedded.properties || json._embedded.offices;
     let properties = offices.map((office)=>
                                 mapJsonOfficeToProperty(office))
     let page = json.page;
@@ -30,11 +30,24 @@ const mapJsonToOfficesList = (json) => {
 }
 
 const mapJsonToPremisesList = (json) => {
-    let premises = json._embedded.properties;
+    let premises = json._embedded.properties  || json._embedded.premises;
     let properties = premises.map((premise)=>
-                                mapJsonOfficeToProperty(premise))
+        mapJsonPremiseToProperty(premise))
     let page = json.page;
     return new PropertyList(properties, page)
+}
+
+export const mapJsonProperty = (json, type) => {
+    switch (type) {
+        case "HOME":
+            return mapJsonHomeToProperty(json);
+        case "PREMISE":
+            return mapJsonPremiseToProperty(json);
+        case "OFFICE":
+            return mapJsonOfficeToProperty(json);
+        default:
+            break;
+    }
 }
 
 const mapJsonOfficeToProperty = (offices) => {
@@ -108,5 +121,42 @@ const mapJsonHomeToProperty = (home) => {
         home.images ? home.images : null,
         home.geometry ? home.geometry : null,
         home.id ? home.id : null
+    )
+}
+
+const mapJsonPremiseToProperty = (premise) => {
+    return new Property(
+        new PremiseFeature(
+            premise.status ? premise.status : null,
+            premise.area ? premise.area : null, 
+            premise.extras ? premise.extras : null,
+            premise.buildingArea ? premise.buildingArea:null, 
+            premise.baths ? premise.baths : null, 
+            premise.buildingAge ? premise.buildingAge : null, 
+            premise.energyCertificate ? premise.energyCertificate : null,
+            premise.type ? premise.type : null,
+        ),
+        new Advertiser(
+            premise.advertiser.operation ? premise.advertiser.operation : null, 
+            premise.advertiser.propertyMessage ? premise.advertiser.propertyMessage : null, 
+            new UserContact(
+                premise.advertiser.userContact.phones ? premise.advertiser.userContact.phones:null,
+                premise.advertiser.userContact.emails ? premise.advertiser.userContact.emails :null
+            ), 
+            premise.advertiser.publishDate ? premise.advertiser.publishDate : null, 
+            premise.advertiser.price ? premise.advertiser.price : null, 
+            premise.advertiser.userid ? premise.advertiser.userid : null
+            ),
+        new Location(
+            premise.location.addressed ? premise.location.addressed : null, 
+            premise.location.city ? premise.location.city:null, 
+            premise.location.state ? premise.location.state:null, 
+            premise.location.country ? premise.location.country:null, 
+            premise.location.postalCode ? premise.location.postalCode:null, 
+            premise.location.streetId ? premise.location.streetId:null
+        ),
+        premise.images ? premise.images : null,
+        premise.geometry ? premise.geometry : null,
+        premise.id ? premise.id : null
     )
 }

@@ -3,12 +3,10 @@ import { IoIosArrowDown, IoIosCreate, IoIosCloseCircle } from 'react-icons/io';
 
 export const PropertyTableContainer = styled.div`
   width: 100%;
-  padding: 5%;  
+  padding: 2% 5%;  
 `;
 
-export const TableOptionHeader = styled.div`
-  width: 100%;
-  padding: 5%;  
+export const TableOptionHeader = styled.div` 
 `;
 
 export const ButtonText =  styled.h4`

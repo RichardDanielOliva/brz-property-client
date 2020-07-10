@@ -6,6 +6,8 @@ import AdvertiserSection from './advertiser-section/advertiser-section.component
 import FeatureSection from './feature-section/feature-section.component';
 import LocationSection from './location-section/location-section.component';
 import LoadImagesSection from './load-images-section/load-images-section.component';
+import ReviewSection from './review-section/review-section.component';
+import SavingSection from './saving-section/saving-section.component';
 
 //Styles
 import {
@@ -24,6 +26,10 @@ const getFormSection = (formStep) => {
       return <LocationSection/>
     case 3:
       return <LoadImagesSection/>
+    case 4:
+      return <ReviewSection/>
+    case 5:
+      return <SavingSection/>
     default:
       return <AdvertiserSection/>
   }

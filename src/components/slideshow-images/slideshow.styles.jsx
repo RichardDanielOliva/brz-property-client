@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { IoIosCloseCircle } from 'react-icons/io';
 
 const displayStyles = css`
   display: flex;
@@ -25,7 +26,8 @@ export const SlideShowContainer = styled.div`
 
 export const SlideItemContainer = styled.div`
   ${displayImages}
-
+  display: flex;
+  position: relative;
   -webkit-animation-name: fade;
   -webkit-animation-duration: 1.5s;
   animation-name: fade;
@@ -91,3 +93,11 @@ export const PropertyImage = styled.img`
   width:100%;
   height:auto;
 `;
+
+export const DeleteIcon = styled(IoIosCloseCircle)`
+  color: red;
+  cursor: pointer;
+  position: absolute;
+  top: 2%;
+  right: 2%;
+`

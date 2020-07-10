@@ -3,9 +3,11 @@ import store from '../store';
 import PropertyActionTypes from "./property.types";
 
 import {mapJsonToPropertyList} from '../../utils/services/properties.converter';
-import {getPropertyAPIUrl, getPropertyAPIOptions} from '../../utils/services/properties.services.api-url';
+import {getPropertyAPIUrl,getPropertyAPIUrlByType, getPropertyAPIOptions} from '../../utils/services/properties.services.api-url';
+import { setSimpleAttributte } from '../filter/filter.actions'
 
 import EXAMPLE_PROPERTY_DATA from '../../utils/default-data/property.data';
+
 
 export const fetchPropertiesStart = () => ({
   type: PropertyActionTypes.FETCH_PROPERTIES_START
@@ -20,6 +22,31 @@ export const fetchPropertiesFailure = errorMessage => ({
   type: PropertyActionTypes.FETCH_PROPERTIES_FAILURE,
   payload: errorMessage
 });
+
+export const setPropertySection = section => ({
+  type: PropertyActionTypes.SET_PROPERTY_SECTION,
+  payload: section
+});
+
+export const fetchAllPropertiesByType = (type) => {
+  return dispatch => {
+  dispatch(fetchPropertiesStart());
+
+  fetch(getPropertyAPIUrlByType(type))
+    .then(res => res.json())
+      .then(res => {
+          let propertyList = mapJsonToPropertyList(res, {"type": type})
+          dispatch(setSimpleAttributte(type, 'propertyType'))
+          dispatch(fetchPropertiesSuccess(propertyList));
+          return propertyList;
+      })
+      .catch(error => {
+        console.log(error)
+        //dispatch(fetchPropertiesSuccess(EXAMPLE_PROPERTY_DATA));
+        dispatch(fetchPropertiesFailure(error));
+      })
+  }
+}
 
 export const fetchPropertiesStartAsync = () => {
   let currentState = store.getState();
@@ -41,8 +68,8 @@ export const fetchPropertiesStartAsync = () => {
       })
       .catch(error => {
         console.log(error)
-          dispatch(fetchPropertiesSuccess(EXAMPLE_PROPERTY_DATA));
-          //dispatch(fetchPropertiesFailure(error));
+          //dispatch(fetchPropertiesSuccess(EXAMPLE_PROPERTY_DATA));
+        dispatch(fetchPropertiesFailure(error));
       })
   };
 };

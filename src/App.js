@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, Fragment } from 'react';
 //import useReactRouter from 'use-react-router';
 import { Switch, Route } from 'react-router-dom';
 
@@ -21,33 +21,21 @@ import Nav from './components/nav/nav.component';
 import './App.css';
 
 const App = () => {
-  //const { location } = useReactRouter();
-  const hideHeader = () => {
-    return <Nav />;
-  };
-
   return (
-    <div>
+    <Fragment>
       <Suspense fallback={<div>Loading</div>}>
-        {hideHeader()}
+        <Nav />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/search" component={PropertySearchPage} />
           <Route exact path="/services" component={ServicesPage} />
           <Route exact path="/login" component={LoginPage} />
-          <Route path="/admin/property" component={PropertyAdminPage} />
-          <Route exact path="/admin" component={AdminPage} />
-          <PrivateRoute exact path="/user" component={ServicesPage} />
+          <PrivateRoute path="/admin/property" component={PropertyAdminPage} />
+          <PrivateRoute exact path="/admin" component={AdminPage} />
         </Switch>
       </Suspense>
-    </div>
+    </Fragment>
   );
 };
 
-const mapDispatchToProps = dispatch => ({
-});
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(App);
+export default App;

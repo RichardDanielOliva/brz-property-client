@@ -1,18 +1,30 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 //Styles
 import {
   AdminPageContainer,
+  LinksContainer
 } from './admin-page.styles';
 
 
-const AdminPage = () => {
+const AdminPage = ({user}) => {
   return (
     <AdminPageContainer>
-      <Link to='/admin/property'>Property</Link>
-      <Link to='/admin/user'>User</Link>
+      <h2>Welcome {user.name}</h2>
+      <LinksContainer>
+        <Link to='/admin/property' class="btn btn-primary btn-lg mb-2" role="button">Property</Link>
+        <Link to='/admin/user' class="btn btn-secondary btn-lg disabled" role="button">User</Link>
+      </LinksContainer>
     </AdminPageContainer>
   );
 };
 
-export default AdminPage;
+
+const mapStateToProps = state => ({
+  user: state.auth.user,
+})
+
+
+export default connect(mapStateToProps)(AdminPage);
+

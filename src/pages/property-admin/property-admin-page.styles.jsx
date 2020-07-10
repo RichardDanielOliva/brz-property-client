@@ -9,7 +9,7 @@ export const PropertyAdminContainer = styled.div`
   flex-direction: column;
 
   @media (min-width: 998px) {
-    height: 100vh;
+    min-height: 100vh;
     top: 0;
 
     width: calc(100vw - 90px);

@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { 
     setFormStep,
     setAdvertiserAttributte, 
@@ -26,7 +27,16 @@ const AdvertiserSection = ({
 
     const { t } = useTranslation();
     const commonsOptions = t('propertyFilter.operation');
-    let [validOperation, setValidOperation] = useState(false)
+
+    let [invalidOperation, setInvalidOperation] = useState(false)
+    let [invalidPrice, setInvalidPrice] = useState(false)
+    let [invalidContactInfo, setInvalidContactInfo] = useState(false)
+
+    if (advertiser.operation && !advertiser.operation == '' && invalidOperation)
+        setInvalidOperation('')
+
+    if((advertiser.userContact.phones >= 1 || advertiser.userContact.emails >= 1) && invalidContactInfo)
+        setInvalidContactInfo('')
 
     return (
         <SectionContainer>
@@ -38,14 +48,20 @@ const AdvertiserSection = ({
                         id="advertiser-operation" 
                         class="form-control"
                         onChange={ e => setAdvertiserAttributte('operation', e.target.value) }>
-                        <option value={''} selected>Choose...</option>
-                        {commonsOptions.data.map(({title, value}) =>
-                            <option value={value}>{title}</option>
-                        )}
+                        {advertiser.operation ? 
+                            <option value={''} selected>Choose...</option> :
+                            <option value={''} >Choose...</option>
+                        }
+                        {commonsOptions.data.map(({title, value}) => {
+                            if (advertiser.operation === value)
+                                return <option value={value} selected>{title}</option> 
+                            else
+                                return <option value={value}>{title}</option> 
+                        })}
                     </select>
-                    {validOperation && 
+                    {invalidOperation && 
                         <div class="alert alert-danger" role="alert">
-                            {validOperation}
+                            {invalidOperation}
                         </div>
                     }
                 </div>
@@ -58,6 +74,10 @@ const AdvertiserSection = ({
                         value={advertiser.price}
                         onChange={ e => setAdvertiserAttributte('price', e.target.value)}
                         />
+                    {invalidPrice && 
+                        <div class="alert alert-danger" role="alert">
+                            {invalidPrice}
+                        </div>}
                 </div>
             </div>
             <div class="row">
@@ -74,7 +94,7 @@ const AdvertiserSection = ({
                 <div class="form-group col-6">
                     <div class="form-group">
                     <label for={"advertiser-phones"}>*Telephone</label>
-                        {advertiser.UserContact.phones.map((phones, idx) =>
+                        {advertiser.userContact.phones.map((phones, idx) =>
                             <Fragment>
                                 <Input 
                                     id={`advertiser-phones-${idx}`} 
@@ -84,6 +104,10 @@ const AdvertiserSection = ({
                                     onChange={ e => setAdvertiserUserContactAttributte('phones',idx, e.target.value)} />
                             </Fragment> 
                         )}
+                    {invalidContactInfo && 
+                        <div class="alert alert-danger" role="alert">
+                            {invalidContactInfo}
+                        </div>}
                     <button class="btn btn-primary mb-2" 
                         onClick={(event) => {
                             event.preventDefault()
@@ -94,7 +118,7 @@ const AdvertiserSection = ({
                     </div>
                     <div class="form-group">
                         <label for={"advertiser-email"}>*Email</label>
-                        {advertiser.UserContact.emails.map((email, idx) => 
+                        {advertiser.userContact.emails.map((email, idx) => 
                             <Input 
                                 id={`advertiser-email-${idx}`} 
                                 type="email" 
@@ -112,19 +136,31 @@ const AdvertiserSection = ({
                 </div>
             </div>
             <FormOptions>
-                <button class="btn btn-primary">
+                <Link class="btn btn-primary" to={`/admin/property/`}>
                     <ButtonText>Cancel</ButtonText>
-                </button>
+                </Link>
                 <button 
                     onClick={(event) => {
                         event.preventDefault();
                         let isValidForm = true
 
                         if(!advertiser.operation && advertiser.operation == ''){
-                            setValidOperation("Invalid input")
+                            setInvalidOperation("Please select one operation")
                             isValidForm = false
                         }else
-                            setValidOperation('')  
+                            setInvalidOperation('')  
+
+                        if(advertiser.price && isNaN(advertiser.price)){
+                            setInvalidPrice("Please insert a valid price")
+                            isValidForm = false
+                        }else
+                            setInvalidPrice('')  
+                        
+                        if(advertiser.userContact.phones <= 1 && advertiser.userContact.emails <=1 ){
+                            setInvalidContactInfo("Please insert at least one phone or email")
+                            isValidForm = false
+                        }else
+                            setInvalidContactInfo('')  
 
                         if(isValidForm)
                             setFormStep(1)}

@@ -437,6 +437,39 @@
     }
   },
   "propertyFilter": {
+    "tableFilter": {
+      "type" : {
+        "HOME": {
+          "name":"type",
+          "data": [
+            {"title":"Todas", "value":""},
+            {"title":"Apartamento", "value":"APARTMENT"}, 
+            {"title":"Duplex", "value":"DUPLEX_APARTMENT"},
+            {"title":"Penthouse", "value":"PENTHOUSE"},
+            {"title":"Loft", "value":"LOFT"},
+            {"title":"Sotano", "value":"GROUND_FLOOR"},
+            {"title":"Studio", "value":"STUDIO"},
+            {"title":"Casa", "value":"HOUSE"}
+          ]  
+        },
+        "PREMISE":{
+          "name":"type",
+          "data": [
+          {"title":"Commercial store", "value":"COMMERCIAL_STORE"}, 
+          {"title":"Industrial building", "value":"INDUSTRIAL_BUILDING"}
+        ] 
+        }
+      },
+      "operation": {
+        "name":"operation",
+        "data": [
+          {"title":"All", "value":""},
+          {"title":"Buy", "value":"BUY"},
+          {"title":"Rent", "value":"RENT"},
+          {"title":"Share", "value":"SHARE"}
+        ]  
+      }
+    },
     "type": {
         "name":"type",
         "data": [

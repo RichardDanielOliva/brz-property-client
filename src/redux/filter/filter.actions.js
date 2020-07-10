@@ -10,10 +10,8 @@ export const handleInputAutocompleteSelect = (address) =>{
   return dispatch => {
     geocodeByAddress(address)
       .then(results => {
-        console.log('Result ', results)
         return getLatLng(results[0])})
       .then(latLng => {
-          console.log('Success', latLng)
           dispatch(setLocationCoordinates(latLng));  
           dispatch(handleInputAutocompleteChange(address))   
         })

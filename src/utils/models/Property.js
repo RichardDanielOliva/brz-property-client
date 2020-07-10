@@ -71,7 +71,7 @@ export class Advertiser{
         this.userid =  userid;
         this.operation =  operation;
         this.propertyMessage = propertyMessage;
-        this.UserContact = UserContact;
+        this.userContact = UserContact;
         this.publishDate = publishDate;
         this.price = price;
     }

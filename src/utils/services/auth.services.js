@@ -1,6 +1,8 @@
+import {API_HOST} from './properties.services.api-url';
+
 class AuthServices {
     async fecthLogin ({username, password}){
-        const urlEndpoint = 'http://localhost:8090/api/security/oauth/token'; //http://localhost:8090/api/security/oauth/token
+        const urlEndpoint = `${API_HOST}/api/security/oauth/token`; //http://localhost:8090/api/security/oauth/token
         
         const credentials = btoa('myfrontendapp' + ':' + '12345');
     
@@ -13,7 +15,6 @@ class AuthServices {
         params.set('grant_type', 'password');
         params.set('username', username);
         params.set('password', password);
-        console.log(params.toString());
 
         const config = {
             method: "POST",
@@ -23,7 +24,6 @@ class AuthServices {
         return window
             .fetch(urlEndpoint, config)
             .then(response => response.json())
-            .then(response => console.log(response))
 
         //return this.http.post<any>(urlEndpoint, params.toString(), { headers: httpHeaders });
       }
@@ -41,6 +41,23 @@ class AuthServices {
           return true;
         }
         return false;
+    }
+
+    static isAValidateToken (refreshToken){
+      const jwt = require('jsonwebtoken');
+      console.log(refreshToken)
+      if(!refreshToken)
+        return false
+    
+      let decodedToken = jwt.decode(refreshToken, {complete: true});
+    
+      if(!decodedToken)
+        return false
+      
+      if(decodedToken.exp < (new Date()).getTime())
+          return false
+      
+      return true  
     }
 }
 

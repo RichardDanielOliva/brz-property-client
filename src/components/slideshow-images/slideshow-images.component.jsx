@@ -4,7 +4,7 @@ import {
   SlideShowContainer,
   SlideItemContainer,
   PropertyImage,
-  NumberText,
+  DeleteIcon,
   Prev,
   Next
 } from './slideshow.styles';
@@ -32,7 +32,7 @@ class SlideShowImages extends React.Component {
     }
   
     render() {
-      let {images} = this.props;
+      let {images, setImagesPreview} = this.props;
       let totalImages = images.length;
       return (
         <SlideShowContainer>
@@ -42,9 +42,12 @@ class SlideShowImages extends React.Component {
                       key={`slide-item-container-${image}`} 
                       display={this.displayImage(index).toString()}>
                         <PropertyImage src={image} alt={`property-image-${image}`}/>
+                        {setImagesPreview &&
+                        <DeleteIcon  onClick={() => 
+                          setImagesPreview(images.filter((img, idx) => idx !== index))
+                        }/>}
                     </SlideItemContainer>
             )})}
-
             <Prev onClick={() => this.nextImage(-1, totalImages)}>&#10094;</Prev>
             <Next onClick={() => this.nextImage(1, totalImages)}>&#10095;</Next>
         </SlideShowContainer>

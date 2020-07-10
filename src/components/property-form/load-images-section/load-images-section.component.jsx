@@ -6,9 +6,7 @@ import SlideShowImages from '../../slideshow-images/slideshow-images.component';
 
 import { 
     setFormStep,
-    setAdvertiserAttributte, 
-    setAdvertiserUserContactAttributte,
-    addAdvertiserUserContactAttributte
+    setImages
  } from '../../../redux/property-form/property-form.actions';
 
 import {
@@ -22,45 +20,66 @@ import {
 
 
 const LoadImagesSection = ({
+    imagesSaved,
     setFormStep,
-    setAdvertiserAttributte}) => {
+    setImages}) => {
 
     const { t } = useTranslation();
     const commonsOptions = t('propertyFilter.operation');
-    const [validOperation, setValidOperation] = useState(false)
     const [value, setValue] = useState([])
+    const [images, setImagesfiles] = useState([])
     const [imagesPreview, setImagesPreview] = useState([])
     const [auxImagePreview, setAuxImagePreview] = useState(false)
+    const [invalidImage, setInvalidImage] = useState(false)
+    const [auxImageSaved, setAuxImageSaved] = useState(imagesSaved)
     const inputRef = useRef();
 
     useEffect(() => {
         value.forEach(file => {
-            let reader = new FileReader();
+            if(file.type === 'image/png' || file.type === 'image/jpeg'){
+                let reader = new FileReader();
 
-            reader.onload = function (e) {
-                setAuxImagePreview(e.target.result)
-            }
-    
-            reader.readAsDataURL(file);
+                reader.onload = function (e) {
+                    setAuxImagePreview([e.target.result, file])
+                }
+        
+                reader.readAsDataURL(file);
+                setInvalidImage("")
+            }else
+                setInvalidImage("File type accepted: .png or .jpg")
         })
     }, [value]);
 
     useEffect(() => {
-        if(auxImagePreview){
-            setImagesPreview([...imagesPreview, auxImagePreview])
+        if(auxImagePreview && !imagesPreview.includes(auxImagePreview[0])){
+            setImagesPreview([...imagesPreview, auxImagePreview[0]])
+            setImagesfiles([...images, auxImagePreview[1]])
             setAuxImagePreview(false)
         }
     }, [auxImagePreview]);
 
     return (
         <SectionContainer>
+            {imagesSaved && Boolean(auxImageSaved.length) &&
+            <Fragment>
+                <SectionTitle>Actual saved Images</SectionTitle>
+                    <div class="row">
+                        <div class="form-group col-12">
+                            <div>
+                                <SlideShowContainer>
+                                    <SlideShowImages images={auxImageSaved} setImagesPreview={setAuxImageSaved}/>
+                                </SlideShowContainer>
+                            </div>
+                    </div>
+                </div> 
+            </Fragment>}
             <SectionTitle>Load Images</SectionTitle>
                 <div class="row">
                     <div class="form-group col-12">
                         <div>
                             {Boolean(imagesPreview.length) && (
                             <SlideShowContainer >Selected files: 
-                                <SlideShowImages images={imagesPreview}/>
+                                <SlideShowImages images={imagesPreview} setImagesPreview={setImagesPreview}/>
                             </SlideShowContainer>
                             )}
                             <label>
@@ -68,7 +87,6 @@ const LoadImagesSection = ({
                             <input
                                 type="file"
                                 onChange={e => {
-                                    console.log(e.target.files)
                                     setValue([...value, ...e.target.files])
                                 }}
                                 multiple
@@ -76,9 +94,9 @@ const LoadImagesSection = ({
                             />
                             </label>
                         </div>
-                    {validOperation && 
+                    {invalidImage && 
                         <div class="alert alert-danger" role="alert">
-                            {validOperation}
+                            {invalidImage}
                         </div>
                     }
                 </div>
@@ -88,13 +106,15 @@ const LoadImagesSection = ({
                 class="btn btn-primary"
                 onClick={(event) => {
                         event.preventDefault();
-                        setFormStep(0)}
+                        setFormStep(2)}
                     }>
                     <ButtonText>Previus step</ButtonText>
                 </button>
                 <button 
                     onClick={(event) => {
                         event.preventDefault();
+                        setImages(images, auxImageSaved, imagesPreview)
+                        setFormStep(4)
                     }
                     }
                     class="btn btn-primary">
@@ -106,12 +126,14 @@ const LoadImagesSection = ({
 }
 
 const mapStateToProps = state => ({
-    advertiser: state.propertyForm.advertiser
+    imagesSaved: state.propertyForm.imagesSaved
 })
 
-//const mapDispatchToProps = dispatch => ({
-//    setAdvertiserAttributte: (attributte, value) => 
-//        dispatch(setAdvertiserAttributte(attributte, value)), 
-//});
+const mapDispatchToProps = dispatch => ({
+    setImages: (images, imagesPreview, auxImagePreview) => 
+        dispatch(setImages(images, imagesPreview, auxImagePreview)), 
+    setFormStep: (attributte) => 
+        dispatch(setFormStep(attributte)),
+});
   
-export default connect(mapStateToProps, null)(LoadImagesSection);
+export default connect(mapStateToProps, mapDispatchToProps)(LoadImagesSection);

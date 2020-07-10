@@ -1,22 +1,16 @@
 import AuthActionTypes from "./auth.types";
 import { USER_STORE_KEY, TOKEN_STORE_KEY } from '../../constants/constants';
 
-export function useLocalStorage (key, initialValue) {
-    try {
-      const item = window.localStorage.getItem(key)
-      return item !== null ? JSON.parse(item) : initialValue
-    } catch (e) {
-      return initialValue
-    }
-}
+import { useValueInLocalStorage } from '../../utils/services/local-storage.services';
+import AuthServices from '../../utils/services/auth.services';
 
-let storeUser = useLocalStorage(USER_STORE_KEY, null);
-let storeToken = useLocalStorage(TOKEN_STORE_KEY, null);
+let storeUser = useValueInLocalStorage(USER_STORE_KEY, null);
+let storeToken = useValueInLocalStorage(TOKEN_STORE_KEY, null);
 
 const INITIAL_STATE = {
   user: storeUser,
   token: storeToken,
-  isAuthenticated: storeUser &&  storeToken? true : false,
+  isAuthenticated: AuthServices.isAValidateToken(storeToken),
 };
 
 const AuthReducer = (state = INITIAL_STATE, action) => {
@@ -30,7 +24,8 @@ const AuthReducer = (state = INITIAL_STATE, action) => {
     case AuthActionTypes.SET_TOKEN:
       return {
         ...state,
-        token: action.payload
+        token: action.payload,
+        isAuthenticated: AuthServices.isAValidateToken(action.payload)
       };
     default:
       return state;
