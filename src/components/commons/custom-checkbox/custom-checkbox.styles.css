@@ -5,11 +5,16 @@
     padding-left: 35px;
     margin-bottom: 12px;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 18px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+
+    
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-weight: 300;
   }
   
   /* Hide the browser's default checkbox */
@@ -38,7 +43,7 @@
   
   /* When the checkbox is checked, add a blue background */
   .container input:checked ~ .checkmark {
-    background-color: #2196F3;
+    background-color: rgb(182, 149, 3);
   }
   
   /* Create the checkmark/indicator (hidden when not checked) */

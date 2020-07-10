@@ -1,55 +1,32 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import useReactRouter from 'use-react-router';
 import { connect } from 'react-redux';
 
 import NavItemProfile from './nav-item-profile/nav-item-profile.component';
-import NavSearchInput from './nav-search-input/nav-search-input.component';
-import NavProfileDropDown from './nav-profile-dropdown/nav-profile-dropdown.component';
-
 import {
   NavContainer,
-  MainLogoContainer,
-  NavFilterContainer,
-  AppImage,
   NavItemsContainer,
   NavItemContainer
 } from './nav.styles';
 
-const getDrownDownMenu = (sectionName, display) => {
-  switch (sectionName) {
-    case 'User':
-        return display ? <NavProfileDropDown /> : null;
-    case 'Enterprise':
-        return display ? <NavProfileDropDown /> : null;
-    case 'Language':
-        return display ? <NavProfileDropDown /> : null;
-    default:
-        break;
-  }
-}
-
-const Nav = ({ displayProfileDrownDown, enterpriseDrownDown, languageDrownDown }) => {
+const Nav = ({...props}) => {
   const { t } = useTranslation();
-  const sectionItems = t('nav.sectionItem')
+  const { location } = useReactRouter();
 
+  const sectionItems = t('nav.sectionItem')
+  console.log(sectionItems)
   return (
     <NavContainer>
-      <MainLogoContainer to="/home">
-        {/*<AppImage src={mainLogo} alt="item" />*/}
-      </MainLogoContainer>
-
-      <NavFilterContainer>
-        <NavSearchInput />
-      </NavFilterContainer>
-
       <NavItemsContainer>
-        {sectionItems.map(({name, logo}) => {
-          return (<NavItemContainer>
-            <NavItemProfile name={name} logo={logo}/>
-            {getDrownDownMenu(name, displayProfileDrownDown) }
-          </NavItemContainer>)
-        })}
-
+        {sectionItems.map(({id, ...props}) => {
+          return (
+            <NavItemContainer key={`nav-item-${id}`}>
+              <NavItemProfile 
+                actualLocation={location.pathname}
+                {...props} />
+            </NavItemContainer>
+        )})}
       </NavItemsContainer>
     </NavContainer>
   );

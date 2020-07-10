@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 const bottomSelectedColor = '#FFCC00';
 const bottomHoverColor = '#FFCC00';
 
-const noSelectedStyle = css`
+const defaultStyle = css`
   background-color: rgba(250,250,250,0.8);
 
   &:hover {
@@ -19,27 +19,24 @@ const getButtonStyles = props => {
   if (props.isSelected) 
     return buttonSelectedStyles;
   else 
-    return noSelectedStyle
+    return defaultStyle;
 };
 
 export const CustomButtonContainer = styled.button`
-  display: table-cell;
-  vertical-align: middle;
-  width: 200px;
-  height: 50px;
-  font-size: 0.9rem;
-  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  width: 100%;
+  height: 100%;
 
   border: none;
   border-radius: 30px;
   overflow: hidden;
 
-  cursor: pointer;
+  box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.15);
 
-  @media (max-width: 480px) {
-    font-size: 0.8rem;
-    width: 80px;
-  }
+  cursor: pointer;
 
   ${getButtonStyles}
 `;

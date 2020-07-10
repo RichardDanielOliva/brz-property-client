@@ -1,39 +1,31 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { useTranslation } from 'react-i18next';
-
-import {getLogoComponent} from '../../../utils/LogoFactory';
-import profileDefaultImg from '../../../assets/logos/nav/profile-default.jpg';
+import {Link} from 'react-router-dom';
 
 import {NavItemProfileContainer, 
     NavProfileLogo,
     NavProfileText,
-    NavProfileDropdownLogo
+    Icon
 } from './nav-item-profile.style';
     
 import { handleDropDownProfile } from '../../../redux/nav/nav.actions';
 
-const NavItemProfile = ({name, logo, handleDropDownProfile}) => {
-    const dropLogo = "drop-down";
-    
+const NavItemProfile = ({name, url, logo, actualLocation}) => {    
     return (
-        <NavItemProfileContainer onClick={() => handleDropDownProfile()}> 
-            <NavProfileLogo>
-                {getLogoComponent(logo)}
-            </NavProfileLogo>
-            <NavProfileText>
-                {name}
-            </NavProfileText>
-            <NavProfileDropdownLogo>
-                {getLogoComponent(dropLogo)}
-            </NavProfileDropdownLogo>
-        </NavItemProfileContainer>
+        <Link to={url} style={{ width: '100%', height: '100%' }}>
+            <NavItemProfileContainer
+                isSelected={url===actualLocation}
+                onClick={() => handleDropDownProfile()}> 
+                <NavProfileLogo>
+                    <Icon className={logo}/>
+                </NavProfileLogo>
+                <NavProfileText>
+                    {name}
+                </NavProfileText>
+            </NavItemProfileContainer>
+        </Link>
     )
 }
-
-const mapStateToProps = state => ({
-
-})
 
 const mapDispatchToProps = dispatch => ({
     handleDropDownProfile: () => 
@@ -41,4 +33,4 @@ const mapDispatchToProps = dispatch => ({
   );
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavItemProfile);
+export default connect(null, mapDispatchToProps)(NavItemProfile);

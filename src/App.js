@@ -1,5 +1,5 @@
-import React, { Suspense } from 'react';
-import useReactRouter from 'use-react-router';
+import React, { Suspense, Fragment } from 'react';
+//import useReactRouter from 'use-react-router';
 import { Switch, Route } from 'react-router-dom';
 
 // Redux
@@ -8,7 +8,11 @@ import { connect } from 'react-redux';
 // Pages
 import HomePage from './pages/home/home-page.component';
 import PropertySearchPage from './pages/property-search/property-search-page.component';
-//import ActivityPage from './pages/activity/activityPage.component';
+import ServicesPage from './pages/services/services-page.component';
+import LoginPage from './pages/login/login-page.component';
+import PropertyAdminPage from './pages/property-admin/property-admin-page.component';
+import AdminPage from './pages/admin/admin-page.component';
+import PrivateRoute from './utils/PrivateRoute';
 
 // Components
 import Nav from './components/nav/nav.component';
@@ -17,34 +21,21 @@ import Nav from './components/nav/nav.component';
 import './App.css';
 
 const App = () => {
-  const { location } = useReactRouter();
-
-  const hideHeader = () => {
-    /*if (location.pathname === '/') return <Header />;
-
-    if (location.pathname === '/signin' || location.pathname === '/signup')
-      return null;*/
-
-    return <Nav />;
-  };
-
   return (
-    <div>
+    <Fragment>
       <Suspense fallback={<div>Loading</div>}>
-        {hideHeader()}
+        <Nav />
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/search" component={PropertySearchPage} />
+          <Route path="/search" component={PropertySearchPage} />
+          <Route exact path="/services" component={ServicesPage} />
+          <Route exact path="/login" component={LoginPage} />
+          <PrivateRoute path="/admin/property" component={PropertyAdminPage} />
+          <PrivateRoute exact path="/admin" component={AdminPage} />
         </Switch>
       </Suspense>
-    </div>
+    </Fragment>
   );
 };
 
-const mapDispatchToProps = dispatch => ({
-});
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(App);
+export default App;

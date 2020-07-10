@@ -1,55 +1,57 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
-const backgroundColor = '#FFCC00';
-const bottomBorderColor = '#FFCC00';
+//const backgroundColor = '#FFCC00';
 
 export const NavContainer = styled.nav`
   display: flex;
-  height: 59px;
-  width: 100%;
+  height: 80px;
+  width: 100vw;
   
-
-  justify-content: space-between;
-  
-  position: sticky;
+  position: fixed;
   top: 0;
-  border-bottom: 7px solid ${bottomBorderColor};
 
-  z-index: 2;
-  background-color: rgba(255,255,255,1);
+  z-index: 3;
+  background-color: rgba(0,0,0,1);
 
-  @media screen and (min-width: 770px) {
-    width: 100%;
-    padding: 0 2.5%;
+  @media only screen and (min-width: 998px) {
+    height: 100vh;
+    width: 90px;
+    
+    position: fixed;
+    top: 0;
+    left:0;
   }
 
-  @media screen and (min-width: 1196px) {
-    width: 100%;
-    padding: 0 calc((100% - 1600px) / 2);
+  @media only screen and (min-width: 1198px){
+    width: 100px;
   }
-`;
 
-export const MainLogoContainer = styled(Link)`
-  height: 100%;
-  margin: 5px;
-`;
-
-export const AppImage = styled.img`
-  height: 45px;
-`;
-
-export const NavFilterContainer = styled.div`
-  width: 30%;
 `;
 
 export const NavItemsContainer = styled.div`
   display: flex;
-  justify-content: space-around;
-  width: 40%;
+
+  width: 100%;
+
+  @media only screen and (min-width: 998px) {
+    flex-direction: column;
+  }
 `;
 
 export const NavItemContainer = styled.div`
   display: flex;
-  width: 32%;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  border-bottom: 2px solid rgba(255,204,0,1);
+
+  a{
+    text-decoration: none;
+  }
+
+  @media only screen and (min-width: 998px) {
+    height: 13vh;
+    border-bottom: none;
+  }
 `;

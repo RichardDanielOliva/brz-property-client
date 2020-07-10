@@ -1,22 +1,23 @@
 import React from 'react';
-import {Link, withRouter} from 'react-router-dom';
-import { connect } from 'react-redux';
-import { useTranslation } from 'react-i18next';
 
 import CustomCheckbox from '../../commons/custom-checkbox/custom-checkbox.component';
 
-import './filter-checkbox-group.styles.scss';
+import {
+    FilterCheckboxContainer,
+    FilterTitle,
+    FilterCheckbox
+  } from './filter-checkbox-group.styles';
 
-const FilterCheckboxGroup = ({title, data}) => {
+const FilterCheckboxGroup = ({title, ...props}) => {
     return (
-        <div className="filter-checkbox-container">
-            <div className="filter-checkbox-title-container">
+        <FilterCheckboxContainer>
+            <FilterTitle>
                 {title}
-            </div>
-            <div className="filter-checkbox-input-container">
-                <CustomCheckbox data={data}/>
-            </div>
-        </div>
+            </FilterTitle>
+            <FilterCheckbox>
+                <CustomCheckbox {...props}/>
+            </FilterCheckbox>
+        </FilterCheckboxContainer>
     )
 }
 

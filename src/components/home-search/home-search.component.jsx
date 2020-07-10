@@ -1,10 +1,14 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
 
 import CustomButton from '../commons/custom-button/custom-button.component';
-import CustomSearchInput from '../commons/search-input/search-input.component';
 import SelectProperty from './select-property/select-property.component';
+import PropertyOperation from '../commons/property-operations/property-operation.component';
+import LocationSearchInput from '../commons/location-search-input/location-search-input.component';
+
+import {fetchPropertiesStartAsync} from '../../redux/property/property.actions';
 
 import {
     HomeSearchContainer,
@@ -12,62 +16,49 @@ import {
     SearchContainer,
     CustomSearchInputContainer,
     ButtonsContainer,
-    Icon,
+    ButtonText,
     IconLeft
   } from './home-search.styles';
 
-import {handleInputAttributte} from '../../redux/filter/filter.actions';
-
-const isSelected = (optionSelected, option) => {
-    return optionSelected === option;
-}
-
-const HomeSearch = ({optionSelected, handleInputAttributte}) => {
+const HomeSearch = ({fetchPropertiesStartAsync}) => {
     const { t } = useTranslation();
-    const options = t('homePage.mainSearch.options');
+    const searchButtons = t('homePage.searchButtons');
 
     return (
         <HomeSearchContainer>
             <OptionsContainer>
-                {options.map(({name, iconClass}) => {
-                    return (<CustomButton 
-                                isSelected={isSelected(optionSelected,name)}
-                                onClick={()=> handleInputAttributte(name)}>
-                                    <Icon className={iconClass}/>
-                                    {name}
-                            </CustomButton>)
-                })}
+                <PropertyOperation fetchProperties={false}/>
             </OptionsContainer>
             <SearchContainer>
                 <SelectProperty/>
                 <CustomSearchInputContainer>
-                    <CustomSearchInput
-                        onChange={() => null}
-                        className={false ? 'searching' : ''}
-                        placeholder="Insert a location"/>
+                    <LocationSearchInput/>
                 </CustomSearchInputContainer>
             </SearchContainer>
             <ButtonsContainer>
-                <CustomButton>
-                    Search
-                    <IconLeft className="fas fa-search fa-lg"/>
-                </CustomButton>
-                <CustomButton>
-                    Search by map
-                    <IconLeft className="fas fa-map-marked-alt fa-lg"/>
-                </CustomButton>
+                <Link to={searchButtons[0].link} 
+                    style={{ width: '33%', height: '100%' }}
+                    onClick={() => fetchPropertiesStartAsync()}>
+                    <CustomButton>
+                        <ButtonText>{searchButtons[0].text}</ButtonText>
+                        <IconLeft className="fas fa-search fa-lg"/>
+                    </CustomButton>
+                </Link>
+                <Link to={searchButtons[1].link} 
+                    style={{ width: '33%', height: '100%' }}>
+                    <CustomButton>
+                        <ButtonText>{searchButtons[1].text}</ButtonText>
+                        <IconLeft className="fas fa-map-marked-alt fa-lg"/>
+                    </CustomButton>
+                </Link>
             </ButtonsContainer>
         </HomeSearchContainer>
     )
 };
 
-const mapStateToProps = state => ({
-    optionSelected: state.filter.propertyType,
-});
-
 const mapDispatchToProps = dispatch => ({
-    handleInputAttributte: (name) => 
-        dispatch(handleInputAttributte(name))}
+    fetchPropertiesStartAsync: () => 
+        dispatch(fetchPropertiesStartAsync())}
 );
-  
-export default connect(mapStateToProps, mapDispatchToProps)(HomeSearch);
+
+export default connect(null, mapDispatchToProps)(HomeSearch);

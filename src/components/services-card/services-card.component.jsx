@@ -14,7 +14,7 @@ import {
     BodyContainer,
     TextContainer,
     Title,
-    Description,
+  //  Description,
     Button,
     Icon
 } from './services-card.style';
@@ -45,10 +45,10 @@ const ServiceCard= ({title, description, buttonText, image}) => {
            <BodyContainer>
                <TextContainer>
                     <Title>{title}</Title>
-                    <Description>{description}</Description>
+                    {/**<Description>{description}</Description>*/}
                </TextContainer>
                 <Button>
-                    {buttonText}
+                    <p>{buttonText}</p>
                     <Icon className="fas fa-angle-double-right fa-lg"/>
                 </Button>
            </BodyContainer>
@@ -61,5 +61,5 @@ const mapStateToProps = state => ({
 });
 
   
-export default connect(mapStateToProps, null)(ServiceCard);
+export default connect(mapStateToProps)(ServiceCard);
 

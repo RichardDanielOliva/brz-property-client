@@ -1,48 +1,38 @@
 import React from 'react';
-//Redux
-import { connect } from 'react-redux';
-//Hook mediaQuery
-import { useMediaQuery } from '../../effects/useMediaQuery.effect';
 
 import backgroundSearchImageUrl from '../../assets/img/home-search.jpg';
 
 //Components
 import HomeSearch from '../../components/home-search/home-search.component';
-import ServiceCardList from '../../components/services-card-list/services-card-list.component';
+import Header from '../../components/header/header.component';
 
 //Styles
 import {
   HomePageContainer,
+  HeaderContainer,
   MainSearchContainer,
   MainSearchTitleContainer,
   SearchContainer,
-  BackgroundSearchImage,
-  ServicesContainer
+  BackgroundSearchImage
 } from './home-page.styles';
 
 const HomePage = () => {
   return (
     <HomePageContainer>
+      <HeaderContainer>
+            <Header/>
+      </HeaderContainer>
       <MainSearchContainer>
         <MainSearchTitleContainer>
-          <i className="fas fa-map-marked-alt fa-lg"/>
-          Encuentra dónde vas a vivir</MainSearchTitleContainer>
+          Encuentra dónde vas a vivir
+        </MainSearchTitleContainer>
         <SearchContainer>
           <HomeSearch/>
         </SearchContainer>
-        <BackgroundSearchImage src={backgroundSearchImageUrl} alt="item"/>
       </MainSearchContainer>
-      <ServicesContainer>
-        <ServiceCardList/>
-      </ServicesContainer>
+      <BackgroundSearchImage src={backgroundSearchImageUrl} alt="item"/>
     </HomePageContainer>
   );
 };
 
-const mapStateToProps = state => ({
-});
-
-export default connect(
-  mapStateToProps,
-  null
-)(HomePage);
+export default HomePage;

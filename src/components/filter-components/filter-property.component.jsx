@@ -1,69 +1,91 @@
 import React from 'react';
-import {Link, withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import FilterBasicGroup from './filter-basic-group/filter-basic-group.component';
 import FilterCheckboxGroup from './filter-checkbox-group/filter-checkbox-group.component';
 
-import './filter-property.styles.scss';
 
-const getAppropriateGroup= ({optionType, ...props}) => {
+import {
+    FilterPropertyContainer,
+    GroupContainer
+  } from './filter-property.styles';
+
+const getAppropriateGroup= ({optionType, name, ...props}) => {
     switch (optionType) {
         case "basic-group":
-            return <FilterBasicGroup {...props}/>
+            return <FilterBasicGroup name={name} {...props}/>
         case "checkbox-group":
-            return <FilterCheckboxGroup {...props}/>
+            return <FilterCheckboxGroup name={name} {...props}/>
         default:
             break;
     }
 }
 
-const getEspecificData = (t) => {
-    let key = "provisional"
-    switch (key) {
-        case "provisional":
+const getPriceData = (priceOptions, operationType = "BUY") => {
+    switch (operationType) {
+        case "BUY":
+            return priceOptions.buyData;
+        case "RENT":
+                return priceOptions.rentData;
+        case "SHARE":
+            return priceOptions.shareData;
+        default:
+            break;
+    }
+}
+
+const getEspecificData = (t, propertyType="HOME") => {
+    switch (propertyType) {
+        case "HOME":
             return t('propertySearchResult.filter.home');
+        case "PREMISE":
+                return t('propertySearchResult.filter.premise');
+        case "OFFICE":
+            return t('propertySearchResult.filter.office');
         default:
             break;
     }
 }
 
-const FilterProperty = () => {
+const FilterProperty = ({propertyType, propertyOperation}) => {
     const { t } = useTranslation();
     const commonsOptions = t('propertySearchResult.filter.commons');
-    const specificData = getEspecificData(t);
-    console.log(specificData)
+    const priceOptions = t('propertySearchResult.filter.price');
+    const specificData = getEspecificData(t, propertyType);
 
     return (
-        <div className="filter-property-container">
-            <div className="filter-property-container">
+        <FilterPropertyContainer>
                 <div>
-                {commonsOptions.map(({...props}) => (
-                    <FilterBasicGroup {...props}/>
-                    ))}
+                {commonsOptions.map(({name, ...props}) => {
+                    return(
+                        <GroupContainer key={`filter-property-${name}`}>
+                            <FilterBasicGroup name={name} {...props} />
+                        </GroupContainer>
+                    )
+                    })}
                 </div>
+                    <GroupContainer key={`filter-property-price`}>
+                        <FilterBasicGroup 
+                            title={priceOptions.title} 
+                            dataGroup={getPriceData(priceOptions, propertyOperation)} />
+                    </GroupContainer>
                 <div>
-                {specificData.map(({...args}) => (
-                    getAppropriateGroup(args)
-                ))}
+                {specificData.map(({name, ...args}) => {
+                    return(
+                        <GroupContainer key={`filter-property-${name}`}>
+                            {getAppropriateGroup(args, name)}
+                        </GroupContainer>
+                    )
+                })}
                 </div>
-            </div>
-        </div>
+        </FilterPropertyContainer>
     )
 }
 
 const mapStateToProps = state => ({
-    homeState: {
-        rooms: "myClubs",
-        bathrooms : "myClubsActualPage",
-        surface: {
-            from: "",
-            to: ""
-        },
-        extras: "",
-        status: ""
-    }
-});
+    propertyType: state.filter.propertyType,
+    propertyOperation: state.filter.propertyOperation
+})
 
 export default connect(mapStateToProps)(FilterProperty);

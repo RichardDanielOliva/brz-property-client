@@ -2,15 +2,13 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 
-import {getLogoComponent} from '../../../utils/LogoFactory';
-
 import {
     SelectPropertyContainer,
     PropertySelect,
-    PropertySelectTitle,
-    PropertySelectDropDownMenu,
+    PropertySelectText,
     PropertyOptions,
     PropertyOption,
+    PropertyOptionText,
     Icon
   } from './select-property.styles';
 
@@ -20,23 +18,20 @@ import {handleInputAttributte} from '../../../redux/filter/filter.actions';
 const SelectProperty = ({propertySelected, showPropertiesOptions, displayPropertiesOptions, handleInputAttributte}) => {
     const { t } = useTranslation();
     const propertyOptions = t('homePage.propertyOptions');
-    const dropLogo = "drop-down";
 
     return(
         <SelectPropertyContainer>
             <PropertySelect
                 onClick={()=>displayPropertiesOptions()}>
-                    {propertySelected}
+                    <PropertySelectText>{propertySelected}</PropertySelectText>
                     <Icon className="fas fa-angle-down fa-lg"/>
-                {/**<PropertySelectDropDownMenu>
-                    {getLogoComponent(dropLogo)}
-                </PropertySelectDropDownMenu>*/}
             </PropertySelect>
             <PropertyOptions isSelected={showPropertiesOptions}>
-            {propertyOptions.map((name) => {
+            {propertyOptions.map(({name, value, reduxState}) => {
                     return (<PropertyOption 
-                                onClick={()=> handleInputAttributte(name)}>
-                                    {name}
+                                key={`select-property-${reduxState}-${value}`}
+                                onClick={()=> handleInputAttributte(value, reduxState)}>
+                                    <PropertyOptionText>{name}</PropertyOptionText>
                             </PropertyOption>)
                 })}
             </PropertyOptions>
@@ -50,8 +45,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    handleInputAttributte: (name) => 
-        dispatch(handleInputAttributte(name)),
+    handleInputAttributte: (value, name) => {
+        dispatch(handleInputAttributte(value, name));
+        dispatch(displayPropertiesOptions())
+    },
     displayPropertiesOptions: () =>
         dispatch(displayPropertiesOptions())
     }

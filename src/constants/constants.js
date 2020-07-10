@@ -11,3 +11,6 @@ export const FACEBOOK_AUTH_URL =
   OAUTH2_REDIRECT_URI;
 export const GITHUB_AUTH_URL =
   API_BASE_URL + '/oauth2/authorize/github?redirect_uri=' + OAUTH2_REDIRECT_URI;
+
+export const USER_STORE_KEY = "user_store_key_app"
+export const TOKEN_STORE_KEY = "user_store_key_app"

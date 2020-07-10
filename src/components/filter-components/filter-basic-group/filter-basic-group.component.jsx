@@ -1,24 +1,29 @@
 import React from 'react';
-import {Link, withRouter} from 'react-router-dom';
-import { connect } from 'react-redux';
-import { useTranslation } from 'react-i18next';
 
 import CustomSelect from '../../commons/custom-select/custom-select.component';
 
-import './filter-basic-group.styles.scss';
+import {
+    FilterGroupContainer,
+    FilterTitle,
+    FilterOptionsContainer,
+    FilterOptionContainer
+  } from './filter-basic-group.styles';
 
 const FilterBasicGroup = ({title, dataGroup}) => {
     return (
-        <div className="filter-group-container">
-            <div className="filter-group-title-container">
+        <FilterGroupContainer>
+            <FilterTitle>
                 {title}
-            </div>
-            <div className="filter-group-options-container">
-                {dataGroup.map(({...props}) => (
-                    <CustomSelect {...props}/>
-                    ))}
-            </div>
-        </div>
+            </FilterTitle>
+            <FilterOptionsContainer>
+                {dataGroup.map(({name, ...props}) => {
+                    return(
+                        <FilterOptionContainer key={`filter-option-${name}`}>
+                            <CustomSelect name={name} {...props}/>
+                        </FilterOptionContainer>
+                    )})}
+            </FilterOptionsContainer>
+        </FilterGroupContainer>
     )
 }
 

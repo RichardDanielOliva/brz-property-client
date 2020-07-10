@@ -1,30 +1,70 @@
 import React from 'react';
-import {Link, withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
-import { useTranslation } from 'react-i18next';
 
-import './custom-select.styles.css';
+import {
+    CustomSelectContainer,
+    AuxiliarRelativeContainer,
+    Select,
+    Option,
+    Icon
+  } from './custom-select.styles';
 
-const CustomSelect = ({name, selectedOption, data}) => {
+import {handleInputAttributte} from '../../../redux/filter/filter.actions';
+
+const isChecked = (filterSimpleState, reduxState, value) => {
+    if(null === filterSimpleState[reduxState])
+        return false
+
+    return filterSimpleState[reduxState] == value;
+}
+
+const getDefaultValue = (filterSimpleState, reduxState) => {
+    if(null === filterSimpleState[reduxState])
+        return 
+
+    return filterSimpleState[reduxState]
+}
+
+const CustomSelect = ({name, reduxState, data, filterSimpleState, handleInputAttributte}) => {
     return (
-        <div className={`custom-select-container`}>
-            <select className={`custom-select`}>
-                {data.map(({title, value}) => {
-                        if(true)
-                            //return (<option className={`custom-select-${name}-${title}-option`} selected>
-                            return (<option className={`custom-select-option`} value={value} selected>
-                                {title}    
-                            </option> )
-                        else
-                            return (<option className={`custom-select-${name}-li`}>
-                                {title}
-                            </option>)
-                    })}
-                
-            </select>
-            <i className="fas fa-angle-down fa-class"/>
-        </div>
+        <CustomSelectContainer>
+            <AuxiliarRelativeContainer>
+                <Select 
+                    aria-label={`filter-select-${name}`}
+                    value={getDefaultValue(filterSimpleState, reduxState)} id={`filter-select-${name}`} 
+                    onChange={(event)=> handleInputAttributte(event.target.value, reduxState)}>
+                    {data.map(({title, value}) => {
+                        return (<Option key={`filter-select-${reduxState}-${value}`} className={`custom-select-option`} value={value}>
+                            {title}
+                        </Option> )
+                        })}
+                </Select>
+                <Icon className="fas fa-angle-down"/>
+            </AuxiliarRelativeContainer>
+        </CustomSelectContainer>
     )
 }
 
-export default CustomSelect;
+const mapStateToProps = state => ({
+    filterSimpleState: {
+        propertyType: state.filter.propertyType,
+        propertyOperation: state.filter.propertyOperation,
+        propertyMinPrice: state.filter.propertyMinPrice,
+        propertyMaxPrice: state.filter.propertyMaxPrice,
+        areaTo: state.filter.areaTo,
+        areaFrom: state.filter.areaFrom,
+        homeRooms: state.filter.homeRooms,
+        homeBathRooms: state.filter.homeBathRooms,
+
+        sortBy: state.filter.sortBy,
+    }
+})
+
+const mapDispatchToProps = dispatch => ({
+    handleInputAttributte: (value, name) => {
+        dispatch(handleInputAttributte(value, name))
+        }
+    }
+);
+  
+export default connect(mapStateToProps, mapDispatchToProps)(CustomSelect);
