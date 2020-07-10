@@ -1,5 +1,5 @@
 var express = require('express');
-var enforce = require('express-sslify');
+//var enforce = require('express-sslify');
 var path = require('path');
 var compression = require('compression');
 
@@ -7,7 +7,7 @@ var port = process.env.PORT || 5016;
 var app = express();
 
 app.use(compression());
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
+//app.use(enforce.HTTPS({ trustProtoHeader: true }));
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/*', function (req, res) {
