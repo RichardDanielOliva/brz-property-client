@@ -5,7 +5,7 @@ var compression = require('compression');
 
 var port = process.env.PORT || 5016;
 var app = express();
-require('dotenv').config();
+
 app.use(compression());
 app.use(enforce.HTTPS({ trustProtoHeader: true }));
 app.use(express.static(path.join(__dirname, 'build')));
