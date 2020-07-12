@@ -1,4 +1,4 @@
-export const API_HOST = "http://52.147.206.65:8090";
+export const API_HOST = "http://52.147.206.65";
 
 const HOME_BASE_URL = `${API_HOST}/api/homes/homes`;
 const HOME_FILTER_URL = `${API_HOST}/api/homes/findByFilter`;
