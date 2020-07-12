@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var compression = require('compression');
 
-var port = process.env.PORT || 5016;
+var port = process.env.PORT || 3001;
 var app = express();
 
 app.use(compression());
